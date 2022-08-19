@@ -1,0 +1,107 @@
+:root {
+    --skyblue: skyblue;
+    --darkBlue: rgb(9, 9, 70);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#accountsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#bankingSection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    padding: 3em;
+    background-color: var(--skyblue);
+    border: 2px solid var(--darkBlue);
+    margin: 1em 3em;
+}
+
+#accountsNavbar {
+    width: 100%;
+    margin: 1.5em auto;
+    text-align: center;
+}
+
+#accountsNavbar a {
+    margin: 0 2em;
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+#accountsNavbar a:hover, #accountNavbar a:focus {
+    font-weight: 700;
+}
+
+#accountsHeader {
+    padding: 5px 25px;
+}
+
+#accountSection {
+    padding: 5px 25px;
+    width: 60%;
+}
+
+#internalSection {
+    padding: 5px 25px;
+    width: 60%;
+}
+
+#internalSection select{
+    margin-bottom: 15px;
+}
+
+#apiAds {
+    width: 12%;
+    min-height: 400px;
+    display: flex;
+    border: 2px solid black;
+    background-size: cover;
+    background-position: left;
+    text-align: center;
+    align-items: center;
+    padding: .5em;
+    background-color: lightgreen;
+    margin: 1em;
+}
+
+#adText {
+    font-size: 2em;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+}
+
+#legalLinks {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    width: 100%;
+}
+
+#legalLinks a {
+    text-decoration: none;
+    margin: 0 1em;
+}
