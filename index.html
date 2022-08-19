@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/style.css" rel="stylesheet">
+    <title>Bank Website V2</title>
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+        <h1>Bank Website</h1>
+    </header>
+    <nav id="navbar">
+        <a href="./index.html">Home Page</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+        <a href="#">Link 6</a>
+        <a href="./aboutUs.html">About Us</a>
+    </nav>
+    <main>
+        <section id="loginSection">
+            <h2>Online Banking Login</h2>
+            <form id="loginForm" action="./accounts.html">
+                <label for="username">User ID:</label>
+                <input type="text" name="username" id="userInput" required pattern="[F]+[a]+[k]+[e]">
+                <label for="password">Password:</label>
+                <input type="password" id="passwordInput" required pattern="[B]+[a]+[n]+[k]">
+                <button id="loginBtn">Sign In</button>
+            </form>
+            <p id="passwordHint">Hint: Fake and Bank</p>
+            <p>Forgot your password? <a href='./maintenance.html'>Reset</a> it here.</p>
+        </section>
+        <section id="adSection">
+            <div id="tabSection">
+                <div id="tab1" class="tabCon">
+                    <label for="tabBtn1" class="tabLabel">Tab 1
+                        <input type="radio" id="tabBtn1" name="tabs" class="tabInput">
+                    </label>
+                    <button id="tabClose1" class="tabCloseBtn">X</button>
+                </div>
+                <div id="tab2" class="tabCon">
+                    <label for="tabBtn2" class="tabLabel">Tab 2
+                        <input type="radio" id="tabBtn2" name="tabs" class="tabInput">
+                    </label>
+                    <button id="tabClose2" class="tabCloseBtn">X</button>
+                </div>
+                <div id="tab3" class="tabCon">
+                    <label for="tabBtn3" class="tabLabel">Tab 3
+                        <input type="radio" id="tabBtn3" name="tabs" class="tabInput">
+                    </label>
+                    <button id="tabClose3" class="tabCloseBtn">X</button>
+                </div>
+                <div id="tab4" class="tabCon">
+                    <label for="tabBtn4" class="tabLabel">Tab 4
+                        <input type="radio" id="tabBtn4" name="tabs" class="tabInput">
+                    </label>
+                    <button id="tabClose4" class="tabCloseBtn">X</button>
+                </div>
+                <div id="tab5" class="tabCon">
+                    <label for="tabBtn5" class="tabLabel">Tab 5
+                        <input type="radio" id="tabBtn5" name="tabs" class="tabInput">
+                    </label>
+                    <button id="tabClose5" class="tabCloseBtn">X</button>
+                </div>
+            </div>
+            <div id="ads">
+                
+            </div>
+        </section>
+    </main>
+    <footer>
+        <ul id="legalLinks">
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+        <p>Legal information and disclosures.</p>
+    </footer>
+  </div>
+  <script src="JS/script.js"></script>
+</body>
+</html>
