@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/accounts.css">
+    <title>Account Page</title>
+</head>
+<body>
+    <div id="accountsContainer">
+        <header id="accountsHeader">
+            <h1>Accounts Overview</h1>
+        </header>
+        <nav id="accountsNavbar">
+            <a href="./index.html">Home Page</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+            <a href="#">Link 4</a>
+            <a href="#">Link 5</a>
+            <a href="#">Link 6</a>
+            <a href="./aboutUs.html">About Us</a>
+        </nav>
+        <main>
+            <div id="bankingSection">
+                <section id="accountSection">
+                    <h2>Your Accounts</h2>
+                    <p id="checkingBal">Everyday Checking -4019: $17</p>
+                    <p id="savingsBal">Rewards Savings -8530: $610</p>
+                    <p id="creditBal">Silver Miles Credit Card -9124: $492</p>
+                </section>
+                <section id="internalSection">
+                    <h2>Transfer between internal accounts</h2>
+                    <form id="internalTransfer"></form>
+                        <div>
+                            <label for="tranFromInternal">Transfer from account:</label>
+                            <select name="tranFromInternal" id="tranFromInternal">
+                                <option>Transfer From:</option>
+                                <option>Everyday Checking 4019</option>
+                                <option>Rewards Savings 8530</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="tranToInternal">Transfer to account:</label>
+                            <select name="tranToInternal" id="tranToInternal">
+                                <option>Transfer To:</option>
+                                <option>Everyday Checking 4019</option>
+                                <option>Rewards Savings 8530</option>
+                                <option>Silver Miles Credit Card 9124</option>
+                            </select>
+                        </div>
+                        <input type="number" required id="tranAmountInternal">
+                        <button id="tranBtnInternal">Transfer</button>
+                    </form>
+                </section>
+            </div>
+            <section id="apiAds">
+                <span id="adText">API Data: Loading...</span>
+            </section>
+        </main>
+        <footer>
+            <ul id="legalLinks">
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <p>Legal information and disclosures.</p>
+        </footer>
+    </div>
+    <script src="JS/accounts.js"></script>
+</body>
+</html>
