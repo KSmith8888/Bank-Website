@@ -15,6 +15,8 @@ body {
 
 #header {
     text-align: center;
+    background-color: var(--skyblue);
+    border-bottom: 2px solid var(--darkBlue);
 }
 
 #container {
@@ -35,13 +37,14 @@ body {
 #navbar a {
     margin: 0 2em;
     text-decoration: none;
-    color: black;
+    color: var(--darkBlue);
     font-size: 1.3rem;
     font-weight: 500;
 }
 
 #navbar a:hover, #navbar a:focus {
     font-weight: 700;
+    text-decoration: underline;
 }
 
 main {
@@ -67,7 +70,7 @@ main {
 #adSection {
     width: 65%;
     min-height: 100%;
-    background-color:rgb(221, 168, 168);
+    background-color:var(--lightGrey);
 }
 
 #tabSection {
@@ -82,7 +85,7 @@ main {
     width: 20%;
     text-align: center;
     display: grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 85% 15%;
     border-top-left-radius: 5px;
 }
 
@@ -133,7 +136,7 @@ footer {
 }
 
 #maintenanceBody {
-    background: rgb(167, 218, 238);
+    background: var(--lightGrey);
 }
 
 #maintenanceHeader {
@@ -146,4 +149,8 @@ footer {
     text-align: center;
     grid-column: 2/2;
     grid-row: 2/2;
+}
+
+#linkText {
+    font-weight: 700;
 }
