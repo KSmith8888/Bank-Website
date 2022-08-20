@@ -25,9 +25,18 @@
             <div id="bankingSection">
                 <section id="accountSection">
                     <h2>Your Accounts</h2>
-                    <p id="checkingBal">Everyday Checking -4019: $17</p>
-                    <p id="savingsBal">Rewards Savings -8530: $610</p>
-                    <p id="creditBal">Silver Miles Credit Card -9124: $492</p>
+                    <div class="account-background">
+                        <p>Everyday Checking -4019: </p>
+                        <span id="checkingBal"> $17</span>
+                    </div>
+                    <div class="account-background">
+                        <p>Rewards Savings -8530: </p>
+                        <span id="savingsBal">$610</span>
+                    </div>
+                    <div class="account-background">
+                        <p>Silver Miles Credit Card -9124: </p>
+                        <span id="creditBal">$492</span>
+                    </div>
                 </section>
                 <section id="internalSection">
                     <h2>Transfer between internal accounts</h2>
@@ -55,14 +64,17 @@
                 </section>
             </div>
             <section id="apiAds">
-                <span id="adText">API Data: Loading...</span>
+                <div>
+                    <p>API Data:</p>
+                    <p id="adText">Loading...</p>
+                </div>
             </section>
         </main>
         <footer>
             <ul id="legalLinks">
-                <li><a href="#">Terms and Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="./maintenance.html">Terms and Conditions</a></li>
+                <li><a href="./maintenance.html">Privacy Policy</a></li>
+                <li><a href="./maintenance.html">Support</a></li>
             </ul>
             <p>Legal information and disclosures.</p>
         </footer>
