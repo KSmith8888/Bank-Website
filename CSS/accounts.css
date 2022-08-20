@@ -1,6 +1,7 @@
 :root {
     --skyblue: skyblue;
     --darkBlue: rgb(9, 9, 70);
+    --lightGrey: rgb(228, 216, 216);
 }
 
 body {
@@ -33,6 +34,16 @@ main {
     background-color: var(--skyblue);
     border: 2px solid var(--darkBlue);
     margin: 1em 3em;
+    font-size: 1.2rem;
+}
+
+.account-background {
+    background-color: var(--lightGrey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+    padding: 0 1em;
 }
 
 #accountsNavbar {
@@ -44,27 +55,34 @@ main {
 #accountsNavbar a {
     margin: 0 2em;
     text-decoration: none;
-    color: black;
+    color: var(--darkBlue);
     font-size: 1.3rem;
     font-weight: 500;
 }
 
 #accountsNavbar a:hover, #accountNavbar a:focus {
     font-weight: 700;
+    text-decoration: underline;
 }
 
 #accountsHeader {
-    padding: 5px 25px;
+    padding: .5em 1em;
+    background-color: var(--skyblue);
+    border-bottom: 2px solid var(--darkBlue);
 }
 
 #accountSection {
-    padding: 5px 25px;
+    border: 1px solid var(--darkBlue);
     width: 60%;
+    padding: 1.5em;
+    margin: 1em;
 }
 
 #internalSection {
-    padding: 5px 25px;
+    padding: 1.5em;
     width: 60%;
+    border: 1px solid var(--darkBlue);
+    margin: 1em;
 }
 
 #internalSection select{
@@ -72,20 +90,19 @@ main {
 }
 
 #apiAds {
-    width: 12%;
-    min-height: 400px;
+    width: 11%;
+    min-height: 450px;
+    max-height: 600px;
     display: flex;
     border: 2px solid black;
-    background-size: cover;
-    background-position: left;
+    background-size: 100%;
+    
     text-align: center;
     align-items: center;
-    padding: .5em;
+    padding: 1em;
     background-color: lightgreen;
-    margin: 1em;
-}
-
-#adText {
+    margin: .8em;
+    color: #FFF;
     font-size: 2em;
 }
 
