@@ -43,9 +43,9 @@ tranBtnInternal.addEventListener('click', function() {
             }
     } 
     //Updates html to reflect new balances after transfer
-    checkingBal.innerText = `Everyday Checking -4019: $${checking}`;
-    savingsBal.innerText = `Rewards Savings -8530: $${savings}`;
-    creditBal.innerText = `Silver Miles Credit Card -9124: $${credit}`;
+    checkingBal.innerText = `$${checking}`;
+    savingsBal.innerText = `$${savings}`;
+    creditBal.innerText = `$${credit}`;
 });
 
 //Get advertisement image and text from jsonplaceholder API
@@ -62,8 +62,8 @@ setInterval(()=> {
         }
     })
     .then((data) => {
-        document.getElementById('apiAds').style.backgroundImage = `url(${data.url})`;
-        document.getElementById('adText').textContent = `API Data: ${data.title}`;
+        document.getElementById('apiAds').style.backgroundImage = `url(${data.thumbnailUrl})`;
+        document.getElementById('adText').textContent = `ID: ${data.id}, Title: ${data.title}`;
     })
     .catch((err) => {
         document.getElementById('adText').textContent = 'API data failed to load.';
