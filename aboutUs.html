@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/aboutUs.css">
     <title>About Us</title>
 </head>
 <body>
-    <div id="aboutUsCon">
-        <header id="aboutUsHeader">
-            <h1>Accounts Overview</h1>
+    <div class="container">
+        <header>
+            <h1>About Us</h1>
+            <p class="loggedIn" id="name-top-right"></p>
         </header>
-        <nav id="aboutUsNavbar">
+        <nav class="navbar">
             <a href="./index.html">Home Page</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
@@ -20,14 +23,26 @@
             <a href="#">Link 6</a>
             <a href="./aboutUs.html">About Us</a>
         </nav>
-        <h2>Our Board of Directors:</h2>
-        <ul>
-            <li id="board1"></li>
-            <li id="board2"></li>
-            <li id="board3"></li>
-            <li id="board4"></li>
-            <li id="board5"></li>
-        </ul>
+        <main>
+            <section id="boardSection">
+                <h2>Our Board of Directors:</h2>
+                <ul>
+                    <li id="board1"></li>
+                    <li id="board2"></li>
+                    <li id="board3"></li>
+                    <li id="board4"></li>
+                    <li id="board5"></li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <ul class="legalLinks">
+                <li><a href="./maintenance.html">Terms and Conditions</a></li>
+                <li><a href="./maintenance.html">Privacy Policy</a></li>
+                <li><a href="./maintenance.html">Support</a></li>
+            </ul>
+            <p>Legal information and disclosures.</p>
+        </footer>
     </div>
     <script src="JS/aboutUs.js"></script>
 </body>
