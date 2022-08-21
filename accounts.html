@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/accounts.css">
     <title>Account Page</title>
 </head>
 <body>
-    <div id="accountsContainer">
-        <header id="accountsHeader">
-            <h1>Accounts Overview</h1>
+    <div class="container" id="accountsCon">
+        <header>
+            <h1>Accounts Overview - Welcome back, <span id='userNameText' class="loggedIn">user</span></h1>
+            <p class="loggedIn" id="name-top-right"></p>
         </header>
-        <nav id="accountsNavbar">
+        <nav class="navbar">
             <a href="./index.html">Home Page</a>
             <a href="#">Link 2</a>
             <a href="#">Link 3</a>
@@ -26,52 +28,57 @@
                 <section id="accountSection">
                     <h2>Your Accounts</h2>
                     <div class="account-background">
-                        <p>Everyday Checking -4019: </p>
-                        <span id="checkingBal"> $17</span>
+                        <p><a href="Accounts/checking.html">Everyday Checking -4019: </a></p>
+                        <span id="checkingBal"></span>
                     </div>
                     <div class="account-background">
-                        <p>Rewards Savings -8530: </p>
-                        <span id="savingsBal">$610</span>
+                        <p><a href="Accounts/savings.html">Rewards Savings -8530: </a></p>
+                        <span id="savingsBal"></span>
                     </div>
                     <div class="account-background">
-                        <p>Silver Miles Credit Card -9124: </p>
-                        <span id="creditBal">$492</span>
+                        <p><a href="Accounts/credit.html">Silver Miles Credit Card -9124: </a></p>
+                        <span id="creditBal"></span>
                     </div>
                 </section>
                 <section id="internalSection">
                     <h2>Transfer between internal accounts</h2>
                     <form id="internalTransfer"></form>
                         <div>
-                            <label for="tranFromInternal">Transfer from account:</label>
-                            <select name="tranFromInternal" id="tranFromInternal">
-                                <option>Transfer From:</option>
-                                <option>Everyday Checking 4019</option>
-                                <option>Rewards Savings 8530</option>
-                            </select>
+                            <label for="tranFromInternal">Transfer from account:
+                                <select name="tranFromInternal" id="tranFromInternal">
+                                    <option>Transfer From:</option>
+                                    <option>Everyday Checking 4019</option>
+                                    <option>Rewards Savings 8530</option>
+                                </select>
+                            </label>
                         </div>
                         <div>
-                            <label for="tranToInternal">Transfer to account:</label>
-                            <select name="tranToInternal" id="tranToInternal">
-                                <option>Transfer To:</option>
-                                <option>Everyday Checking 4019</option>
-                                <option>Rewards Savings 8530</option>
-                                <option>Silver Miles Credit Card 9124</option>
-                            </select>
+                            <label for="tranToInternal">Transfer to account:
+                                <select name="tranToInternal" id="tranToInternal">
+                                    <option>Transfer To:</option>
+                                    <option>Everyday Checking 4019</option>
+                                    <option>Rewards Savings 8530</option>
+                                    <option>Silver Miles Credit Card 9124</option>
+                                </select>
+                            </label>
                         </div>
-                        <input type="number" required id="tranAmountInternal">
+                        <label for="tranAmountInternal">$
+                            <input type="text" pattern="[0-9]" required id="tranAmountInternal">
+                        </label>
                         <button id="tranBtnInternal">Transfer</button>
                     </form>
                 </section>
             </div>
             <section id="apiAds">
-                <div>
-                    <p>API Data:</p>
+                <div id="apiAdsCon">
+                    <p id="adId">API Data:</p>
                     <p id="adText">Loading...</p>
+                    <p id="adSmall">Data from the JSON Placeholder API</p>
                 </div>
             </section>
         </main>
         <footer>
-            <ul id="legalLinks">
+            <ul class="legalLinks">
                 <li><a href="./maintenance.html">Terms and Conditions</a></li>
                 <li><a href="./maintenance.html">Privacy Policy</a></li>
                 <li><a href="./maintenance.html">Support</a></li>
