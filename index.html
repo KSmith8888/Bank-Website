@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link href="CSS/homepage.css" rel="stylesheet">
     <title>Bank Website V2</title>
 </head>
 <body>
   <div id="container">
-    <header id="header">
+    <header>
         <h1>Bank Website</h1>
+        <p class="loggedIn" id="name-top-right"></p>
     </header>
-    <nav id="navbar">
+    <nav class="navbar">
         <a href="./index.html">Home Page</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
@@ -25,13 +27,19 @@
         <section id="loginSection">
             <h2>Online Banking Login</h2>
             <form id="loginForm" action="./accounts.html">
-                <label for="username">User ID:</label>
-                <input type="text" name="username" id="userInput" required pattern="[F]+[a]+[k]+[e]">
-                <label for="password">Password:</label>
-                <input type="password" id="passwordInput" required pattern="[B]+[a]+[n]+[k]">
+                <div>
+                    <label for="username">User ID:
+                        <input type="text" name="username" id="userInput" required>
+                    </label>
+                </div>
+                <div>
+                    <label for="password">Password:
+                        <input type="password" id="passwordInput" required pattern="[B]+[a]+[n]+[k]">
+                    </label>
+                </div>
                 <button id="loginBtn">Sign In</button>
             </form>
-            <p id="passwordHint">Hint: Fake and Bank</p>
+            <p id="passwordHint">Hint: Password is Bank</p>
             <p>Forgot your password? <a href='./maintenance.html'>Reset</a> it here.</p>
         </section>
         <section id="adSection">
@@ -72,7 +80,7 @@
         </section>
     </main>
     <footer>
-        <ul id="legalLinks">
+        <ul class="legalLinks">
             <li><a href="./maintenance.html">Terms and Conditions</a></li>
             <li><a href="./maintenance.html">Privacy Policy</a></li>
             <li><a href="./maintenance.html">Support</a></li>
@@ -80,6 +88,6 @@
         <p>Legal information and disclosures.</p>
     </footer>
   </div>
-  <script src="JS/script.js"></script>
+  <script src="JS/homepage.js"></script>
 </body>
 </html>
