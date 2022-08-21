@@ -1,0 +1,6 @@
+#boardSection {
+    margin: 3em;
+    padding: 2em;
+    border: 2px solid var(--darkBlue);
+    background-color: var(--skyblue);
+}
