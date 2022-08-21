@@ -1,0 +1,61 @@
+main {
+    margin: 2em auto;
+    display: flex;
+    width: 95%;
+    justify-content: space-around;
+}
+
+#loginSection {
+    padding: 1.2em 1em;
+    border: 3px solid var(--darkBlue);
+    background: var(--skyblue);
+    margin: 1em;
+    text-align: center;
+    width: 30%;
+}
+
+#loginSection input {
+    margin: 10px;
+}
+
+#adSection {
+    width: 65%;
+    min-height: 100%;
+    background-color:var(--lightGrey);
+}
+
+#tabSection {
+    display: flex;
+    width: 100%;
+    height: 8%;
+}
+
+.tabCon {
+    border: 1px solid var(--darkBlue);
+    background: var(--lightGrey);
+    width: 20%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    border-top-left-radius: 5px;
+}
+
+.tabCloseBtn {
+    grid-column: 2/2;
+    border: none;
+    font-weight: 700;
+    background-color: var(--lightGrey);
+}
+
+.tabLabel {
+    grid-column: 1/1;
+}
+
+.tabInput {
+    display: none;
+}
+
+#ads {
+    height: 92%;
+    width: 100%;
+}
