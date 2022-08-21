@@ -1,33 +1,19 @@
-:root {
-    --skyblue: skyblue;
-    --darkBlue: rgb(9, 9, 70);
-    --lightGrey: rgb(228, 216, 216);
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-#accountsContainer {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-}
-
 main {
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+}
+
+#accountsCon {
+    align-items: center;
+    background-color: var(--lightGrey);
 }
 
 #bankingSection {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 60%;
+    width: 70%;
     justify-content: center;
     align-items: center;
     padding: 3em;
@@ -46,79 +32,63 @@ main {
     padding: 0 1em;
 }
 
-#accountsNavbar {
-    width: 100%;
-    margin: 1.5em auto;
-    text-align: center;
+#accountSection p {
+    margin: .5em 1em;
 }
 
-#accountsNavbar a {
-    margin: 0 2em;
+#accountSection a {
     text-decoration: none;
+}
+
+#accountSection a:hover, #accountSection a:focus {
     color: var(--darkBlue);
-    font-size: 1.3rem;
-    font-weight: 500;
-}
-
-#accountsNavbar a:hover, #accountNavbar a:focus {
-    font-weight: 700;
-    text-decoration: underline;
-}
-
-#accountsHeader {
-    padding: .5em 1em;
-    background-color: var(--skyblue);
-    border-bottom: 2px solid var(--darkBlue);
 }
 
 #accountSection {
     border: 1px solid var(--darkBlue);
-    width: 60%;
-    padding: 1.5em;
+    width: 80%;
+    padding: 1.5em 3em;
     margin: 1em;
 }
 
 #internalSection {
-    padding: 1.5em;
-    width: 60%;
+    padding: 1.5em  3em;
+    width: 80%;
     border: 1px solid var(--darkBlue);
     margin: 1em;
 }
 
-#internalSection select{
-    margin-bottom: 15px;
+#internalSection select, #internalSection label, #internalSection input, #tranBtnInternal{
+    margin-bottom: 1em;
+    font-size: 1.1rem;
+}
+
+#tranAmountInternal {
+    width: 5em;
 }
 
 #apiAds {
-    width: 11%;
-    min-height: 450px;
-    max-height: 600px;
-    display: flex;
+    width: 17%;
+    height: 600px;
     border: 2px solid black;
-    background-size: 100%;
-    
+    text-shadow: 2px 2px 2px #222;
     text-align: center;
-    align-items: center;
     padding: 1em;
     background-color: lightgreen;
-    margin: .8em;
-    color: #FFF;
+    margin: 2em .8em;
+    color: rgb(245, 239, 239);
     font-size: 2em;
 }
 
-footer {
-    text-align: center;
+#apiAdsCon {
     width: 100%;
-}
-
-#legalLinks {
+    height: 90%;
     display: flex;
-    justify-content: center;
-    list-style: none;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
-#legalLinks a {
-    text-decoration: none;
-    margin: 0 1em;
+#adSmall {
+    font-size: .7rem;
 }
