@@ -19,6 +19,10 @@ const tabClose5 = document.getElementById('tabClose5');
 const tabSection = document.getElementById('tabSection');
 const ads = document.getElementById('ads');
 
+const loginBtn = document.getElementById('loginBtn');
+const userInput = document.getElementById('userInput');
+const loggedIn = document.getElementsByClassName("loggedIn");
+
 tabSection.addEventListener('click', () => {
     tab1.style.backgroundColor = 'rgb(228, 216, 216)';
     tab2.style.backgroundColor = 'rgb(228, 216, 216)';
@@ -67,3 +71,13 @@ tabSection.addEventListener('click', () => {
         tab5.remove();
     })
 })
+
+loginBtn.addEventListener('click', () => {
+    localStorage.setItem('userId', JSON.stringify(userInput.value));
+});
+
+if(JSON.parse(localStorage.getItem('userId')) !== null) {
+    for(let instance of loggedIn) {
+        instance.textContent = JSON.parse(localStorage.getItem('userId'));
+    }
+}
