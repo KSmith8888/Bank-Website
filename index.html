@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="CSS/global.css">
     <link href="CSS/homepage.css" rel="stylesheet">
     <title>Bank Website V2</title>
@@ -11,8 +12,12 @@
 <body>
   <div id="container">
     <header>
+        <img src="Images/bankLogo.png" alt="A grey columned building with a dollar sign on it" class="logoImg">
         <h1>Bank Website</h1>
-        <p class="loggedIn" id="name-top-right"></p>
+        <div class="loggedInInfo">
+            <p>User ID: <span class="loggedIn">N/A</span></p>
+            <button>Log Out</button>
+        </div>
     </header>
     <nav class="navbar">
         <a href="./index.html">Home Page</a>
