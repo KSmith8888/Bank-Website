@@ -21,11 +21,12 @@ body {
 }
 
 header {
-    text-align: center;
     width: 100%;
     background-color: var(--skyblue);
     border-bottom: 2px solid var(--darkBlue);
     padding: .8em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar {
@@ -66,8 +67,11 @@ footer {
     margin: 0 1em;
 }
 
-#name-top-right {
-    top: 0;
-    right: 1em;
-    position: absolute;
+.logoImg {
+    border: 1px solid var(--darkBlue);
+}
+
+.loggedInInfo {
+    border: 1px solid var(--darkBlue);
+    padding: .2em 1em;
 }
