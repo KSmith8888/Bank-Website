@@ -1,0 +1,54 @@
+{
+"Checking": [
+    {
+        "Source": "Wine4Less",
+        "Amount": 14.95
+    },
+    {
+        "Source": "Amazon",
+        "Amount": 55.25
+    },
+    {
+        "Source": "Pizza Hut",
+        "Amount": 22.75
+    },
+    {
+        "Source": "Taco Bell",
+        "Amount": 18.65 
+    },
+    {
+        "Source": "Kroger",
+        "Amount": 68.40
+    },
+    {
+        "Source": "Comcast",
+        "Amount": 72.00 
+    },
+    {
+        "Source": "Office Depot",
+        "Amount": 8.55
+    },
+    {
+        "Source": "Red Robin",
+        "Amount": 43.15
+    },
+    {
+        "Source": "Netflix",
+        "Amount": 9.99
+    },
+    {
+        "Source": "Burger King",
+        "Amount": 24.95
+    }
+],
+"Savings": [
+    {
+        "Source": "Deposit",
+        "Amount": 100
+    },
+    {
+        "Source": "Deposit",
+        "Amount": 100 
+    }
+    ]
+}
