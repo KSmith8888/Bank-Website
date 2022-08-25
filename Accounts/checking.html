@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; img-src 'self' https://via.placeholder.com/">
     <link href="../bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="../CSS/global.css">
     <link rel="stylesheet" href="../CSS/accountDetails.css">
@@ -29,12 +30,14 @@
             <a href="../aboutUs.html">About Us</a>
         </nav>
         <main>
-            <section>
+            <section class="overview">
                 <h2>Checking Account -4019</h2>
                 <p class="returnText">Return to <a href="../accounts.html">accounts overview</a></p>
+                <h3 id="checkingTotalBal">Current Balance: $</h3>
             </section>
-            <section id="checkingTransactions"></section>
+            <section id="checkingTransactions">
 
+            </section>
         </main>
         <footer>
             <ul class="legalLinks">
