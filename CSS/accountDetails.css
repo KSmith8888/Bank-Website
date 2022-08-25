@@ -1,0 +1,41 @@
+.returnText {
+    font-size: 1.3em;
+}
+
+body {
+    background-color: var(--lightGrey);
+}
+
+.overview {
+    border: 2px solid var(--darkBlue);
+    margin: 2em;
+    padding: 1em;
+    background-color: var(--skyblue);
+    width: 30%;
+    text-align: center;
+}
+
+#checkingTransactions {
+    margin: 1em 2em;
+    padding: 1em;
+    border: 2px solid var(--darkBlue);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: var(--skyblue);
+}
+
+#checkingTransactions p {
+    margin: .8em;
+    background-color: var(--lightGrey);
+    padding: .7em;
+    border: 1px solid var(--darkBlue);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
