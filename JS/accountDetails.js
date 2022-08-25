@@ -1,12 +1,23 @@
 const checkingTransactions = document.getElementById('checkingTransactions');
 let transactionData = [];
 const loggedIn = document.getElementsByClassName("loggedIn");
+let checkingTransfers = JSON.parse(localStorage.getItem('newCheckingTransaction')) || [];
+let savingsTransfers = JSON.parse(localStorage.getItem('newSavingsTransaction')) || [];
+let creditTransfers = JSON.parse(localStorage.getItem('newCreditTransaction')) || [];
+const checkingTotalBal = document.getElementById('checkingTotalBal');
+checkingTotalBal.textContent = `Current Balance: $${JSON.parse(localStorage.getItem('savedCheckingBal'))}` || 124;
+
+for(const transfer of checkingTransfers) {
+    checkingTransactions.innerHTML += `
+    <p>${transfer}</p>
+    `
+}
 
 function displayTransactions() {
         console.log(transactionData)
         for(const transaction of transactionData.Checking) {
             checkingTransactions.innerHTML += `
-        <p>${transaction.Source}: ${transaction.Amount}</p>
+        <p>Purchase: ${transaction.Source}: $${transaction.Amount}</p>
         `
         }
 }
