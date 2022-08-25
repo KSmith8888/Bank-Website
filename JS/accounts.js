@@ -23,24 +23,28 @@ let newCreditTransactions = [];
 -The amount transferred
 Each account balance is updated*/
 tranBtnInternal.addEventListener('click', function() {
-    console.log(typeof(tranAmountInternal.value))
+    if(tranAmountInternal.value.includes('<') || tranAmountInternal.value.includes('>') || tranAmountInternal.value.includes('$')) {
+        alert('Please only enter numbers in the transfer amount input.');
+    } else {
     /*Reduces the balance of the account that the transfer came from, checks to make sure the transfer amount is not larger than the balance*/
-    if(tranFromInternal.value === 'Everyday Checking 4019' && parseInt(tranAmountInternal.value) < checking && parseInt(tranAmountInternal.value) > 0) {
-        /*Increases the balance of the account the the transfer went to, or reduces the balance if it was a credit card*/
-        if(tranToInternal.value === 'Rewards Savings 8530') {
+        if(tranFromInternal.value === 'Everyday Checking 4019' && parseInt(tranAmountInternal.value) < checking && parseInt(tranAmountInternal.value) > 0) {
+    /*Increases the balance of the account the the transfer went to, or reduces the balance if it was a credit card*/
+            if(tranToInternal.value === 'Rewards Savings 8530') {
             savings += parseInt(tranAmountInternal.value);
             checking -= parseInt(tranAmountInternal.value);
             //Saves new balances in localStorage
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
         /*
-            Pushes details of the tranfer to an array and sets a localStorage item specific to each account equal to the relevant array. This allows the appropriate transactions to appear within the account details page of each account.
+        Pushes details of the tranfer to an array and sets a localStorage item specific to each account equal to the relevant array. This allows the appropriate transactions to appear within the account details page of each account.
         */
             newSavingsTransactions.push(`Transfer from Everyday Checking 4019: $${tranAmountInternal.value}`);
             localStorage.setItem('newSavingsTransaction', JSON.stringify(newSavingsTransactions));
             newCheckingTransactions.push(`Transfer to Reward Savings 8530: $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
+            tranToInternal.value = 'Transfer To:';
+            tranFromInternal.value = 'Transfer From:';
         } else if(tranToInternal.value === 'Silver Miles Credit Card 9124') {
             credit -= parseInt(tranAmountInternal.value);
             checking -= parseInt(tranAmountInternal.value);
@@ -51,6 +55,8 @@ tranBtnInternal.addEventListener('click', function() {
             newCheckingTransactions.push(`Transfer to Silver Miles Credit Card 9124: $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
+            tranToInternal.value = 'Transfer To:';
+            tranFromInternal.value = 'Transfer From:';
         //Error handling if user attempts to transfer to and from the same account or does not select an account in either field
         } else if(tranToInternal.value === 'Everyday Checking 4019') {
             alert("You cannot transfer from and to the same account.");
@@ -68,6 +74,8 @@ tranBtnInternal.addEventListener('click', function() {
             newCheckingTransactions.push(`Transfer from Reward Savings 8530: $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
+            tranToInternal.value = 'Transfer To:';
+            tranFromInternal.value = 'Transfer From:';
         } else if(tranToInternal.value === 'Silver Miles Credit Card 9124' && credit - parseInt(tranAmountInternal.value) > 0) {
             credit -= parseInt(tranAmountInternal.value);
             savings -= parseInt(tranAmountInternal.value);
@@ -78,6 +86,8 @@ tranBtnInternal.addEventListener('click', function() {
             newSavingsTransactions.push(`Transfer to Silver Miles Credit Card 9124: $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
             tranAmountInternal.value = '';
+            tranToInternal.value = 'Transfer To:';
+            tranFromInternal.value = 'Transfer From:';
         } else if(tranToInternal.value === 'Rewards Savings 8530') {
             alert("You cannot transfer from and to the same account.");
         } else if(tranToInternal.value === 'Transfer To:') {
@@ -90,6 +100,7 @@ tranBtnInternal.addEventListener('click', function() {
     checkingBal.innerText = `$${checking}`;
     savingsBal.innerText = `$${savings}`;
     creditBal.innerText = `$${credit}`;
+    }
 });
 
 //Get advertisement image and text from jsonplaceholder API
