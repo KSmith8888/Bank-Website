@@ -6,21 +6,38 @@ const board5 = document.getElementById('board5');
 let members = [board1, board2, board3, board4, board5];
 const loggedIn = document.getElementsByClassName("loggedIn");
 
+function loadStaticUsers() {
+    let usersData = [];
+    let memberNum = 0;
+    fetch('Accounts/database.json')
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            usersData = data.Users;
+            for(const member of usersData) {
+            members[memberNum].innerText = `${member.name} --- ${member.email} --- ${member.phone} --- ${member.website}`;
+            memberNum++
+            }
+        })
+}
+
 for(let i = 0; i < 5; i++) {
 fetch(`https://jsonplaceholder.typicode.com/users/${i + 1}`)
-.then((response) => {
-    if(!response.ok) {
-        throw new Error(`Network error: ${response.status}`)
-    } else {
+    .then((response) => {
+    if(response.ok) {
         return response.json();
+    } else {
+        throw new Error(`Network error: ${response.status}`)
     }
-})
-.then((data) => {
+    })
+    .then((data) => {
     members[i].innerText = `${data.name} --- ${data.email} --- ${data.phone} --- ${data.website}`;
-})
-.catch((err) => {
+    })
+    .catch((err) => {
     console.log(err);
-});
+    loadStaticUsers();
+    });
 }
 
 if(JSON.parse(localStorage.getItem('userId')) !== null) {
