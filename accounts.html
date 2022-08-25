@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; img-src 'self' https://via.placeholder.com/">
     <link href="bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/accounts.css">
@@ -47,7 +48,7 @@
                 </section>
                 <section id="internalSection">
                     <h2>Transfer between internal accounts</h2>
-                    <form id="internalTransfer"></form>
+                    <form id="internalTransfer">
                         <div>
                             <label for="tranFromInternal">Transfer from account:
                                 <select name="tranFromInternal" id="tranFromInternal">
@@ -70,7 +71,7 @@
                         <label for="tranAmountInternal">$
                             <input type="text" pattern="[0-9]" required id="tranAmountInternal">
                         </label>
-                        <button id="tranBtnInternal">Transfer</button>
+                        <button id="tranBtnInternal" type="button">Transfer</button>
                     </form>
                 </section>
             </div>
