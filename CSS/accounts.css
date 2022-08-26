@@ -30,6 +30,7 @@ main {
     align-items: center;
     margin: 1em;
     padding: 0 1em;
+    border: 1px solid var(--darkBlue);
 }
 
 #accountSection p {
@@ -74,7 +75,7 @@ main {
     text-shadow: 2px 2px 2px #222;
     text-align: center;
     padding: 1em;
-    background-color: lightgreen;
+    background-color: var(--darkBlue);
     margin: 2em .8em;
     color: rgb(245, 239, 239);
     font-size: 2em;
