@@ -5,14 +5,17 @@ const creditBal = document.getElementById('creditBal');
 const tranFromInternal = document.getElementById('tranFromInternal');
 const tranToInternal = document.getElementById('tranToInternal');
 const tranAmountInternal = document.getElementById('tranAmountInternal');
+
 let checking = JSON.parse(localStorage.getItem('savedCheckingBal')) || 17;
 let savings = JSON.parse(localStorage.getItem('savedSavingsBal')) || 610;
 let credit = JSON.parse(localStorage.getItem('savedCreditBal')) || 492;
 checkingBal.textContent = `$${checking}`;
 savingsBal.textContent = `$${savings}`;
 creditBal.textContent = `$${credit}`;
+
 let photoNum = 1;
 const loggedIn = document.getElementsByClassName("loggedIn");
+const internalTransfer = document.getElementById('internalTransfer');
 let newCheckingTransactions = [];
 let newSavingsTransactions = [];
 let newCreditTransactions = [];
@@ -22,8 +25,10 @@ let newCreditTransactions = [];
 -Which account it was transferred to
 -The amount transferred
 Each account balance is updated*/
-tranBtnInternal.addEventListener('click', function() {
-    if(tranAmountInternal.value.includes('<') || tranAmountInternal.value.includes('>') || tranAmountInternal.value.includes('$')) {
+internalTransfer.addEventListener('submit', (e) => {
+    e.preventDefault();
+    //Escape certain characters
+    if(tranAmountInternal.value.includes('<') || tranAmountInternal.value.includes('>') || tranAmountInternal.value.includes('$') || tranAmountInternal.value.includes('{') || tranAmountInternal.value.includes('}')) {
         alert('Please only enter numbers in the transfer amount input.');
     } else {
     /*Reduces the balance of the account that the transfer came from, checks to make sure the transfer amount is not larger than the balance*/
@@ -132,3 +137,9 @@ if(JSON.parse(localStorage.getItem('userId')) !== null) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
     }
 }
+
+document.querySelector('.logOutBtn').addEventListener('click', () => {
+    localStorage.removeItem('fillUsername');
+    localStorage.removeItem('userId');
+    location.reload();
+});
