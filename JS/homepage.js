@@ -19,9 +19,19 @@ const tabClose5 = document.getElementById('tabClose5');
 const tabSection = document.getElementById('tabSection');
 const ads = document.getElementById('ads');
 
+const loginForm = document.getElementById('loginForm');
 const loginBtn = document.getElementById('loginBtn');
 const userInput = document.getElementById('userInput');
 const loggedIn = document.getElementsByClassName("loggedIn");
+const rememberName = document.getElementById('rememberName');
+
+if(
+    JSON.parse(localStorage.getItem('fillUsername')) !== null && 
+    JSON.parse(localStorage.getItem('userId')) !== null
+    ) {
+    userInput.value = JSON.parse(localStorage.getItem('userId'));
+    rememberName.checked = true;
+}
 
 tabSection.addEventListener('click', () => {
     tab1.style.backgroundColor = 'rgb(228, 216, 216)';
@@ -72,8 +82,13 @@ tabSection.addEventListener('click', () => {
     })
 })
 
-loginBtn.addEventListener('click', () => {
+loginForm.addEventListener('submit', () => {
     localStorage.setItem('userId', JSON.stringify(userInput.value));
+    if(rememberName.checked) {
+        localStorage.setItem('fillUsername', JSON.stringify('fill'));
+    } else {
+        localStorage.removeItem('fillUsername');
+    }
 });
 
 if(JSON.parse(localStorage.getItem('userId')) !== null) {
@@ -81,3 +96,9 @@ if(JSON.parse(localStorage.getItem('userId')) !== null) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
     }
 }
+
+document.querySelector('.logOutBtn').addEventListener('click', () => {
+    localStorage.removeItem('fillUsername');
+    localStorage.removeItem('userId');
+    location.reload();
+});
