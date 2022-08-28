@@ -5,16 +5,21 @@ let checkingTransfers = JSON.parse(localStorage.getItem('newCheckingTransaction'
 let savingsTransfers = JSON.parse(localStorage.getItem('newSavingsTransaction')) || [];
 let creditTransfers = JSON.parse(localStorage.getItem('newCreditTransaction')) || [];
 const checkingTotalBal = document.getElementById('checkingTotalBal');
-checkingTotalBal.textContent = `Current Balance: $${JSON.parse(localStorage.getItem('savedCheckingBal'))}` || 124;
+if(localStorage.getItem('savedCheckingBal') !== null) {
+checkingTotalBal.textContent = `Current Balance: $${JSON.parse(localStorage.getItem('savedCheckingBal')).toFixed(2)}` 
+} else { 
+    checkingTotalBal.textContent = 'Current Balance: $124';
+}
+let transferNumber = 1;
 
 for(const transfer of checkingTransfers) {
     checkingTransactions.innerHTML += `
-    <p>${transfer}</p>
-    `
+    <p id="transferNum${transferNumber}"></p>`
+    document.getElementById(`transferNum${transferNumber}`).textContent = transfer;
+    transferNumber++;
 }
 
 function displayTransactions() {
-        console.log(transactionData)
         for(const transaction of transactionData.Checking) {
             checkingTransactions.innerHTML += `
         <p>Purchase: ${transaction.Source}: $${transaction.Amount}</p>
@@ -42,3 +47,15 @@ if(JSON.parse(localStorage.getItem('userId')) !== null) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
      }
 }
+
+document.querySelector('.logOutBtn').addEventListener('click', () => {
+    localStorage.removeItem('fillUsername');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('savedCheckingBal');
+    localStorage.removeItem('savedSavingsBal');
+    localStorage.removeItem('savedCreditBal');
+    localStorage.removeItem('newCheckingTransaction');
+    localStorage.removeItem('newSavingsTransaction');
+    localStorage.removeItem('newCreditTransaction');
+    location.href = '../index.html';
+});
