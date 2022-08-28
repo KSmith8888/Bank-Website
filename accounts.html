@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; img-src 'self' https://via.placeholder.com/">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; base-uri 'self'; img-src 'self' https://via.placeholder.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="CSS/global.css">
@@ -69,10 +68,11 @@
                             </label>
                         </div>
                         <label for="tranAmountInternal">$
-                            <input type="text" pattern="[0-9]+" required id="tranAmountInternal">
+                            <input type="text" pattern="[0-9.]+" required id="tranAmountInternal" title="Enter numeric amount to transfer" maxlength="7" placeholder="0.00">
                         </label>
                         <button id="tranBtnInternal">Transfer</button>
                     </form>
+                    <noscript><p>You must have JavaScript enabled to use this feature.</p></noscript>
                 </section>
             </div>
             <section id="apiAds">
