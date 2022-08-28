@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; base-uri 'self'; img-src 'self' https://via.placeholder.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; img-src 'self' https://via.placeholder.com/">
     <link href="../bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="../CSS/global.css">
     <link rel="stylesheet" href="../CSS/accountDetails.css">
@@ -17,7 +16,7 @@
             <h1>Account Details</h1>
             <div class="loggedInInfo">
                 <p>User ID: <span class="loggedIn">N/A</span></p>
-                <button>Log Out</button>
+                <button class="logOutBtn">Log Out</button>
             </div>
         </header>
         <nav class="navbar">
