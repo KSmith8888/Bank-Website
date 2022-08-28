@@ -9,9 +9,9 @@ const tranAmountInternal = document.getElementById('tranAmountInternal');
 let checking = JSON.parse(localStorage.getItem('savedCheckingBal')) || 17;
 let savings = JSON.parse(localStorage.getItem('savedSavingsBal')) || 610;
 let credit = JSON.parse(localStorage.getItem('savedCreditBal')) || 492;
-checkingBal.textContent = `$${checking}`;
-savingsBal.textContent = `$${savings}`;
-creditBal.textContent = `$${credit}`;
+checkingBal.textContent = `$${checking.toFixed(2)}`;
+savingsBal.textContent = `$${savings.toFixed(2)}`;
+creditBal.textContent = `$${credit.toFixed(2)}`;
 
 let photoNum = 1;
 const loggedIn = document.getElementsByClassName("loggedIn");
@@ -20,24 +20,29 @@ let newCheckingTransactions = [];
 let newSavingsTransactions = [];
 let newCreditTransactions = [];
 
-/*When user clicks button to transfer between accounts, event listener checks:
+internalTransfer.addEventListener('submit', (e) => {
+    e.preventDefault();
+    //Do not initiate transfer if user input contains certain characters
+    if(tranAmountInternal.value.includes('<') || tranAmountInternal.value.includes('>') || tranAmountInternal.value.includes('$') || tranAmountInternal.value.includes('{') || tranAmountInternal.value.includes('}') || tranAmountInternal.value.includes('=') || tranAmountInternal.value.includes('!') || tranAmountInternal.value.includes('*') || tranAmountInternal.value.includes('&') || tranAmountInternal.value.includes(';') || tranAmountInternal.value.includes('(') || tranAmountInternal.value.includes(')') || tranAmountInternal.value.includes('|') || tranAmountInternal.value.includes('@')) {
+        alert('Please only enter numbers in the transfer amount input.');
+    } else {
+        completeTransfer();
+    }
+});
+
+/*When user clicks button to transfer between accounts, checks:
 -Which account it was transferred from
 -Which account it was transferred to
 -The amount transferred
 Each account balance is updated*/
-internalTransfer.addEventListener('submit', (e) => {
-    e.preventDefault();
-    //Escape certain characters
-    if(tranAmountInternal.value.includes('<') || tranAmountInternal.value.includes('>') || tranAmountInternal.value.includes('$') || tranAmountInternal.value.includes('{') || tranAmountInternal.value.includes('}')) {
-        alert('Please only enter numbers in the transfer amount input.');
-    } else {
+function completeTransfer() {
     /*Reduces the balance of the account that the transfer came from, checks to make sure the transfer amount is not larger than the balance*/
-        if(tranFromInternal.value === 'Everyday Checking 4019' && parseInt(tranAmountInternal.value) < checking && parseInt(tranAmountInternal.value) > 0) {
+    if(tranFromInternal.value === 'Everyday Checking 4019' && parseFloat(tranAmountInternal.value) < checking && parseFloat(tranAmountInternal.value) > 0) {
     /*Increases the balance of the account the the transfer went to, or reduces the balance if it was a credit card*/
-            if(tranToInternal.value === 'Rewards Savings 8530') {
-            savings += parseInt(tranAmountInternal.value);
-            checking -= parseInt(tranAmountInternal.value);
-            //Saves new balances in localStorage
+        if(tranToInternal.value === 'Rewards Savings 8530') {
+            savings += parseFloat(tranAmountInternal.value);
+            checking -= parseFloat(tranAmountInternal.value);
+        //Saves new balances in localStorage
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
         /*
@@ -51,8 +56,8 @@ internalTransfer.addEventListener('submit', (e) => {
             tranToInternal.value = 'Transfer To:';
             tranFromInternal.value = 'Transfer From:';
         } else if(tranToInternal.value === 'Silver Miles Credit Card 9124') {
-            credit -= parseInt(tranAmountInternal.value);
-            checking -= parseInt(tranAmountInternal.value);
+            credit -= parseFloat(tranAmountInternal.value);
+            checking -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedCreditBal', JSON.stringify(credit));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
             newCreditTransactions.push(`Transfer from Everyday Checking 4019: $${tranAmountInternal.value}`);
@@ -68,10 +73,10 @@ internalTransfer.addEventListener('submit', (e) => {
         } else if(tranToInternal.value === 'Transfer To:') {
             alert('Please specify which account you would like to transfer to.');
         }
-    } else if(tranFromInternal.value === 'Rewards Savings 8530' && parseInt(tranAmountInternal.value) < savings && parseInt(tranAmountInternal.value) > 0) {
+    } else if(tranFromInternal.value === 'Rewards Savings 8530' && parseFloat(tranAmountInternal.value) < savings && parseFloat(tranAmountInternal.value) > 0) {
         if(tranToInternal.value === 'Everyday Checking 4019') {
-            checking += parseInt(tranAmountInternal.value);
-            savings -= parseInt(tranAmountInternal.value);
+            checking += parseFloat(tranAmountInternal.value);
+            savings -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
             newSavingsTransactions.push(`Transfer to Everyday Checking 4019: $${tranAmountInternal.value}`);
@@ -81,9 +86,9 @@ internalTransfer.addEventListener('submit', (e) => {
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
             tranFromInternal.value = 'Transfer From:';
-        } else if(tranToInternal.value === 'Silver Miles Credit Card 9124' && credit - parseInt(tranAmountInternal.value) > 0) {
-            credit -= parseInt(tranAmountInternal.value);
-            savings -= parseInt(tranAmountInternal.value);
+        } else if(tranToInternal.value === 'Silver Miles Credit Card 9124' && credit - parseFloat(tranAmountInternal.value) > 0) {
+            credit -= parseFloat(tranAmountInternal.value);
+            savings -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCreditBal', JSON.stringify(credit));
             newCreditTransactions.push(`Transfer from Reward Savings 8530: $${tranAmountInternal.value}`);
@@ -102,11 +107,10 @@ internalTransfer.addEventListener('submit', (e) => {
         alert('Please specify which account you would like to transfer from.');
     }
     //Updates html to reflect new balances after transfer
-    checkingBal.innerText = `$${checking}`;
-    savingsBal.innerText = `$${savings}`;
-    creditBal.innerText = `$${credit}`;
-    }
-});
+    checkingBal.textContent = `$${checking.toFixed(2)}`;
+    savingsBal.textContent = `$${savings.toFixed(2)}`;
+    creditBal.textContent = `$${credit.toFixed(2)}`;
+}
 
 //Get advertisement image and text from jsonplaceholder API
 setInterval(()=> {
@@ -141,5 +145,11 @@ if(JSON.parse(localStorage.getItem('userId')) !== null) {
 document.querySelector('.logOutBtn').addEventListener('click', () => {
     localStorage.removeItem('fillUsername');
     localStorage.removeItem('userId');
-    location.reload();
+    localStorage.removeItem('savedCheckingBal');
+    localStorage.removeItem('savedSavingsBal');
+    localStorage.removeItem('savedCreditBal');
+    localStorage.removeItem('newCheckingTransaction');
+    localStorage.removeItem('newSavingsTransaction');
+    localStorage.removeItem('newCreditTransaction');
+    location.href = '../index.html';
 });
