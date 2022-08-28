@@ -100,5 +100,11 @@ if(JSON.parse(localStorage.getItem('userId')) !== null) {
 document.querySelector('.logOutBtn').addEventListener('click', () => {
     localStorage.removeItem('fillUsername');
     localStorage.removeItem('userId');
-    location.reload();
+    localStorage.removeItem('savedCheckingBal');
+    localStorage.removeItem('savedSavingsBal');
+    localStorage.removeItem('savedCreditBal');
+    localStorage.removeItem('newCheckingTransaction');
+    localStorage.removeItem('newSavingsTransaction');
+    localStorage.removeItem('newCreditTransaction');
+    location.href = '../index.html';
 });
