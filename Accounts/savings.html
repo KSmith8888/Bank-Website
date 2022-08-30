@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; base-uri 'self'; img-src 'self' https://via.placeholder.com/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bankFavicon.png" rel="icon" type="image/png">
+    <link rel="stylesheet" href="../CSS/global.css">
+    <link rel="stylesheet" href="../CSS/accountDetails.css">
+    <title>Reward Savings -8350</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="../Images/bankLogo.png" alt="A grey columned building with a dollar sign on it" class="logoImg">
+            <h1>Account Details</h1>
+            <div class="loggedInInfo">
+                <p>User ID: <span class="loggedIn">N/A</span></p>
+                <button class="settingsBtn">Settings</button>
+                <button class="logOutBtn">Log Out</button>
+            </div>
+            <dialog id="settingsDialog">
+                <form id="settingsForm" method="dialog">
+                    <h3>Change your account settings</h3>
+                    <h4>Change your User ID:</h4>
+                    <div>
+                        <label for="changeUserInput">New User ID:
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Enter your new User ID" placeholder="Enter your new User ID" id="changeUserInput">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="confirmUserInput">Confirm new User ID:
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Confirm your new User ID" placeholder="Confirm your new User ID" id="confirmUserInput">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="changePassInput">New Password:
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Enter your new password" placeholder="Enter your new password" id="changePassInput">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="confirmPassInput">Confirm new Password:
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Confirm your new password" id="confirmPassInput" placeholder="Confirm your new password">
+                        </label>
+                    </div>
+                    <button id="updateInfoBtn">Update</button>
+                </form>
+            </dialog>
+        </header>
+        <nav class="navbar">
+            <a href="../index.html">Home Page</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+            <a href="#">Link 4</a>
+            <a href="#">Link 5</a>
+            <a href="#">Link 6</a>
+            <a href="../aboutUs.html">About Us</a>
+        </nav>
+        <main>
+            <section class="overview">
+                <h2>Reward Savings -8350</h2>
+                <p class="returnText">Return to <a href="../accounts.html">accounts overview</a></p>
+                <h3 id="savingsTotalBal">Current Balance: $</h3>
+            </section>
+            <section id="savingsTransactions" class="transactionList">
+
+            </section>
+        </main>
+        <footer>
+            <ul class="legalLinks">
+                <li><a href="./maintenance.html">Terms and Conditions</a></li>
+                <li><a href="./maintenance.html">Privacy Policy</a></li>
+                <li><a href="./maintenance.html">Support</a></li>
+            </ul>
+            <p>Legal information and disclosures.</p>
+        </footer>
+    </div>
+    <script src="../JS/accountDetails.js"></script>
+</body>
+</html>
