@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; img-src 'self' https://via.placeholder.com/">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; base-uri 'self'; img-src 'self' https://via.placeholder.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="CSS/global.css">
@@ -17,8 +16,36 @@
         <h1>Bank Website</h1>
         <div class="loggedInInfo">
             <p>User ID: <span class="loggedIn">N/A</span></p>
+            <button class="settingsBtn">Settings</button>
             <button class="logOutBtn">Log Out</button>
         </div>
+        <dialog id="settingsDialog">
+            <form id="settingsForm" method="dialog">
+                <h3>Change your account settings</h3>
+                <h4>Change your User ID:</h4>
+                <div>
+                    <label for="changeUserInput">New User ID:
+                        <input type="text" pattern="[0-9a-zA-Z]+" title="Enter your new User ID" placeholder="Enter your new User ID" id="changeUserInput">
+                    </label>
+                </div>
+                <div>
+                    <label for="confirmUserInput">Confirm new User ID:
+                        <input type="text" pattern="[0-9a-zA-Z]+" title="Confirm your new User ID" placeholder="Confirm your new User ID" id="confirmUserInput">
+                    </label>
+                </div>
+                <div>
+                    <label for="changePassInput">New Password:
+                        <input type="password" pattern="[0-9a-zA-Z]+" title="Enter your new password" placeholder="Enter your new password" id="changePassInput">
+                    </label>
+                </div>
+                <div>
+                    <label for="confirmPassInput">Confirm new Password:
+                        <input type="password" pattern="[0-9a-zA-Z]+" title="Confirm your new password" id="confirmPassInput" placeholder="Confirm your new password">
+                    </label>
+                </div>
+                <button id="updateInfoBtn">Update</button>
+            </form>
+        </dialog>
     </header>
     <nav class="navbar">
         <a href="./index.html">Home Page</a>
@@ -35,12 +62,12 @@
             <form id="loginForm" action="./accounts.html">
                 <div>
                     <label for="username">User ID:
-                        <input type="text" name="username" id="userInput" required pattern="[0-9a-zA-Z]+" title="User ID: Letters and numbers only">
+                        <input type="text" name="username" id="userInput" required pattern="[0-9a-zA-Z]+" title="User ID: Letters and numbers only" maxlength="12">
                     </label>
                 </div>
                 <div>
                     <label for="password">Password:
-                        <input type="password" id="passwordInput" required pattern="[B]+[a]+[n]+[k]" title="Password: It's Bank">
+                        <input type="password" id="passwordInput" required pattern="[B]+[a]+[n]+[k]" title="Password: It's Bank" maxlength="4">
                     </label>
                 </div>
                 <label for="rememberName">Remember my username:
