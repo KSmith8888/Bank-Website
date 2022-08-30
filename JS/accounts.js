@@ -6,19 +6,20 @@ const tranFromInternal = document.getElementById('tranFromInternal');
 const tranToInternal = document.getElementById('tranToInternal');
 const tranAmountInternal = document.getElementById('tranAmountInternal');
 
-let checking = JSON.parse(localStorage.getItem('savedCheckingBal')) || 17;
+let checking = JSON.parse(localStorage.getItem('savedCheckingBal')) || 124;
 let savings = JSON.parse(localStorage.getItem('savedSavingsBal')) || 610;
 let credit = JSON.parse(localStorage.getItem('savedCreditBal')) || 492;
 checkingBal.textContent = `$${checking.toFixed(2)}`;
 savingsBal.textContent = `$${savings.toFixed(2)}`;
 creditBal.textContent = `$${credit.toFixed(2)}`;
 
+const settingsDialog = document.getElementById('settingsDialog');
 let photoNum = 1;
 const loggedIn = document.getElementsByClassName("loggedIn");
 const internalTransfer = document.getElementById('internalTransfer');
-let newCheckingTransactions = [];
-let newSavingsTransactions = [];
-let newCreditTransactions = [];
+let newCheckingTransactions = JSON.parse(localStorage.getItem('newCheckingTransaction')) || [];
+let newSavingsTransactions = JSON.parse(localStorage.getItem('newSavingsTransaction')) || [];
+let newCreditTransactions = JSON.parse(localStorage.getItem('newCreditTransaction')) || [];
 
 internalTransfer.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -48,9 +49,9 @@ function completeTransfer() {
         /*
         Pushes details of the tranfer to an array and sets a localStorage item specific to each account equal to the relevant array. This allows the appropriate transactions to appear within the account details page of each account.
         */
-            newSavingsTransactions.push(`Transfer from Everyday Checking 4019: $${tranAmountInternal.value}`);
+            newSavingsTransactions.push(`Transfer: Everyday Checking 4019 + $${tranAmountInternal.value}`);
             localStorage.setItem('newSavingsTransaction', JSON.stringify(newSavingsTransactions));
-            newCheckingTransactions.push(`Transfer to Reward Savings 8530: $${tranAmountInternal.value}`);
+            newCheckingTransactions.push(`Transfer: Reward Savings 8530 - $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
@@ -60,9 +61,9 @@ function completeTransfer() {
             checking -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedCreditBal', JSON.stringify(credit));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
-            newCreditTransactions.push(`Transfer from Everyday Checking 4019: $${tranAmountInternal.value}`);
+            newCreditTransactions.push(`Transfer: Everyday Checking 4019 + $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
-            newCheckingTransactions.push(`Transfer to Silver Miles Credit Card 9124: $${tranAmountInternal.value}`);
+            newCheckingTransactions.push(`Transfer: Silver Miles Credit Card 9124 - $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
@@ -79,9 +80,9 @@ function completeTransfer() {
             savings -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
-            newSavingsTransactions.push(`Transfer to Everyday Checking 4019: $${tranAmountInternal.value}`);
+            newSavingsTransactions.push(`Transfer: Everyday Checking 4019 - $${tranAmountInternal.value}`);
             localStorage.setItem('newSavingsTransaction', JSON.stringify(newSavingsTransactions));
-            newCheckingTransactions.push(`Transfer from Reward Savings 8530: $${tranAmountInternal.value}`);
+            newCheckingTransactions.push(`Transfer: Reward Savings 8530 + $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
@@ -91,9 +92,9 @@ function completeTransfer() {
             savings -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCreditBal', JSON.stringify(credit));
-            newCreditTransactions.push(`Transfer from Reward Savings 8530: $${tranAmountInternal.value}`);
+            newCreditTransactions.push(`Transfer: Reward Savings 8530 + $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
-            newSavingsTransactions.push(`Transfer to Silver Miles Credit Card 9124: $${tranAmountInternal.value}`);
+            newSavingsTransactions.push(`Transfer: Silver Miles Credit Card 9124 - $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
@@ -151,5 +152,9 @@ document.querySelector('.logOutBtn').addEventListener('click', () => {
     localStorage.removeItem('newCheckingTransaction');
     localStorage.removeItem('newSavingsTransaction');
     localStorage.removeItem('newCreditTransaction');
-    location.href = '../index.html';
+    location.href = './index.html';
+});
+
+document.querySelector('.settingsBtn').addEventListener('click', () => {
+    settingsDialog.showModal();
 });
