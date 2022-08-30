@@ -15,7 +15,7 @@ body {
     text-align: center;
 }
 
-#checkingTransactions {
+.transactionList {
     margin: 1em 2em;
     padding: 1em;
     border: 2px solid var(--darkBlue);
@@ -26,7 +26,7 @@ body {
     background-color: var(--skyblue);
 }
 
-#checkingTransactions p {
+.transactionList p {
     margin: .8em;
     background-color: var(--lightGrey);
     padding: .7em;
