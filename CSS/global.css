@@ -3,6 +3,7 @@
     --darkBlue: rgb(9, 9, 70);
     --lightGrey: rgb(228, 216, 216);
     --lightBlue: rgb(216, 236, 247);
+    --mediumBlack: #1c1c1c;
 } 
 
 * {
@@ -78,11 +79,18 @@ footer {
     border: 1px solid var(--darkBlue);
     padding: .2em 1em;
     background-color: var(--lightBlue);
+    text-align: center;
 }
 
-.logOutBtn {
+.logOutBtn, .settingsBtn {
     background-color: var(--lightGrey);
     border: 1px solid var(--darkBlue);
     padding: .1em .5em;
     border-radius: 2px;
+    cursor: pointer;
+}
+
+.logOutBtn:hover, .settingsBtn:hover,
+.logOutBtn:focus, .settingsBtn:focus {
+    background-color: #FFF;
 }
