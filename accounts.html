@@ -16,8 +16,36 @@
             <h1>Accounts Overview - Welcome back, <span id='userNameText' class="loggedIn">user</span></h1>
             <div class="loggedInInfo">
                 <p>User ID: <span class="loggedIn">N/A</span></p>
+                <button class="settingsBtn">Settings</button>
                 <button class="logOutBtn">Log Out</button>
             </div>
+            <dialog id="settingsDialog">
+                <form id="settingsForm" method="dialog">
+                    <h3>Change your account settings</h3>
+                    <h4>Change your User ID:</h4>
+                    <div>
+                        <label for="changeUserInput">New User ID:
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Enter your new User ID" placeholder="Enter your new User ID" id="changeUserInput">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="confirmUserInput">Confirm new User ID:
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Confirm your new User ID" placeholder="Confirm your new User ID" id="confirmUserInput">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="changePassInput">New Password:
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Enter your new password" placeholder="Enter your new password" id="changePassInput">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="confirmPassInput">Confirm new Password:
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Confirm your new password" id="confirmPassInput" placeholder="Confirm your new password">
+                        </label>
+                    </div>
+                    <button id="updateInfoBtn">Update</button>
+                </form>
+            </dialog>
         </header>
         <nav class="navbar">
             <a href="./index.html">Home Page</a>
@@ -68,7 +96,7 @@
                             </label>
                         </div>
                         <label for="tranAmountInternal">$
-                            <input type="text" pattern="[0-9.]+" required id="tranAmountInternal" title="Enter numeric amount to transfer" maxlength="7" placeholder="0.00">
+                            <input type="text" pattern="[0-9.]+" required id="tranAmountInternal" title="Enter numeric amount to transfer" maxlength="9" placeholder="0.00">
                         </label>
                         <button id="tranBtnInternal">Transfer</button>
                     </form>
