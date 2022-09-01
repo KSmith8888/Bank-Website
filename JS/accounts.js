@@ -21,6 +21,15 @@ let newCheckingTransactions = JSON.parse(localStorage.getItem('newCheckingTransa
 let newSavingsTransactions = JSON.parse(localStorage.getItem('newSavingsTransaction')) || [];
 let newCreditTransactions = JSON.parse(localStorage.getItem('newCreditTransaction')) || [];
 
+const settingsForm = document.getElementById('settingsForm');
+const closeDialogBtn = document.getElementById('closeDialogBtn');
+const currentUserInput = document.getElementById('currentUserInput');
+const changeUserInput = document.getElementById('changeUserInput');
+const confirmUserInput = document.getElementById('confirmUserInput');
+const currentPassInput = document.getElementById('currentPassInput');
+const changePassInput = document.getElementById('changePassInput');
+const confirmPassInput = document.getElementById('confirmPassInput');
+
 internalTransfer.addEventListener('submit', (e) => {
     e.preventDefault();
     //Do not initiate transfer if user input contains certain characters
@@ -157,4 +166,43 @@ document.querySelector('.logOutBtn').addEventListener('click', () => {
 
 document.querySelector('.settingsBtn').addEventListener('click', () => {
     settingsDialog.showModal();
+});
+
+closeDialogBtn.addEventListener('click', () => {
+    settingsDialog.close();
+});
+
+settingsForm.addEventListener('submit', (event) => {
+    if(JSON.parse(localStorage.getItem('userId')) === currentUserInput.value && localStorage.getItem('userId') !== null) {
+        if(changeUserInput.value === confirmUserInput.value && changeUserInput.value !== '') {
+            localStorage.setItem('userId', JSON.stringify(changeUserInput.value));
+        } else {
+            alert('Please make sure that both new User ID inputs match.');
+            event.preventDefault();
+        }
+    } else {
+        if(currentUserInput.value !== '') {
+            alert('Current User ID input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
+            event.preventDefault();
+        }
+    }
+    if(JSON.parse(localStorage.getItem('password')) === currentPassInput.value && localStorage.getItem('password') !== null) {
+        if(changePassInput.value === confirmPassInput.value && changePassInput.value !== '') {
+            localStorage.setItem('password', JSON.stringify(changePassInput.value));
+        } else {
+            alert('Please make sure that both new Password inputs match.');
+            event.preventDefault();
+        }
+    } else {
+        if(currentPassInput.value !== '') {
+            alert('Current Password input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
+            event.preventDefault();
+        }
+    }
+    currentUserInput.value = '';
+    changeUserInput.value = '';
+    confirmUserInput.value = '';
+    changePassInput.value = '';
+    confirmPassInput.value = '';
+    currentPassInput.value = '';
 });
