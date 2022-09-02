@@ -29,6 +29,7 @@ const confirmUserInput = document.getElementById('confirmUserInput');
 const currentPassInput = document.getElementById('currentPassInput');
 const changePassInput = document.getElementById('changePassInput');
 const confirmPassInput = document.getElementById('confirmPassInput');
+const updateStatus = document.getElementById('updateStatus');
 
 internalTransfer.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -70,9 +71,9 @@ function completeTransfer() {
             checking -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedCreditBal', JSON.stringify(credit));
             localStorage.setItem('savedCheckingBal', JSON.stringify(checking));
-            newCreditTransactions.push(`Transfer: Everyday Checking 4019 + $${tranAmountInternal.value}`);
+            newCreditTransactions.push(`Bill Pay from: Everyday Checking 4019 + $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
-            newCheckingTransactions.push(`Transfer: Silver Miles Credit Card 9124 - $${tranAmountInternal.value}`);
+            newCheckingTransactions.push(`Bill Pay to: Silver Miles Credit Card 9124 - $${tranAmountInternal.value}`);
             localStorage.setItem('newCheckingTransaction', JSON.stringify(newCheckingTransactions));
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
@@ -101,9 +102,9 @@ function completeTransfer() {
             savings -= parseFloat(tranAmountInternal.value);
             localStorage.setItem('savedSavingsBal', JSON.stringify(savings));
             localStorage.setItem('savedCreditBal', JSON.stringify(credit));
-            newCreditTransactions.push(`Transfer: Reward Savings 8530 + $${tranAmountInternal.value}`);
+            newCreditTransactions.push(`Bill Pay from: Reward Savings 8530 + $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
-            newSavingsTransactions.push(`Transfer: Silver Miles Credit Card 9124 - $${tranAmountInternal.value}`);
+            newSavingsTransactions.push(`Bill Pay to: Silver Miles Credit Card 9124 - $${tranAmountInternal.value}`);
             localStorage.setItem('newCreditTransaction', JSON.stringify(newCreditTransactions));
             tranAmountInternal.value = '';
             tranToInternal.value = 'Transfer To:';
@@ -144,23 +145,16 @@ setInterval(()=> {
         console.log(err)
     });
 }
-}, 10000)
+}, 10000);
 
-if(JSON.parse(localStorage.getItem('userId')) !== null) {
+if(JSON.parse(localStorage.getItem('userId')) !== null && JSON.parse(localStorage.getItem('loggedIn')) !== null) {
     for(let instance of loggedIn) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
     }
 }
 
 document.querySelector('.logOutBtn').addEventListener('click', () => {
-    localStorage.removeItem('fillUsername');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('savedCheckingBal');
-    localStorage.removeItem('savedSavingsBal');
-    localStorage.removeItem('savedCreditBal');
-    localStorage.removeItem('newCheckingTransaction');
-    localStorage.removeItem('newSavingsTransaction');
-    localStorage.removeItem('newCreditTransaction');
+    localStorage.removeItem('loggedIn');
     location.href = './index.html';
 });
 
@@ -173,30 +167,35 @@ closeDialogBtn.addEventListener('click', () => {
 });
 
 settingsForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let updatedUser = false;
+    let updatedPass = false;
     if(JSON.parse(localStorage.getItem('userId')) === currentUserInput.value && localStorage.getItem('userId') !== null) {
         if(changeUserInput.value === confirmUserInput.value && changeUserInput.value !== '') {
             localStorage.setItem('userId', JSON.stringify(changeUserInput.value));
+            updatedUser = true;
         } else {
             alert('Please make sure that both new User ID inputs match.');
-            event.preventDefault();
+            currentUserInput.focus();
         }
     } else {
         if(currentUserInput.value !== '') {
             alert('Current User ID input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
-            event.preventDefault();
+            currentUserInput.focus();
         }
     }
     if(JSON.parse(localStorage.getItem('password')) === currentPassInput.value && localStorage.getItem('password') !== null) {
         if(changePassInput.value === confirmPassInput.value && changePassInput.value !== '') {
             localStorage.setItem('password', JSON.stringify(changePassInput.value));
+            updatedPass = true;
         } else {
             alert('Please make sure that both new Password inputs match.');
-            event.preventDefault();
+            currentPassInput.focus();
         }
     } else {
         if(currentPassInput.value !== '') {
             alert('Current Password input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
-            event.preventDefault();
+            currentPassInput.focus();
         }
     }
     currentUserInput.value = '';
@@ -205,4 +204,20 @@ settingsForm.addEventListener('submit', (event) => {
     changePassInput.value = '';
     confirmPassInput.value = '';
     currentPassInput.value = '';
+    if(updatedUser && !updatedPass) {
+        updateStatus.textContent = 'Success! User ID updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    } else if(!updatedUser && updatedPass) {
+        updateStatus.textContent = 'Success! Password updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    } else if(updatedUser && updatedPass) {
+        updateStatus.textContent = 'Success! User ID and Password updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    }
 });
