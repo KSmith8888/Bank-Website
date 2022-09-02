@@ -34,6 +34,7 @@ const confirmUserInput = document.getElementById('confirmUserInput');
 const currentPassInput = document.getElementById('currentPassInput');
 const changePassInput = document.getElementById('changePassInput');
 const confirmPassInput = document.getElementById('confirmPassInput');
+const updateStatus = document.getElementById('updateStatus');
 
 if(
     JSON.parse(localStorage.getItem('fillUsername')) !== null && 
@@ -94,7 +95,7 @@ tabSection.addEventListener('click', () => {
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    //If no username has previously been set, save current value
+    //If no username has previously been set, save current values
     if(localStorage.getItem('userId') === null) {
         localStorage.setItem('userId', JSON.stringify(userInput.value));
         localStorage.setItem('password', JSON.stringify(passwordInput.value));
@@ -107,6 +108,7 @@ loginForm.addEventListener('submit', (event) => {
     }
     //If User ID and Password input matches saved values, go to accounts page
     if(JSON.parse(localStorage.getItem('userId')) === userInput.value && JSON.parse(localStorage.getItem('password')) === passwordInput.value) {
+        localStorage.setItem('loggedIn', JSON.stringify('yes'));
         location.href = './accounts.html';
     } else {
         alert('User ID or Password does not match, please try again.');
@@ -117,21 +119,14 @@ loginForm.addEventListener('submit', (event) => {
     rememberName.checked = false;
 });
 
-if(JSON.parse(localStorage.getItem('userId')) !== null) {
+if(JSON.parse(localStorage.getItem('userId')) !== null && JSON.parse(localStorage.getItem('loggedIn')) !== null) {
     for(let instance of loggedIn) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
     }
 }
 
 document.querySelector('.logOutBtn').addEventListener('click', () => {
-    localStorage.removeItem('fillUsername');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('savedCheckingBal');
-    localStorage.removeItem('savedSavingsBal');
-    localStorage.removeItem('savedCreditBal');
-    localStorage.removeItem('newCheckingTransaction');
-    localStorage.removeItem('newSavingsTransaction');
-    localStorage.removeItem('newCreditTransaction');
+    localStorage.removeItem('loggedIn');
     location.href = './index.html';
 });
 
@@ -144,30 +139,35 @@ closeDialogBtn.addEventListener('click', () => {
 });
 
 settingsForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let updatedUser = false;
+    let updatedPass = false;
     if(JSON.parse(localStorage.getItem('userId')) === currentUserInput.value && localStorage.getItem('userId') !== null) {
         if(changeUserInput.value === confirmUserInput.value && changeUserInput.value !== '') {
             localStorage.setItem('userId', JSON.stringify(changeUserInput.value));
+            updatedUser = true;
         } else {
             alert('Please make sure that both new User ID inputs match.');
-            event.preventDefault();
+            currentUserInput.focus();
         }
     } else {
         if(currentUserInput.value !== '') {
             alert('Current User ID input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
-            event.preventDefault();
+            currentUserInput.focus();
         }
     }
     if(JSON.parse(localStorage.getItem('password')) === currentPassInput.value && localStorage.getItem('password') !== null) {
         if(changePassInput.value === confirmPassInput.value && changePassInput.value !== '') {
             localStorage.setItem('password', JSON.stringify(changePassInput.value));
+            updatedPass = true;
         } else {
             alert('Please make sure that both new Password inputs match.');
-            event.preventDefault();
+            currentPassInput.focus();
         }
     } else {
         if(currentPassInput.value !== '') {
             alert('Current Password input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
-            event.preventDefault();
+            currentPassInput.focus();
         }
     }
     currentUserInput.value = '';
@@ -176,4 +176,20 @@ settingsForm.addEventListener('submit', (event) => {
     changePassInput.value = '';
     confirmPassInput.value = '';
     currentPassInput.value = '';
+    if(updatedUser && !updatedPass) {
+        updateStatus.textContent = 'Success! User ID updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    } else if(!updatedUser && updatedPass) {
+        updateStatus.textContent = 'Success! Password updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    } else if(updatedUser && updatedPass) {
+        updateStatus.textContent = 'Success! User ID and Password updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    }
 });
