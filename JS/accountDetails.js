@@ -9,6 +9,17 @@ let creditTransfers = JSON.parse(localStorage.getItem('newCreditTransaction')) |
 const checkingTotalBal = document.getElementById('checkingTotalBal');
 const savingsTotalBal = document.getElementById('savingsTotalBal');
 const creditTotalBal = document.getElementById('creditTotalBal');
+
+const settingsForm = document.getElementById('settingsForm');
+const closeDialogBtn = document.getElementById('closeDialogBtn');
+const currentUserInput = document.getElementById('currentUserInput');
+const changeUserInput = document.getElementById('changeUserInput');
+const confirmUserInput = document.getElementById('confirmUserInput');
+const currentPassInput = document.getElementById('currentPassInput');
+const changePassInput = document.getElementById('changePassInput');
+const confirmPassInput = document.getElementById('confirmPassInput');
+const updateStatus = document.getElementById('updateStatus');
+
 /*
 Determines which account page is the user is on and displays the correct information for that account. Displays localStorage data for internal transfers if present.
 */
@@ -59,9 +70,15 @@ if(document.querySelector('#checkingTotalBal')) {
 function displayTransactions() {
     if(document.querySelector('#checkingTotalBal')) {
         for(const transaction of transactionData.Checking) {
-            checkingTransactions.innerHTML += `
-        <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
-        `
+            if(transaction.Bill) {
+                checkingTransactions.innerHTML += `
+            <p>Bill Pay: ${transaction.Source} - $${transaction.Amount}</p>
+            `
+            } else {
+                checkingTransactions.innerHTML += `
+            <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
+            `
+            }
         }
     } else if(document.querySelector('#savingsTotalBal')) {
         for(const transaction of transactionData.Savings) {
@@ -71,9 +88,15 @@ function displayTransactions() {
         }
     } else if(document.querySelector('#creditTotalBal')) {
         for(const transaction of transactionData.Credit) {
-            creditTransactions.innerHTML += `
-        <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
-        `
+            if(transaction.Fee) {
+                creditTransactions.innerHTML += `
+            <p>Service Fee: ${transaction.Source} - $${transaction.Amount}</p>
+            `
+            } else {
+                creditTransactions.innerHTML += `
+            <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
+            `
+            }
         }
     }
 }
@@ -93,20 +116,77 @@ fetch('./database.json')
     .catch((err) => console.log(err));
 
     
-if(JSON.parse(localStorage.getItem('userId')) !== null) {
+if(JSON.parse(localStorage.getItem('userId')) !== null && JSON.parse(localStorage.getItem('loggedIn')) !== null) {
     for(let instance of loggedIn) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
-     }
+    }
 }
-
+    
 document.querySelector('.logOutBtn').addEventListener('click', () => {
-    localStorage.removeItem('fillUsername');
-    localStorage.removeItem('userId');
-    localStorage.removeItem('savedCheckingBal');
-    localStorage.removeItem('savedSavingsBal');
-    localStorage.removeItem('savedCreditBal');
-    localStorage.removeItem('newCheckingTransaction');
-    localStorage.removeItem('newSavingsTransaction');
-    localStorage.removeItem('newCreditTransaction');
+    localStorage.removeItem('loggedIn');
     location.href = '../index.html';
+});
+    
+document.querySelector('.settingsBtn').addEventListener('click', () => {
+    settingsDialog.showModal();
+});
+    
+closeDialogBtn.addEventListener('click', () => {
+    settingsDialog.close();
+});
+    
+settingsForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let updatedUser = false;
+    let updatedPass = false;
+    if(JSON.parse(localStorage.getItem('userId')) === currentUserInput.value && localStorage.getItem('userId') !== null) {
+        if(changeUserInput.value === confirmUserInput.value && changeUserInput.value !== '') {
+            localStorage.setItem('userId', JSON.stringify(changeUserInput.value));
+            updatedUser = true;
+        } else {
+            alert('Please make sure that both new User ID inputs match.');
+            currentUserInput.focus();
+        }
+    } else {
+        if(currentUserInput.value !== '') {
+            alert('Current User ID input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
+            currentUserInput.focus();
+        }
+    }
+    if(JSON.parse(localStorage.getItem('password')) === currentPassInput.value && localStorage.getItem('password') !== null) {
+        if(changePassInput.value === confirmPassInput.value && changePassInput.value !== '') {
+            localStorage.setItem('password', JSON.stringify(changePassInput.value));
+            updatedPass = true;
+        } else {
+            alert('Please make sure that both new Password inputs match.');
+            currentPassInput.focus();
+            }
+    } else {
+        if(currentPassInput.value !== '') {
+            alert('Current Password input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
+            currentPassInput.focus();
+        }
+    }
+    currentUserInput.value = '';
+    changeUserInput.value = '';
+    confirmUserInput.value = '';
+    changePassInput.value = '';
+    confirmPassInput.value = '';
+    currentPassInput.value = '';
+    if(updatedUser && !updatedPass) {
+        updateStatus.textContent = 'Success! User ID updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    } else if(!updatedUser && updatedPass) {
+        updateStatus.textContent = 'Success! Password updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    } else if(updatedUser && updatedPass) {
+        updateStatus.textContent = 'Success! User ID and Password updated.';
+        setTimeout(() => {
+            location.reload(); 
+        }, 1500);
+    }
 });
