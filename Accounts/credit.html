@@ -24,26 +24,41 @@
                     <h3>Change your account settings</h3>
                     <h4>Change your User ID:</h4>
                     <div>
+                        <label for="currentUserInput">Current User ID:
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Enter your current User ID" placeholder="Enter your current User ID" id="currentUserInput" minlength="4" maxlength="12">
+                        </label>
+                    </div>
+                    <div>
                         <label for="changeUserInput">New User ID:
-                            <input type="text" pattern="[0-9a-zA-Z]+" title="Enter your new User ID" placeholder="Enter your new User ID" id="changeUserInput">
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Enter your new User ID" placeholder="Enter your new User ID" id="changeUserInput" minlength="4" maxlength="12">
                         </label>
                     </div>
                     <div>
                         <label for="confirmUserInput">Confirm new User ID:
-                            <input type="text" pattern="[0-9a-zA-Z]+" title="Confirm your new User ID" placeholder="Confirm your new User ID" id="confirmUserInput">
+                            <input type="text" pattern="[0-9a-zA-Z]+" title="Confirm your new User ID" placeholder="Confirm your new User ID" id="confirmUserInput" minlength="4" maxlength="12">
+                        </label>
+                    </div>
+                    <h4>Change your Password:</h4>
+                    <div>
+                        <label for="currentPassInput">Current Password:
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Enter your current password" placeholder="Enter your current password" id="currentPassInput" minlength="4" maxlength="12">
                         </label>
                     </div>
                     <div>
                         <label for="changePassInput">New Password:
-                            <input type="password" pattern="[0-9a-zA-Z]+" title="Enter your new password" placeholder="Enter your new password" id="changePassInput">
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Enter your new password" placeholder="Enter your new password" id="changePassInput" minlength="4" maxlength="12">
                         </label>
                     </div>
                     <div>
                         <label for="confirmPassInput">Confirm new Password:
-                            <input type="password" pattern="[0-9a-zA-Z]+" title="Confirm your new password" id="confirmPassInput" placeholder="Confirm your new password">
+                            <input type="password" pattern="[0-9a-zA-Z]+" title="Confirm your new password" id="confirmPassInput" placeholder="Confirm your new password" minlength="4" maxlength="12">
                         </label>
                     </div>
-                    <button id="updateInfoBtn">Update</button>
+                    <div>
+                        <p id="updateStatus"></p>
+                        <button id="updateInfoBtn" type="submit">Update</button>
+                        <button id="closeDialogBtn">Close</button>
+                    </div>
                 </form>
             </dialog>
         </header>
