@@ -2,8 +2,9 @@
 "Checking": 
     [
         {
-        "Source": "Wine4Less",
-        "Amount": 14.95
+        "Source": "General Power",
+        "Amount": 14.95,
+        "Bill": true
         },
         {
         "Source": "Amazon",
@@ -23,7 +24,8 @@
         },
         {
         "Source": "Comcast",
-        "Amount": 72.00 
+        "Amount": 72.00,
+        "Bill": true 
         },
         {
         "Source": "Office Depot",
@@ -35,7 +37,8 @@
         },
         {
         "Source": "Netflix",
-        "Amount": 9.99
+        "Amount": 9.99,
+        "Bill": true
         },
         {
         "Source": "Burger King",
@@ -46,18 +49,48 @@
     [
         {
         "Source": "Deposit",
-        "Amount": 100
+        "Amount": 150
+        },
+        {
+        "Source": "Interest",
+        "Amount": 2.25 
         },
         {
         "Source": "Deposit",
-        "Amount": 100 
+        "Amount": 75
+        },
+        {
+        "Source": "Interest",
+        "Amount": 1.50
         }
     ],
 "Credit": 
     [
         {
         "Source": "Amazon",
-        "Amount": 74.25
+        "Amount": 31.72
+        },
+        {
+        "Source": "Office Depot",
+        "Amount": 10.25
+        },
+        {
+        "Source": "Annual Fee",
+        "Amount": 95,
+        "Fee": true
+        },
+        {
+        "Source": "Red Robin",
+        "Amount": 52.75
+        },
+        {
+        "Source": "Burger King",
+        "Amount": 18.10
+        },
+        {
+        "Source": "Late Payment Fee",
+        "Amount": 35,
+        "Fee": true
         }
     ],
 "Users": 
