@@ -82,7 +82,7 @@ footer {
     text-align: center;
 }
 
-.logOutBtn, .settingsBtn {
+.logOutBtn, .settingsBtn, #settingsForm button {
     background-color: var(--lightGrey);
     border: 1px solid var(--darkBlue);
     padding: .1em .5em;
@@ -93,4 +93,27 @@ footer {
 .logOutBtn:hover, .settingsBtn:hover,
 .logOutBtn:focus, .settingsBtn:focus {
     background-color: #FFF;
+}
+
+#settingsDialog {
+    width: 500px;
+    height: 570px;
+    background-color: var(--lightGrey);
+    border: 2px solid var(--darkBlue);
+}
+
+#settingsForm h3 {
+    align-self: center;
+}
+
+#settingsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 1em;
+}
+
+#settingsForm input, #settingsForm button {
+    margin: 1em 0;
 }
