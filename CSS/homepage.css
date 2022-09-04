@@ -7,7 +7,7 @@ main {
 
 #loginSection {
     padding: 1.2em 1em;
-    border: 3px solid var(--darkBlue);
+    border: 2px solid var(--darkBlue);
     background: var(--skyblue);
     margin: 1em;
     text-align: center;
@@ -22,53 +22,57 @@ main {
     cursor: pointer;
     background-color: var(--lightGrey);
     border: 1px solid var(--darkBlue);
-    padding: .1em .5em;
+    padding: .4em .8em;
     border-radius: 2px;
     font-weight: bold;
+    margin: .8em auto;
 }
 
 #loginBtn:hover, #loginBtn:focus {
-    background-color: #FFF;
+    background-color: var(--offWhite);
+    color: var(--mediumBlue);
 }
 
-#adSection {
-    width: 65%;
-    min-height: 100%;
-    background-color:var(--lightGrey);
-}
-
-#tabSection {
+.offer-section {
+    width: 60%;
+    height: 65vh;
+    padding: 1.5em 3.5em;
+    background-image: url('../Images/offerImage.jpg');
+    background-size: cover;
+    background-position: top;
     display: flex;
-    width: 100%;
-    height: 8%;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid var(--darkBlue);
 }
 
-.tabCon {
+.offer-title {
+    font-weight: bold;
+}
+
+.offer-text {
+    width: 50%;
+}
+
+.offer-text li {
+    margin: 1em;
+}
+
+.offer-text ul {
+    margin-bottom: 2.5em;
+}
+
+.offer-link {
+    text-decoration: none;
+    cursor: pointer;
     border: 1px solid var(--darkBlue);
-    background: var(--lightGrey);
-    width: 20%;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 85% 15%;
-    border-top-left-radius: 5px;
-}
-
-.tabCloseBtn {
-    grid-column: 2/2;
-    border: none;
+    background-color: var(--mediumBlue);
+    color: var(--offWhite);
+    padding: .5em 1em;
     font-weight: 700;
-    background-color: var(--lightGrey);
+    border-radius: 10px;
 }
 
-.tabLabel {
-    grid-column: 1/1;
-}
-
-.tabInput {
-    display: none;
-}
-
-#ads {
-    height: 92%;
-    width: 100%;
+.offer-link:hover, .offer-link:focus {
+    background-color: var(--darkBlue);
 }
