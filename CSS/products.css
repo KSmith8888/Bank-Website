@@ -1,0 +1,52 @@
+main {
+    margin: 2em auto;
+    display: flex;
+    width: 95%;
+    height: 70vh;
+    justify-content: space-around;
+}
+
+#products {
+    width: 65%;
+    min-height: 100%;
+    background-color:var(--lightGrey);
+}
+
+#productTabs {
+    display: flex;
+    width: 100%;
+    height: 8%;
+}
+
+.tabCon {
+    border: 1px solid var(--darkBlue);
+    background: var(--lightGrey);
+    width: 20%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 10% 50% 30% 10%;
+    border-top-left-radius: 5px;
+}
+
+.tabCloseBtn {
+    grid-column: 2/2;
+    grid-row: 1/3;
+    border: none;
+    font-weight: 700;
+    background-color: var(--lightGrey);
+}
+
+.tabLabel {
+    grid-column: 1/1;
+    grid-row: 2/4;
+}
+
+.tabInput {
+    display: none;
+}
+
+#productMain {
+    height: 92%;
+    width: 100%;
+}
