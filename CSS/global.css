@@ -4,6 +4,8 @@
     --lightGrey: rgb(228, 216, 216);
     --lightBlue: rgb(216, 236, 247);
     --mediumBlack: #1c1c1c;
+    --mediumBlue: rgb(17, 17, 139);
+    --offWhite: rgb(235, 225, 225);
 } 
 
 * {
@@ -31,12 +33,13 @@ header {
     justify-content: space-between;
 }
 
-.navbar {
+.navbar ul {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1em auto;
+    list-style: none;
 }
 
 .navbar a {
@@ -49,6 +52,10 @@ header {
 
 .navbar a:hover, .navbar a:focus {
     font-weight: 700;
+    color: var(--mediumBlue);
+}
+
+a.active-link {
     text-decoration: underline;
 }
 
@@ -92,7 +99,7 @@ footer {
 
 .logOutBtn:hover, .settingsBtn:hover,
 .logOutBtn:focus, .settingsBtn:focus {
-    background-color: #FFF;
+    background-color: var(--offWhite);
 }
 
 #settingsDialog {
