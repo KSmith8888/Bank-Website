@@ -63,13 +63,29 @@
         </dialog>
     </header>
     <nav class="navbar">
-        <a href="./index.html">Home Page</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
-        <a href="#">Link 5</a>
-        <a href="#">Link 6</a>
-        <a href="./aboutUs.html">About Us</a>
+        <ul>
+            <li>
+                <a href="./index.html" class="active-link">Home Page</a>
+            </li>
+            <li>
+                <a href="./products.html">Products</a>
+            </li>
+            <li>
+                <a href="#">Link 3</a>
+            </li>
+            <li>
+                <a href="#">Link 4</a>
+            </li>
+            <li>
+                <a href="#">Link 5</a>
+            </li>
+            <li>
+                <a href="#">Link 6</a>
+            </li>
+            <li>
+                <a href="./aboutUs.html">About Us</a>
+            </li>
+        </ul>
     </nav>
     <main>
         <section id="loginSection">
@@ -95,40 +111,16 @@
             <p id="passwordHint">Hint: Letters and numbers only (4-12 characters)</p>
             <p>Forgot your password? <a href='./maintenance.html'>Reset</a> it here.</p>
         </section>
-        <section id="adSection">
-            <div id="tabSection">
-                <div id="tab1" class="tabCon">
-                    <label for="tabBtn1" class="tabLabel">Tab 1
-                        <input type="radio" id="tabBtn1" name="tabs" class="tabInput">
-                    </label>
-                    <button id="tabClose1" class="tabCloseBtn">X</button>
-                </div>
-                <div id="tab2" class="tabCon">
-                    <label for="tabBtn2" class="tabLabel">Tab 2
-                        <input type="radio" id="tabBtn2" name="tabs" class="tabInput">
-                    </label>
-                    <button id="tabClose2" class="tabCloseBtn">X</button>
-                </div>
-                <div id="tab3" class="tabCon">
-                    <label for="tabBtn3" class="tabLabel">Tab 3
-                        <input type="radio" id="tabBtn3" name="tabs" class="tabInput">
-                    </label>
-                    <button id="tabClose3" class="tabCloseBtn">X</button>
-                </div>
-                <div id="tab4" class="tabCon">
-                    <label for="tabBtn4" class="tabLabel">Tab 4
-                        <input type="radio" id="tabBtn4" name="tabs" class="tabInput">
-                    </label>
-                    <button id="tabClose4" class="tabCloseBtn">X</button>
-                </div>
-                <div id="tab5" class="tabCon">
-                    <label for="tabBtn5" class="tabLabel">Tab 5
-                        <input type="radio" id="tabBtn5" name="tabs" class="tabInput">
-                    </label>
-                    <button id="tabClose5" class="tabCloseBtn">X</button>
-                </div>
-            </div>
-            <div id="ads">
+        <section class="offer-section">
+            <div class="offer-text">
+                <h2 class="offer-title">Limited time offer</h2>
+                <p class="offer-subtitle">Open a premium cashback checking account today for an extra .02% APR along with:</p>
+                <ul>
+                    <li>No maintenance fee for the first 2 months</li>
+                    <li>Premium customer service support</li>
+                    <li>Overdraft fees waived once per 12 months</li>
+                </ul>
+                <a href="#" class="offer-link">Open New Account</a>
             </div>
         </section>
     </main>
