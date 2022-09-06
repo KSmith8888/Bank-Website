@@ -20,6 +20,8 @@ const tabClose5 = document.getElementById('tabClose5');
 
 const tabSection = document.getElementById('productTabs');
 const ads = document.getElementById('productMain');
+const productTitle = document.getElementById('productTitle');
+const productSubtitle = document.getElementById('productSubtitle');
 
 tabSection.addEventListener('click', () => {
     clearInterval(rotateProducts);
@@ -30,19 +32,29 @@ tabSection.addEventListener('click', () => {
     tab5.style.backgroundColor = 'rgb(228, 216, 216)';
     if(tabBtn1.checked) {
         tab1.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'lightgreen';
+        productTitle.textContent = 'Premium Cashback Checking Account';
+        productSubtitle.textContent = 'Buy what calls to you';
+        ads.style.backgroundImage = 'url(Images/checkingImage.jpg)';
     } else if(tabBtn2.checked) {
         tab2.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'lightblue';
+        productTitle.textContent = 'Rewards Savings Account';
+        productSubtitle.textContent = 'Plan for what matters';
+        ads.style.backgroundImage = 'url(Images/savingsImage.jpg)';
     } else if(tabBtn3.checked) {
         tab3.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'lightcoral';
+        productTitle.textContent = 'Silver Miles Credit Card';
+        productSubtitle.textContent = 'Go further';
+        ads.style.backgroundImage = 'url(Images/creditImage.jpg)';
     } else if(tabBtn4.checked) {
         tab4.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'yellow';
+        productTitle.textContent = 'Mortgage Loans';
+        productSubtitle.textContent = 'Create your kingdom';
+        ads.style.backgroundImage = 'url(Images/mortgageImage.jpg)';
     } else if(tabBtn5.checked) {
         tab5.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'grey';
+        productTitle.textContent = 'Managed Investment Accounts';
+        productSubtitle.textContent = 'Build your possibilities';
+        ads.style.backgroundImage = 'url(Images/investmentImage.jpg)';
     }
     tabClose1.addEventListener('click', () => {
         tabBtn1.checked = false;
@@ -72,7 +84,7 @@ tabSection.addEventListener('click', () => {
 });
 
 tabBtn1.checked = true;
-tab1.style.backgroundColor = 'rgb(209, 199, 199)'
+tab1.style.backgroundColor = 'rgb(209, 199, 199)';
 const rotateProducts = setInterval(() => {
     tab1.style.backgroundColor = 'rgb(228, 216, 216)';
     tab2.style.backgroundColor = 'rgb(228, 216, 216)';
@@ -82,22 +94,32 @@ const rotateProducts = setInterval(() => {
     if(tabBtn1.checked) {
         tabBtn2.checked = true;
         tab2.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'lightblue';
+        productTitle.textContent = 'Rewards Savings Account';
+        productSubtitle.textContent = 'Plan for what matters';
+        ads.style.backgroundImage = 'url(Images/savingsImage.jpg)';
     } else if(tabBtn2.checked) {
         tabBtn3.checked = true;
         tab3.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'lightcoral';
+        productTitle.textContent = 'Silver Miles Credit Card';
+        productSubtitle.textContent = 'Go further';
+        ads.style.backgroundImage = 'url(Images/creditImage.jpg)';
     } else if(tabBtn3.checked) {
         tabBtn4.checked = true;
         tab4.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'yellow';
+        productTitle.textContent = 'Mortgage Loans';
+        productSubtitle.textContent = 'Create your kingdom';
+        ads.style.backgroundImage = 'url(Images/mortgageImage.jpg)';
     } else if(tabBtn4.checked) {
         tabBtn5.checked = true;
         tab5.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'grey';
+        productTitle.textContent = 'Managed Investment Accounts';
+        productSubtitle.textContent = 'Build your possibilities';
+        ads.style.backgroundImage = 'url(Images/investmentImage.jpg)';
     } else if(tabBtn5.checked) {
         tabBtn1.checked = true;
         tab1.style.backgroundColor = 'rgb(209, 199, 199)';
-        ads.style.backgroundColor = 'lightgreen';
+        productTitle.textContent = 'Premium Cashback Checking Account';
+        productSubtitle.textContent = 'Buy what calls to you';
+        ads.style.backgroundImage = 'url(Images/checkingImage.jpg)';
     }
-}, 10000);
+}, 8000);
