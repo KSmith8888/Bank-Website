@@ -2,12 +2,12 @@ main {
     margin: 2em auto;
     display: flex;
     width: 95%;
-    height: 70vh;
+    height: 75vh;
     justify-content: space-around;
 }
 
 #products {
-    width: 65%;
+    width: 70%;
     min-height: 100%;
     background-color:var(--lightGrey);
 }
@@ -49,4 +49,41 @@ main {
 #productMain {
     height: 92%;
     width: 100%;
+    background-image: url('../Images/checkingImage.jpg');
+    background-size: cover;
+    background-position: 100% 100%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#productText {
+    width: 35%;
+    height: 100%;
+    padding: 2em;
+    background-color: var(--lightBlue);
+    border-right: 1px solid black;
+}
+
+#productTitle {
+    margin: 0;
+    color: var(--darkBlue);
+}
+
+#productSubtitle {
+    font-size: 1.3rem;
+}
+
+#productBtn {
+    cursor: pointer;
+    border: 1px solid var(--darkBlue);
+    background-color: var(--mediumBlue);
+    color: var(--offWhite);
+    padding: .5em 1em;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+#productBtn:hover, #productBtn:focus {
+    background-color: var(--darkBlue);
 }
