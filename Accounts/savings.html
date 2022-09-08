@@ -93,8 +93,18 @@
                 <p class="returnText">Return to <a href="../accounts.html">accounts overview</a></p>
                 <h3 id="savingsTotalBal">Current Balance: $</h3>
             </section>
-            <section id="savingsTransactions" class="transactionList">
-
+            <section class="transactionListSection">
+                <label class="filterLabel">Filter by transaction type: 
+                    <select id="transactionFilter">
+                        <option></option>
+                        <option>Purchase</option>
+                        <option>Bill Pay</option>
+                        <option>Transfer</option>
+                        <option>Service Fee</option>
+                        <option>Credit</option>
+                    </select>
+                </label>
+                <div id="savingsTransactions" class="transactionList"></div>
             </section>
         </main>
         <footer>
