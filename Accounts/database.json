@@ -4,93 +4,118 @@
         {
         "Source": "General Power",
         "Amount": 14.95,
-        "Bill": true
+        "Type": "Bill Pay"
         },
         {
         "Source": "Amazon",
-        "Amount": 55.25
+        "Amount": 55.25,
+        "Type": "Purchase"
         },
         {
         "Source": "Pizza Hut",
-        "Amount": 22.75
+        "Amount": 22.75,
+        "Type": "Purchase"
+        },
+        {
+        "Source": "Check Imaging Fee",
+        "Amount": 12.00,
+        "Type": "Service Fee"
         },
         {
         "Source": "Taco Bell",
-        "Amount": 18.65 
+        "Amount": 18.65,
+        "Type": "Purchase" 
         },
         {
         "Source": "Kroger",
-        "Amount": 68.40
+        "Amount": 68.40,
+        "Type": "Purchase"
         },
         {
         "Source": "Comcast",
         "Amount": 72.00,
-        "Bill": true 
+        "Type": "Bill Pay"
         },
         {
         "Source": "Office Depot",
-        "Amount": 8.55
+        "Amount": 8.55,
+        "Type": "Purchase"
         },
         {
         "Source": "Red Robin",
-        "Amount": 43.15
+        "Amount": 43.15,
+        "Type": "Purchase"
+        },
+        {
+        "Source": "Monthly Maintenance Fee",
+        "Amount": 6.50,
+        "Type": "Service Fee"
         },
         {
         "Source": "Netflix",
         "Amount": 9.99,
-        "Bill": true
+        "Type": "Bill Pay"
         },
         {
         "Source": "Burger King",
-        "Amount": 24.95
+        "Amount": 24.95,
+        "Type": "Purchase"
         }
     ],
 "Savings": 
     [
         {
         "Source": "Deposit",
-        "Amount": 150
+        "Amount": 150,
+        "Type": "Credit"
         },
         {
         "Source": "Interest",
-        "Amount": 2.25 
+        "Amount": 2.25,
+        "Type": "Credit" 
         },
         {
         "Source": "Deposit",
-        "Amount": 75
+        "Amount": 75,
+        "Type": "Credit"
         },
         {
         "Source": "Interest",
-        "Amount": 1.50
+        "Amount": 1.50,
+        "Type": "Credit"
         }
     ],
 "Credit": 
     [
         {
         "Source": "Amazon",
-        "Amount": 31.72
+        "Amount": 31.72,
+        "Type": "Purchase"
         },
         {
         "Source": "Office Depot",
-        "Amount": 10.25
+        "Amount": 10.25,
+        "Type": "Purchase"
         },
         {
         "Source": "Annual Fee",
         "Amount": 95,
-        "Fee": true
+        "Type": "Service Fee"
         },
         {
         "Source": "Red Robin",
-        "Amount": 52.75
+        "Amount": 52.75,
+        "Type": "Purchase"
         },
         {
         "Source": "Burger King",
-        "Amount": 18.10
+        "Amount": 18.10,
+        "Type": "Purchase"
         },
         {
         "Source": "Late Payment Fee",
         "Amount": 35,
-        "Fee": true
+        "Type": "Service Fee"
         }
     ],
 "Users": 
