@@ -93,8 +93,18 @@
                 <p class="returnText">Return to <a href="../accounts.html">accounts overview</a></p>
                 <h3 id="creditTotalBal">Current Balance: $</h3>
             </section>
-            <section id="creditTransactions" class="transactionList">
-
+            <section class="transactionListSection">
+                <label class="filterLabel">Filter by transaction type: 
+                    <select id="transactionFilter">
+                        <option></option>
+                        <option>Purchase</option>
+                        <option>Bill Pay</option>
+                        <option>Transfer</option>
+                        <option>Service Fee</option>
+                        <option>Credit</option>
+                    </select>
+                </label>
+                <div id="creditTransactions" class="transactionList"></div>
             </section>
         </main>
         <footer>
