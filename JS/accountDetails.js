@@ -1,3 +1,5 @@
+'use strict';
+
 const checkingTransactions = document.getElementById('checkingTransactions');
 const savingsTransactions = document.getElementById('savingsTransactions');
 const creditTransactions = document.getElementById('creditTransactions');
@@ -19,6 +21,12 @@ const currentPassInput = document.getElementById('currentPassInput');
 const changePassInput = document.getElementById('changePassInput');
 const confirmPassInput = document.getElementById('confirmPassInput');
 const updateStatus = document.getElementById('updateStatus');
+const transactionFilter = document.getElementById('transactionFilter');
+
+if(localStorage.getItem('loggedIn') === null) {
+    alert('Please log back in to view accounts');
+    location.href = '../index.html';
+}
 
 /*
 Determines which account page is the user is on and displays the correct information for that account. Displays localStorage data for internal transfers if present.
@@ -70,33 +78,21 @@ if(document.querySelector('#checkingTotalBal')) {
 function displayTransactions() {
     if(document.querySelector('#checkingTotalBal')) {
         for(const transaction of transactionData.Checking) {
-            if(transaction.Bill) {
-                checkingTransactions.innerHTML += `
-            <p>Bill Pay: ${transaction.Source} - $${transaction.Amount}</p>
-            `
-            } else {
-                checkingTransactions.innerHTML += `
-            <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
-            `
-            }
+            checkingTransfers.push(transaction);
+            checkingTransactions.innerHTML += `
+            <p>${transaction.Type}: ${transaction.Source} - $${transaction.Amount.toFixed(2)}</p>`;
         }
     } else if(document.querySelector('#savingsTotalBal')) {
         for(const transaction of transactionData.Savings) {
+            savingsTransfers.push(transaction);
             savingsTransactions.innerHTML += `
-        <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
-        `
+            <p>${transaction.Type}: ${transaction.Source} + $${transaction.Amount.toFixed(2)}</p>`;
         }
     } else if(document.querySelector('#creditTotalBal')) {
         for(const transaction of transactionData.Credit) {
-            if(transaction.Fee) {
-                creditTransactions.innerHTML += `
-            <p>Service Fee: ${transaction.Source} - $${transaction.Amount}</p>
-            `
-            } else {
-                creditTransactions.innerHTML += `
-            <p>Purchase: ${transaction.Source} - $${transaction.Amount}</p>
-            `
-            }
+            creditTransfers.push(transaction);
+            creditTransactions.innerHTML += `
+            <p>${transaction.Type}: ${transaction.Source} - $${transaction.Amount.toFixed(2)}</p>`;
         }
     }
 }
@@ -115,7 +111,109 @@ fetch('./database.json')
     })
     .catch((err) => console.log(err));
 
-    
+transactionFilter.addEventListener('change', () => {
+    if(document.querySelector('#checkingTotalBal')) {
+        checkingTransactions.innerHTML = '';
+        if(transactionFilter.value === 'Purchase') {
+            for(const match of checkingTransfers) {
+                if(match.Type === 'Purchase') {
+                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Transfer') {
+            for(const match of checkingTransfers) {
+                if(!match.Type) {
+                    checkingTransactions.innerHTML += `<p>${match}</p>`
+                }
+            }
+        } else if(transactionFilter.value === 'Bill Pay') {
+            for(const match of checkingTransfers) {
+                if(match.Type === 'Bill Pay') {
+                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Service Fee') {
+            for(const match of checkingTransfers) {
+                if(match.Type === 'Service Fee') {
+                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Credit') {
+            for(const match of checkingTransfers) {
+                if(match.Type === 'Credit') {
+                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        }
+    } else if(document.querySelector('#savingsTotalBal')) {
+        savingsTransactions.innerHTML = '';
+        if(transactionFilter.value === 'Purchase') {
+            for(const match of savingsTransfers) {
+                if(match.Type === 'Purchase') {
+                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Transfer') {
+            for(const match of savingsTransfers) {
+                if(!match.Type) {
+                    savingsTransactions.innerHTML += `<p>${match}</p>`
+                }
+            }
+        } else if(transactionFilter.value === 'Bill Pay') {
+            for(const match of savingsTransfers) {
+                if(match.Type === 'Bill Pay') {
+                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Service Fee') {
+            for(const match of savingsTransfers) {
+                if(match.Type === 'Service Fee') {
+                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Credit') {
+            for(const match of savingsTransfers) {
+                if(match.Type === 'Credit') {
+                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        }
+    } else if(document.querySelector('#creditTotalBal')) {
+        creditTransactions.innerHTML = '';
+        if(transactionFilter.value === 'Purchase') {
+            for(const match of creditTransfers) {
+                if(match.Type === 'Purchase') {
+                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Transfer') {
+            for(const match of creditTransfers) {
+                if(!match.Type) {
+                    creditTransactions.innerHTML += `<p>${match}</p>`
+                }
+            }
+        } else if(transactionFilter.value === 'Bill Pay') {
+            for(const match of creditTransfers) {
+                if(match.Type === 'Bill Pay') {
+                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Service Fee') {
+            for(const match of creditTransfers) {
+                if(match.Type === 'Service Fee') {
+                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        } else if(transactionFilter.value === 'Credit') {
+            for(const match of creditTransfers) {
+                if(match.Type === 'Credit') {
+                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
+                } 
+            }
+        }
+    }
+});
+
 if(JSON.parse(localStorage.getItem('userId')) !== null && JSON.parse(localStorage.getItem('loggedIn')) !== null) {
     for(let instance of loggedIn) {
         instance.textContent = JSON.parse(localStorage.getItem('userId'));
