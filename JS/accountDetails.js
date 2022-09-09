@@ -114,103 +114,31 @@ fetch('./database.json')
 transactionFilter.addEventListener('change', () => {
     if(document.querySelector('#checkingTotalBal')) {
         checkingTransactions.innerHTML = '';
-        if(transactionFilter.value === 'Purchase') {
-            for(const match of checkingTransfers) {
-                if(match.Type === 'Purchase') {
-                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
+        checkingTransfers.filter((transaction) => {
+            if(transaction.Type === transactionFilter.value) {
+                checkingTransactions.innerHTML += `<p>${transaction.Type}: ${transaction.Source} - $${transaction.Amount.toFixed(2)}</p>`;
+            } else if(!transaction.Type && transactionFilter.value === 'Transfer') {
+                checkingTransactions.innerHTML += `<p>${transaction}</p>`
             }
-        } else if(transactionFilter.value === 'Transfer') {
-            for(const match of checkingTransfers) {
-                if(!match.Type) {
-                    checkingTransactions.innerHTML += `<p>${match}</p>`
-                }
-            }
-        } else if(transactionFilter.value === 'Bill Pay') {
-            for(const match of checkingTransfers) {
-                if(match.Type === 'Bill Pay') {
-                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        } else if(transactionFilter.value === 'Service Fee') {
-            for(const match of checkingTransfers) {
-                if(match.Type === 'Service Fee') {
-                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        } else if(transactionFilter.value === 'Credit') {
-            for(const match of checkingTransfers) {
-                if(match.Type === 'Credit') {
-                    checkingTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        }
+        });
     } else if(document.querySelector('#savingsTotalBal')) {
         savingsTransactions.innerHTML = '';
-        if(transactionFilter.value === 'Purchase') {
-            for(const match of savingsTransfers) {
-                if(match.Type === 'Purchase') {
-                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
+        savingsTransfers.filter((transaction) => {
+            if(transaction.Type === transactionFilter.value) {
+                savingsTransactions.innerHTML += `<p>${transaction.Type}: ${transaction.Source} - $${transaction.Amount.toFixed(2)}</p>`;
+            } else if(!transaction.Type && transactionFilter.value === 'Transfer') {
+                savingsTransactions.innerHTML += `<p>${transaction}</p>`
             }
-        } else if(transactionFilter.value === 'Transfer') {
-            for(const match of savingsTransfers) {
-                if(!match.Type) {
-                    savingsTransactions.innerHTML += `<p>${match}</p>`
-                }
-            }
-        } else if(transactionFilter.value === 'Bill Pay') {
-            for(const match of savingsTransfers) {
-                if(match.Type === 'Bill Pay') {
-                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        } else if(transactionFilter.value === 'Service Fee') {
-            for(const match of savingsTransfers) {
-                if(match.Type === 'Service Fee') {
-                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        } else if(transactionFilter.value === 'Credit') {
-            for(const match of savingsTransfers) {
-                if(match.Type === 'Credit') {
-                    savingsTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        }
+        });
     } else if(document.querySelector('#creditTotalBal')) {
         creditTransactions.innerHTML = '';
-        if(transactionFilter.value === 'Purchase') {
-            for(const match of creditTransfers) {
-                if(match.Type === 'Purchase') {
-                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
+        creditTransfers.filter((transaction) => {
+            if(transaction.Type === transactionFilter.value) {
+                creditTransactions.innerHTML += `<p>${transaction.Type}: ${transaction.Source} - $${transaction.Amount.toFixed(2)}</p>`;
+            } else if(!transaction.Type && transactionFilter.value === 'Transfer') {
+                creditTransactions.innerHTML += `<p>${transaction}</p>`
             }
-        } else if(transactionFilter.value === 'Transfer') {
-            for(const match of creditTransfers) {
-                if(!match.Type) {
-                    creditTransactions.innerHTML += `<p>${match}</p>`
-                }
-            }
-        } else if(transactionFilter.value === 'Bill Pay') {
-            for(const match of creditTransfers) {
-                if(match.Type === 'Bill Pay') {
-                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        } else if(transactionFilter.value === 'Service Fee') {
-            for(const match of creditTransfers) {
-                if(match.Type === 'Service Fee') {
-                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        } else if(transactionFilter.value === 'Credit') {
-            for(const match of creditTransfers) {
-                if(match.Type === 'Credit') {
-                    creditTransactions.innerHTML += `<p>${match.Type}: ${match.Source} - $${match.Amount.toFixed(2)}</p>`;
-                } 
-            }
-        }
+        });
     }
 });
 
