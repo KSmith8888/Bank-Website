@@ -1,3 +1,5 @@
+'use strict';
+
 const board1 = document.getElementById('board1');
 const board2 = document.getElementById('board2');
 const board3 = document.getElementById('board3');
@@ -15,6 +17,7 @@ const currentPassInput = document.getElementById('currentPassInput');
 const changePassInput = document.getElementById('changePassInput');
 const confirmPassInput = document.getElementById('confirmPassInput');
 const updateStatus = document.getElementById('updateStatus');
+const ourLocations = document.getElementById('ourLocations');
 
 function loadStaticUsers() {
     let usersData = [];
@@ -49,6 +52,29 @@ fetch(`https://jsonplaceholder.typicode.com/users/${i + 1}`)
     loadStaticUsers();
     });
 }
+
+function displayLocations() {
+    fetch('Accounts/database.json')
+        .then((networkResponse) => {
+            return networkResponse.json()
+        })
+        .then((data) => {
+            const locationData = data.Users
+            for(const location of locationData) {
+                const rando = Math.floor(Math.random() * 100) + 100;
+                ourLocations.innerHTML += `
+                <div class="locationCon">
+                    <h3>Location #${rando}:</h3>
+                    <p>${location.address.street}, ${location.address.suite}</p>
+                    <p>${location.address.street} ${location.address.zipcode}</p>
+                    <p>State, USA</p>
+                </div>
+                `
+            }
+        });
+}
+
+displayLocations()
 
 if(JSON.parse(localStorage.getItem('userId')) !== null && JSON.parse(localStorage.getItem('loggedIn')) !== null) {
     for(let instance of loggedIn) {
