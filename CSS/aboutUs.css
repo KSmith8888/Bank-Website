@@ -3,4 +3,27 @@
     padding: 2em;
     border: 2px solid var(--darkBlue);
     background-color: var(--skyblue);
+    width: 90vw;
+}
+
+#locationSection {
+    margin: 3em;
+    padding: 2em;
+    border: 2px solid var(--darkBlue);
+    background-color: var(--skyblue);
+    width: 90vw;
+}
+
+.locationCon {
+    width: 25%;
+    padding: 2em;
+    border: 1px solid var(--darkBlue);
+    margin: 2em;
+    background-color: var(--lightGrey);
+}
+
+#ourLocations {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
