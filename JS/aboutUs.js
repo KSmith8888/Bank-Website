@@ -1,13 +1,7 @@
 'use strict';
 
-const board1 = document.getElementById('board1');
-const board2 = document.getElementById('board2');
-const board3 = document.getElementById('board3');
-const board4 = document.getElementById('board4');
-const board5 = document.getElementById('board5');
-let members = [board1, board2, board3, board4, board5];
 const loggedIn = document.getElementsByClassName("loggedIn");
-
+const ourBoard = document.getElementById('ourBoard');
 const settingsForm = document.getElementById('settingsForm');
 const closeDialogBtn = document.getElementById('closeDialogBtn');
 const currentUserInput = document.getElementById('currentUserInput');
@@ -21,7 +15,6 @@ const ourLocations = document.getElementById('ourLocations');
 
 function loadStaticUsers() {
     let usersData = [];
-    let memberNum = 0;
     fetch('Accounts/database.json')
         .then((response) => {
             return response.json()
@@ -29,14 +22,23 @@ function loadStaticUsers() {
         .then((data) => {
             usersData = data.Users;
             for(const member of usersData) {
-            members[memberNum].innerText = `${member.name} --- ${member.email} --- ${member.phone} --- ${member.website}`;
-            memberNum++
+                ourBoard.innerHTML += `
+                <div class="memberCon">
+                    <p>${member.name}</p>
+                    <p>Contact Info:</p>
+                    <ul>
+                        <li>Phone: ${member.phone}</li>
+                        <li>Email: ${member.email}</li>
+                        <li>Website: ${member.website}</li>
+                    </ul>
+                </div>
+                `;
             }
         })
 }
 
-for(let i = 0; i < 5; i++) {
-fetch(`https://jsonplaceholder.typicode.com/users/${i + 1}`)
+function displayBoard() {
+fetch(`https://jsonplaceholder.typicode.com/users`)
     .then((response) => {
     if(response.ok) {
         return response.json();
@@ -45,13 +47,26 @@ fetch(`https://jsonplaceholder.typicode.com/users/${i + 1}`)
     }
     })
     .then((data) => {
-    members[i].innerText = `${data.name} --- ${data.email} --- ${data.phone} --- ${data.website}`;
+        for(const member of data) {
+            ourBoard.innerHTML += `
+            <div class="memberCon">
+                <p>${member.name}</p>
+                <p>Contact Info:</p>
+                <ul>
+                    <li>Phone: ${member.phone}</li>
+                    <li>Email: ${member.email}</li>
+                    <li>Website: ${member.website}</li>
+                </ul>
+            </div>
+            `;
+        }
     })
     .catch((err) => {
     console.log(err);
     loadStaticUsers();
     });
 }
+displayBoard()
 
 function displayLocations() {
     fetch('Accounts/database.json')
@@ -73,7 +88,6 @@ function displayLocations() {
             }
         });
 }
-
 displayLocations()
 
 if(JSON.parse(localStorage.getItem('userId')) !== null && JSON.parse(localStorage.getItem('loggedIn')) !== null) {
