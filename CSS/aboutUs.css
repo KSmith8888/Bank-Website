@@ -1,13 +1,12 @@
-#boardSection {
-    margin: 3em;
-    padding: 2em;
-    border: 2px solid var(--darkBlue);
-    background-color: var(--skyblue);
-    width: 90vw;
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
 }
 
 #locationSection {
-    margin: 3em;
+    margin: 2em;
     padding: 2em;
     border: 2px solid var(--darkBlue);
     background-color: var(--skyblue);
@@ -19,11 +18,50 @@
     padding: 2em;
     border: 1px solid var(--darkBlue);
     margin: 2em;
-    background-color: var(--lightGrey);
+    background-color: var(--lightBlue);
 }
 
 #ourLocations {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+#boardSection {
+    margin: 2em;
+    padding: 2em;
+    border: 2px solid var(--darkBlue);
+    background-color: var(--skyblue);
+    width: 90vw;
+}
+
+#ourBoard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.memberCon {
+    width: 30%;
+    padding: 2em;
+    border: 1px solid var(--darkBlue);
+    margin: 1em;
+    background-color: var(--lightBlue);
+}
+
+.headerCon {
+    width: 30%;
+}
+
+h2 {
+    color: var(--offWhite);
+    font-weight: 700;
+    color: var(--mediumBlue);
+    background-color: var(--lightBlue);
+    padding: 1em;
+    margin: 2em;
+    width: fit-content;
+    border: 1px solid var(--darkBlue);
 }
