@@ -2,6 +2,8 @@
     --skyblue: skyblue;
     --darkBlue: rgb(9, 9, 70);
     --lightGrey: rgb(228, 216, 216);
+    --lighterGrey: rgb(231, 230, 230);
+    --mediumGrey: rgb(145, 135, 135);
     --lightBlue: rgb(216, 236, 247);
     --mediumBlack: #1c1c1c;
     --mediumBlue: rgb(17, 17, 139);
@@ -163,14 +165,14 @@ footer {
 }
 
 #chat-box {
-    background-color: var(--lightGrey);
-    padding: 1em; 
+    background-color: var(--lighterGrey);
+    padding: 1.5em; 
 }
 
 #chat-list {
     background-color: #FFF;
     border: 1px solid var(--mediumBlack);
-    padding: .5em;
+    padding: .8em 5em .8em .2em;
     margin: 1em;
 }
 
@@ -190,9 +192,16 @@ footer {
 #chat-button {
     cursor: pointer;
     border-radius: 5px;
+    background-color: var(--lightGrey);
+    font-weight: bold;
     border: 1px solid var(--mediumBlack);
-    padding: .5em;
+    padding: .5em .8em;
     margin-left: 1em;
+}
+
+#close-chat-button:hover, #close-chat-button:focus,
+#chat-button:hover, #chat-button:focus {
+    background-color: var(--mediumGrey);
 }
 
 #chat-input {
