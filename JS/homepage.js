@@ -125,3 +125,19 @@ settingsForm.addEventListener('submit', (event) => {
         }, 1500);
     }
 });
+
+document.querySelector('#open-chat-button').addEventListener('click', () => {
+    document.querySelector('#chat-box').showModal();
+    document.querySelector('#chat-input').focus();
+});
+
+document.querySelector('#close-chat-button').addEventListener('click', () => {
+    document.querySelector('#chat-box').close();
+});
+
+document.querySelector('#chat-button').addEventListener('click', () => {
+    let message = document.querySelector('#chat-input').value;
+    document.querySelector('#chat-list').innerHTML += `
+    <p>You: ${message}</p>
+    `;
+});
