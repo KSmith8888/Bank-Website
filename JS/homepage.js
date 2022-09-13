@@ -135,9 +135,35 @@ document.querySelector('#close-chat-button').addEventListener('click', () => {
     document.querySelector('#chat-box').close();
 });
 
-document.querySelector('#chat-button').addEventListener('click', () => {
+function chatResponse(userInput) {
+    let randomIndex = Math.floor(Math.random() * 2) + 1;
+    let chatResponse = '';
+    console.log(randomIndex)
+    fetch(('Accounts/database.json'))
+        .then((response) => response.json())
+        .then((data) => {
+            if(userInput.toLowerCase().includes('account')) {
+                chatResponse = data.Chat.Responses.Account[randomIndex]
+            } else {
+                chatResponse = data.Chat.Responses.Confused[randomIndex];
+            }
+            document.querySelector('#chat-list').innerHTML += `
+            <p>Agent: ${chatResponse}</p>
+            `;
+        });
+}
+
+document.querySelector('#chat-input-form').addEventListener('submit', (e) => {
+    e.preventDefault();
     let message = document.querySelector('#chat-input').value;
-    document.querySelector('#chat-list').innerHTML += `
-    <p>You: ${message}</p>
-    `;
+    //Do not initiate chat input if it contains certain characters
+    if(message.includes('<') || message.includes('>') || message.includes('$') || message.includes('{') || message.includes('}') || message.includes('=') || message.includes('!') || message.includes('*') || message.includes('&') || message.includes(';') || message.includes('(') || message.includes(')') || message.includes('|') || message.includes('@')) {
+        alert('Please do not include special characters in the chat input.');
+    } else {
+        document.querySelector('#chat-list').innerHTML += `
+        <p>You: ${message}</p>
+        `;
+        chatResponse(message)
+        document.querySelector('#chat-input').value = '';
+    }
 });
