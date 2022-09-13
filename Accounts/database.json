@@ -249,5 +249,19 @@
             "bs": "revolutionize end-to-end systems"
             }
         }
-    ]
+    ],
+"Chat": {
+    "Responses": {
+        "Confused": [
+            "I'm sorry, I didn't understand. Can you please try again.",
+            "Unfortunately, I am unable to assist you at this time.",
+            "Unfortunately, we do not currently offer that service."
+        ],
+        "Account": [
+            "So you would like to open a new account today, is that right?",
+            "We offer checking, savings and money market accounts.",
+            "So you have an issue with your account, is that right?"
+        ]
+    }
+}
 }
