@@ -80,7 +80,7 @@
                 <a href="#">Link 5</a>
             </li>
             <li>
-                <a href="#">Link 6</a>
+                <a href="./advice.html">Financial Advice</a>
             </li>
             <li>
                 <a href="./aboutUs.html">About Us</a>
@@ -120,7 +120,7 @@
                     <li>Premium customer service support</li>
                     <li>Overdraft fees waived once per 12 months</li>
                 </ul>
-                <a href="#" class="offer-link">Open New Account</a>
+                <a href="./products.html" class="offer-link">Open New Account</a>
             </div>
         </section>
     </main>
@@ -130,8 +130,22 @@
             <li><a href="./maintenance.html">Privacy Policy</a></li>
             <li><a href="./maintenance.html">Support</a></li>
         </ul>
-        <p>Legal information and disclosures.</p>
+        <p class="disclosures">Legal information and disclosures.</p>
     </footer>
+    <div id="chat-container">
+        <button id="open-chat-button">Chat Now</button>
+        <p id="chat-help">Customer Service Chat</p>
+    </div>
+    <dialog id="chat-box">
+        <button id="close-chat-button">X</button>
+        <h3>Customer service virtual chat</h3>
+        <p>Speak to a virtual agent below</p>
+        <div id="chat-list">
+            <p>Agent: Hi, how can I help you today?</p>
+        </div>
+        <input type="text" placeholder="Enter your question here" id="chat-input">
+        <button id="chat-button">Chat</button>
+    </dialog>
   </div>
   <script src="JS/homepage.js"></script>
 </body>
