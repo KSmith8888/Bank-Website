@@ -6,6 +6,7 @@
     --mediumBlack: #1c1c1c;
     --mediumBlue: rgb(17, 17, 139);
     --offWhite: rgb(235, 225, 225);
+    --chatBlue: rgb(25, 25, 112);
 } 
 
 * {
@@ -59,23 +60,6 @@ a.active-link {
     text-decoration: underline;
 }
 
-footer {
-    text-align: center;
-    width: 100%;
-}
-
-.legalLinks {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    width: 100%;
-}
-
-.legalLinks a {
-    text-decoration: none;
-    margin: 0 1em;
-}
-
 .logoImg {
     border: 1px solid var(--darkBlue);
     width: 88px;
@@ -123,4 +107,94 @@ footer {
 
 #settingsForm input, #settingsForm button {
     margin: 1em 0;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+}
+
+.legalLinks {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    width: 100%;
+}
+
+.legalLinks a {
+    text-decoration: none;
+    margin: 0 1em;
+}
+
+.disclosures {
+    margin: 0;
+}
+
+#chat-container {
+    display: flex;
+    padding: .5em 1.2em;
+    color: white;
+    font-weight: bold;
+    background-color: var(--chatBlue);
+    border: 1px solid var(--mediumBlack);
+    right: 2em;
+    bottom: 0;
+    position: fixed;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#chat-help {
+    margin: 0 1em;
+}
+
+#open-chat-button {
+    background-color: var(--lightGrey);
+    border: 1px solid var(--mediumBlack);
+    color: var(--mediumBlack);
+    font-weight: bold;
+    border-radius: 2px;
+    padding: .3em .5em;
+    cursor: pointer;
+}
+
+#open-chat-button:hover, #open-chat-button:focus {
+    background-color: var(--lightBlue);
+}
+
+#chat-box {
+    background-color: var(--lightGrey);
+    padding: 1em; 
+}
+
+#chat-list {
+    background-color: #FFF;
+    border: 1px solid var(--mediumBlack);
+    padding: .5em;
+    margin: 1em;
+}
+
+#chat-list p {
+    margin: .2em 0;
+}
+
+#close-chat-button {
+    font-size: 1.1rem;
+    padding: .3em .7em;
+    font-weight: bold;
+    border: 2px solid var(--mediumBlack);
+    background-color: var(--lightGrey);
+    cursor: pointer;
+}
+
+#chat-button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--mediumBlack);
+    padding: .5em;
+    margin-left: 1em;
+}
+
+#chat-input {
+    padding: .5em;
 }
