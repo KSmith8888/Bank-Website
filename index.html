@@ -143,8 +143,10 @@
         <div id="chat-list">
             <p>Agent: Hi, how can I help you today?</p>
         </div>
-        <input type="text" placeholder="Enter your question here" id="chat-input">
-        <button id="chat-button">Chat</button>
+        <form id="chat-input-form">
+            <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*'* ]{2,40}" minlength="2" maxlength="40">
+            <button id="chat-button">Chat</button>
+        </form>
     </dialog>
   </div>
   <script src="JS/homepage.js"></script>
