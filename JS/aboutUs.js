@@ -51,12 +51,14 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
             ourBoard.innerHTML += `
             <div class="memberCon">
                 <p>${member.name}</p>
-                <p>Contact Info:</p>
+                <details>
+                <summary>Contact Info:</summary>
                 <ul>
                     <li>Phone: ${member.phone}</li>
                     <li>Email: ${member.email}</li>
                     <li>Website: ${member.website}</li>
                 </ul>
+                </details>
             </div>
             `;
         }
@@ -69,22 +71,29 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
 displayBoard()
 
 function displayLocations() {
+    const locationImagePaths = ["Images/Locations/location1.jpg", "Images/Locations/location2.jpg", "Images/Locations/location3.jpg", "Images/Locations/location4.jpg", "Images/Locations/location5.jpg"];
     fetch('Accounts/database.json')
         .then((networkResponse) => {
             return networkResponse.json()
         })
         .then((data) => {
             const locationData = data.Users
+            let imageIndex = 0;
             for(const location of locationData) {
+                
                 const rando = Math.floor(Math.random() * 100) + 100;
                 ourLocations.innerHTML += `
                 <div class="locationCon">
-                    <h3>Location #${rando}:</h3>
-                    <p>${location.address.street}, ${location.address.suite}</p>
-                    <p>${location.address.street} ${location.address.zipcode}</p>
-                    <p>State, USA</p>
+                    <div class="locationText">
+                        <h3>Location #${rando}:</h3>
+                        <p>${location.address.street}, ${location.address.suite}</p>
+                        <p>${location.address.street} ${location.address.zipcode}</p>
+                        <p>State, USA</p>
+                    </div>
+                    <img src="${locationImagePaths[imageIndex]}" alt="The beautiful exterior of this branch of the bank." class="locationImage">
                 </div>
                 `
+                imageIndex++;
             }
         });
 }
