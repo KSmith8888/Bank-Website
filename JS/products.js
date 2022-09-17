@@ -134,3 +134,9 @@ const rotateProducts = setInterval(() => {
         ads.style.backgroundImage = 'url(Images/checkingImage.jpg)';
     }
 }, 8000);
+
+//Sends user to homepage after clicking log out button
+document.querySelector('.logOutBtn').addEventListener('click', () => {
+    localStorage.removeItem('loggedIn');
+    location.href = './index.html';
+});
