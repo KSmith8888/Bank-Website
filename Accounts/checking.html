@@ -71,19 +71,16 @@
                     <a href="../products.html">Products</a>
                 </li>
                 <li>
-                    <a href="#">Link 3</a>
+                    <a href="../advice.html">Financial Advice</a>
+                </li>
+                <li>
+                    <a href="../mortgageCalculator.html">Mortgage Calculator</a>
                 </li>
                 <li>
                     <a href="#">Link 4</a>
                 </li>
                 <li>
-                    <a href="#">Link 5</a>
-                </li>
-                <li>
-                    <a href="#">Link 6</a>
-                </li>
-                <li>
-                    <a href="../aboutUs.html">About Us</a>
+                    <a href="../aboutUs.html" class="active-link">About Us</a>
                 </li>
             </ul>
         </nav>
@@ -115,7 +112,24 @@
             </ul>
             <p>Legal information and disclosures.</p>
         </footer>
+        <div id="chat-container">
+            <button id="open-chat-button">Chat Now</button>
+            <p id="chat-help">Customer Service Chat</p>
+        </div>
+        <dialog id="chat-box">
+            <button id="close-chat-button">X</button>
+            <h3>Customer service virtual chat</h3>
+            <p>Speak to a virtual agent below</p>
+            <div id="chat-list">
+                <p>Agent: Hi, how can I help you today?</p>
+            </div>
+            <form id="chat-input-form">
+                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*'* ]{2,40}" minlength="2" maxlength="40">
+                <button id="chat-button">Chat</button>
+            </form>
+        </dialog>
     </div>
+    <script src="../JS/global.js"></script>
     <script src="../JS/accountDetails.js"></script>
 </body>
 </html>
