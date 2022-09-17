@@ -71,16 +71,13 @@
                     <a href="./products.html">Products</a>
                 </li>
                 <li>
-                    <a href="#">Link 3</a>
+                    <a href="./advice.html" class="active-link">Financial Advice</a>
+                </li>
+                <li>
+                    <a href="./mortgageCalculator.html">Mortgage Calculator</a>
                 </li>
                 <li>
                     <a href="#">Link 4</a>
-                </li>
-                <li>
-                    <a href="#">Link 5</a>
-                </li>
-                <li>
-                    <a href="./advice.html" class="active-link">Financial Advice</a>
                 </li>
                 <li>
                     <a href="./aboutUs.html">About Us</a>
@@ -93,35 +90,35 @@
                 <article class="article">
                     <img src="Images/Articles/article1Image.jpg" alt="Several rolls of various denominations of bills." class="article-image">
                     <div class="article-text">
-                        <h3>Making the most of your money</h3>
+                        <h3><a href="./maintenance.html">Making the most of your money</a></h3>
                         <p> Doloremque eius! Repellat blanditiis odit quaerat cum autem sequi tenetur. Ducimus corporis voluptates nobis maiores. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, praesentium! Labore sit itaque maxime soluta id optio....<a href="./maintenance.html">read more</a></p>
                     </div>
                 </article>
                 <article class="article">
                     <img src="Images/Articles/article2Image.jpg" alt="A store shelf containing various beverages." class="article-image">
                     <div class="article-text">
-                        <h3>Get the best discounts at the grocery store</h3>
+                        <h3><a href="./maintenance.html">Get the best discounts at the grocery store</a></h3>
                         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum repudiandae quis totam eaque quos! Similique, veritatis nulla. Pariatur itaque unde eum, culpa labore perferendis cumque aliquid expedita perspiciatis illum dolorem.....<a href="./maintenance.html">read more</a></p>
                     </div>
                 </article>
                 <article class="article">
                     <img src="Images/Articles/article3Image.jpg" alt="Stacks of coins leading to a jar full of coins with plants sprouting from each of them." class="article-image">
                     <div class="article-text">
-                        <h3>Grow your savings faster</h3>
+                        <h3><a href="./maintenance.html">Grow your savings faster</a></h3>
                         <p> Sit amet consectetur adipisicing elit. Laborum repudiandae quis totam eaque quos! Similique, veritatis nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, obcaecati! Pariatur itaque unde eum, culpa labore perferendis cumque aliquid expedita perspiciatis illum dolorem.....<a href="./maintenance.html">read more</a></p>
                     </div>
                 </article>
                 <article class="article">
                     <img src="Images/Articles/article4Image.jpg" alt="A stock-trading display with share prices of various stocks." class="article-image">
                     <div class="article-text">
-                        <h3>Investing mistakes to avoid</h3>
+                        <h3><a href="./maintenance.html">Investing mistakes to avoid</a></h3>
                         <p> Quis totam eaque quos! Similique, veritatis nulla. Pariatur itaque unde eum, culpa labore perferendis. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi accusamus molestias at aspernatur eum natus? Cumque aliquid expedita perspiciatis illum dolorem.....<a href="./maintenance.html">read more</a></p>
                     </div>
                 </article>
                 <article class="article">
                     <img src="Images/Articles/article5Image.jpg" alt="A rack of dress shirts hanging in a store." class="article-image">
                     <div class="article-text">
-                        <h3>Limit the damage when buying clothes</h3>
+                        <h3><a href="./maintenance.html">Limit the damage when buying clothes</a></h3>
                         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum repudiandae quis totam eaque quos! Similique, veritatis nulla. Pariatur itaque unde eum, culpa labore perferendis cumque aliquid expedita perspiciatis illum dolorem.....<a href="./maintenance.html">read more</a></p>
                     </div>
                 </article>
@@ -129,8 +126,9 @@
             <section id="highlight-section">
                 <article id="highlight-container">
                     <img src="Images/Articles/highlightImage.jpg" alt="A latop displaying graphs and data." class="highlight-image">
-                    <h3>Creating a budget you can stick with</h3>
+                    <h3><a href="./maintenance.html">Creating a budget you can stick with</a></h3>
                     <p class="highlight-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto non quos quo sapiente earum ipsam reprehenderit! Officiis quos ullam maiores nulla dolor nemo dolorum expedita eius, nam accusantium? Inventore natus nisi quo dicta qui officia praesentium temporibus soluta! Rerum nam qui voluptatem a ipsa omnis at quas nisi voluptatibus necessitatibus!</p>
+                    <a href="./maintenance.html">read more</a></p>
                 </article>
             </section>
         </main>
@@ -142,6 +140,23 @@
             </ul>
             <p>Legal information and disclosures.</p>
         </footer>
+        <div id="chat-container">
+            <button id="open-chat-button">Chat Now</button>
+            <p id="chat-help">Customer Service Chat</p>
+        </div>
+        <dialog id="chat-box">
+            <button id="close-chat-button">X</button>
+            <h3>Customer service virtual chat</h3>
+            <p>Speak to a virtual agent below</p>
+            <div id="chat-list">
+                <p>Agent: Hi, how can I help you today?</p>
+            </div>
+            <form id="chat-input-form">
+                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*'* ]{2,40}" minlength="2" maxlength="40">
+                <button id="chat-button">Chat</button>
+            </form>
+        </dialog>
     </div>
+    <script src="JS/global.js"></script>
 </body>
 </html>
