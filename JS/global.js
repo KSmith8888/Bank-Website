@@ -93,8 +93,13 @@ document.querySelector('#close-chat-button').addEventListener('click', () => {
 function chatResponse(userInput) {
     let randomIndex = Math.floor(Math.random() * 2) + 1;
     let chatResponse = '';
-    console.log(randomIndex)
-    fetch(('Accounts/database.json'))
+    let url = '';
+    if(document.querySelector('#transactionFilter')) {
+        url = '../Accounts/database.json';
+    } else {
+        url = 'Accounts/database.json';
+    }
+    fetch((url))
         .then((response) => response.json())
         .then((data) => {
             if(userInput.toLowerCase().includes('account')) {
