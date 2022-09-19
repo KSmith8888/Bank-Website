@@ -1,9 +1,38 @@
+'use strict';
+
+let currentRate = 2;
+const mortgageAmountInput = document.querySelector('#mortgageAmountInput');
+const downPaymentInput = document.querySelector('#downPaymentInput');
+
+function calculatePayment(rate, term) {
+    let interest = (rate / 100) / 12;
+    let principal = mortgageAmountInput.value - downPaymentInput.value;
+    let numerator = principal * interest;
+    let denominator = 1 - Math.pow((1 + interest), -term);
+    let payment =  numerator / denominator; 
+    return payment;
+}
+
+function populateMortgageData() {
+    let thirtyYearRate = currentRate * 3;
+    let fifteenYearRate = currentRate * 2.5;
+    let fiveYearRate = currentRate * 2;
+    document.querySelector('#thirtyYearRate').textContent = `${thirtyYearRate.toFixed(2)}%`;
+    document.querySelector('#thirtyYearApr').textContent = `${(thirtyYearRate * 1.05).toFixed(2)}%`;
+    document.querySelector('#thirtyYearPayment').textContent = `$${calculatePayment(thirtyYearRate, 360).toFixed(2)}`;
+    document.querySelector('#fifteenYearRate').textContent = `${fifteenYearRate.toFixed(2)}%`;
+    document.querySelector('#fifteenYearApr').textContent = `${(fifteenYearRate * 1.05).toFixed(2)}%`;
+    document.querySelector('#fifteenYearPayment').textContent = `$${calculatePayment(fifteenYearRate, 180).toFixed(2)}`;
+    document.querySelector('#fiveYearRate').textContent = `${fiveYearRate.toFixed(2)}%`;
+    document.querySelector('#fiveYearApr').textContent = `${(fiveYearRate * 1.05).toFixed(2)}%`;
+    document.querySelector('#fiveYearPayment').textContent = `$${calculatePayment(fiveYearRate, 360).toFixed(2)}`;
+}
+
 async function getInterestRateData() {
     try {
         const response = await fetch('https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/avg_interest_rates?filter=record_date:eq:2022-08-31');
         if(response.ok) {
             const interestRateData = await response.json();
-            console.log(interestRateData);
             interestRateData.data.forEach((rate) => {
                 if(rate.security_desc === "Treasury Bills" || rate.security_desc === "Treasury Notes" || rate.security_desc === "Treasury Bonds" || rate.security_desc === "Federal Financing Bank" || rate.security_desc === "Total Marketable") {
                     document.querySelector('#interestRateInfo').innerHTML += `
@@ -11,6 +40,8 @@ async function getInterestRateData() {
                         <p class="interestRate">${rate.security_desc}: ${rate.avg_interest_rate_amt}</p>
                     </div>
                     `;
+                    currentRate = interestRateData.data[0].avg_interest_rate_amt;
+                    populateMortgageData();
                 }
             })
         } else {
@@ -18,7 +49,8 @@ async function getInterestRateData() {
         } 
     }
     catch(error) {
-        console.error(error)
+        console.error(error);
+        populateMortgageData();
     }
 }
 getInterestRateData();
@@ -27,4 +59,9 @@ getInterestRateData();
 document.querySelector('.logOutBtn').addEventListener('click', () => {
     localStorage.removeItem('loggedIn');
     location.href = './index.html';
+});
+
+document.querySelector('#calculatorForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    populateMortgageData();
 });
