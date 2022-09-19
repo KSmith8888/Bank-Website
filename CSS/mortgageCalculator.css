@@ -19,3 +19,36 @@
     text-align: center;
     padding: 0 .5em;
 }
+
+#calculatorSection {
+    margin: 1em 3em;
+}
+
+#mortgageDataTable {
+    margin: 2em 5em;
+    padding: 1em;
+    background-color: var(--offWhite);
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#mortgageDataTable caption {
+    padding: .5em;
+}
+
+#mortgageDataTable td, #mortgageDataTable th {
+    padding: 1em;
+    margin: .5em;
+}
+
+#calculatorForm {
+    margin: 2em 0;
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--darkBlue);
+}
+
+.border-right {
+    border-right: 1px solid var(--darkBlue);
+}
