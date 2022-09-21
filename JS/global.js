@@ -107,9 +107,9 @@ function chatResponse(userInput) {
             } else {
                 chatResponse = data.Chat.Responses.Confused[randomIndex];
             }
-            document.querySelector('#chat-list').innerHTML += `
-            <p>Agent: ${chatResponse}</p>
-            `;
+            let chatElement = document.createElement('p');
+            document.querySelector('#chat-list').append(`Agent: ${chatResponse}`, chatElement);
+            document.querySelector('#chat-list').scrollTop = document.querySelector('#chat-list').scrollHeight;
         });
 }
 
@@ -120,10 +120,10 @@ document.querySelector('#chat-input-form').addEventListener('submit', (e) => {
     if(message.includes('<') || message.includes('>') || message.includes('$') || message.includes('{') || message.includes('}') || message.includes('=') || message.includes('!') || message.includes('*') || message.includes('&') || message.includes(';') || message.includes('(') || message.includes(')') || message.includes('|') || message.includes('@')) {
         alert('Please do not include special characters in the chat input.');
     } else {
-        document.querySelector('#chat-list').innerHTML += `
-        <p>You: ${message}</p>
-        `;
-        chatResponse(message)
+        let chatElement = document.createElement('p');
+        document.querySelector('#chat-list').append(`You: ${message}`, chatElement);
+        document.querySelector('#chat-list').scrollTop = document.querySelector('#chat-list').scrollHeight;
+        chatResponse(message);
         document.querySelector('#chat-input').value = '';
     }
 });
