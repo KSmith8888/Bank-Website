@@ -1,5 +1,5 @@
 :root {
-    --skyblue: skyblue;
+    --skyblue: rgb(154, 207, 228);
     --darkBlue: rgb(9, 9, 70);
     --lightGrey: rgb(228, 216, 216);
     --lighterGrey: rgb(231, 230, 230);
@@ -20,6 +20,10 @@ body {
     padding: 0;
 }
 
+img {
+    max-width: 100%;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -36,12 +40,16 @@ header {
     justify-content: space-between;
 }
 
+.navbar {
+    padding: 1em 0;
+}
+
 .navbar ul {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1em auto;
+    margin: 0 auto;
     list-style: none;
 }
 
@@ -60,6 +68,7 @@ header {
 
 a.active-link {
     text-decoration: underline;
+    text-underline-offset: .3em;
 }
 
 .logoImg {
@@ -166,7 +175,9 @@ footer {
 
 #chat-box {
     background-color: var(--lighterGrey);
-    padding: 1.5em; 
+    padding: 1.5em;
+    width: 35vw; 
+    max-height: 90vh;
 }
 
 #chat-list {
@@ -174,6 +185,8 @@ footer {
     border: 1px solid var(--mediumBlack);
     padding: .8em 5em .8em .2em;
     margin: 1em;
+    max-height: 45vh;
+    overflow-y: scroll;
 }
 
 #chat-list p {
