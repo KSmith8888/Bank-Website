@@ -48,7 +48,30 @@
 }
 
 #calculatorForm {
-    margin: 1em 0 2em 0;
+    margin: 0 0 1em 0;
+    padding: 1em;
+    font-size: 1.2rem;
+    border: 1px solid var(--mediumBlack);
+    background-color: var(--lighterGrey);
+}
+
+#mortgageAmountInput, #downPaymentInput {
+    width: 8em;
+}
+
+#mortgageRateBtn {
+    background-color: var(--mediumBlue);
+    color: var(--offWhite);
+    border: 1px solid #FFF;
+    padding: .3em .7em;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+#mortgageRateBtn:hover, #mortgageRateBtn:focus {
+    background-color: var(--skyblue);
 }
 
 .border-bottom {
@@ -64,6 +87,7 @@
     border: 1px solid var(--darkBlue);
     width: fit-content;
     padding: .5em 1em;
+    width: 100%;
 }
 
 #mortgageAdImage {
@@ -74,6 +98,7 @@
 #calculatorTableCon {
     display: flex;
     flex-direction: column;
+    width: 60%;
 }
 
 #mortgageAdCon {
