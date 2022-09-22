@@ -86,17 +86,27 @@
         </nav>
         <main>
             <section id="locationSection">
-                <div class="headerCon">
-                    <h2>Our Locations:</h2>
+                <div id="ourLocations">
+                    <div class="headerCon">
+                        <h2>Our Locations:</h2>
+                    </div>
                 </div>
-                <div id="ourLocations"></div>
             </section>
-            <section id="boardSection">
-                <div class="headerCon">
-                    <h2>Our Board of Directors:</h2>
-                </div>
-                <div id="ourBoard"> </div>
-            </section>
+            <div id="columnCon">
+                <section id="missionSection">
+                    <div class="headerCon">
+                        <h2>Our Mission</h2>
+                    </div>
+                    <p id="missionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error adipisci, similique ducimus itaque iste deleniti sed. Facilis illo inventore dolores, cupiditate voluptatem iste voluptatum enim esse tempora porro ut repellendus dignissimos. Est obcaecati quasi iure molestiae maiores. Corrupti sint neque, a laudantium, culpa ratione iste libero ex nobis placeat sed.</p>
+                </section>
+                <section id="boardSection">
+                    <div id="ourBoard">
+                        <div class="headerCon">
+                            <h2>Our Board of Directors:</h2>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
         <footer>
             <ul class="legalLinks">
@@ -111,14 +121,14 @@
             <p id="chat-help">Customer Service Chat</p>
         </div>
         <dialog id="chat-box">
-            <button id="close-chat-button">X</button>
+            <button id="close-chat-button" aria-label="Close">X</button>
             <h3>Customer service virtual chat</h3>
             <p>Speak to a virtual agent below</p>
             <div id="chat-list">
                 <p>Agent: Hi, how can I help you today?</p>
             </div>
             <form id="chat-input-form">
-                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*'* ]{2,40}" minlength="2" maxlength="40">
+                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*,*'* ]{2,40}" minlength="2" maxlength="40">
                 <button id="chat-button">Chat</button>
             </form>
         </dialog>
