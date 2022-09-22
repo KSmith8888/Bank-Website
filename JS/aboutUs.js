@@ -41,14 +41,12 @@ fetch(`https://jsonplaceholder.typicode.com/users`)
             ourBoard.innerHTML += `
             <div class="memberCon">
                 <p>${member.name}</p>
-                <details>
-                <summary>Contact Info:</summary>
+                <p>Contact Info:</p>
                 <ul>
                     <li>Phone: ${member.phone}</li>
                     <li>Email: ${member.email}</li>
                     <li>Website: ${member.website}</li>
                 </ul>
-                </details>
             </div>
             `;
         }
@@ -76,8 +74,10 @@ function displayLocations() {
                 <div class="locationCon">
                     <div class="locationText">
                         <h3>Location #${rando}:</h3>
-                        <p>${location.address.street}, ${location.address.suite}</p>
-                        <p>${location.address.street} ${location.address.zipcode}</p>
+                        <p>${location.address.street},</p>
+                        <p>${location.address.suite}</p>
+                        <p>${location.address.street}</p>
+                        <p>${location.address.zipcode}</p>
                         <p>State, USA</p>
                     </div>
                     <img src="${locationImagePaths[imageIndex]}" alt="The beautiful exterior of this branch of the bank." class="locationImage">
