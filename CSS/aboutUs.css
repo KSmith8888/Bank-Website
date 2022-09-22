@@ -1,25 +1,30 @@
 main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+    margin: 1em 0;
 }
 
 #locationSection {
-    margin: 2em;
-    padding: 2em;
+    margin: 1em;
+    padding: 1.5em;
     border: 2px solid var(--darkBlue);
     background-color: var(--lightBlue);
-    width: 90vw;
+    width: 47%;
 }
 
 .locationCon {
-    width: 40%;
-    padding: 2em;
+    width: 100%;
+    max-height: 20em;
+    padding: 1em;
     border: 1px solid var(--darkBlue);
-    background-color: #FFF;
-    margin: 2em;
+    background-color: var(--lighterGrey);
+    margin: 1em 0;
     display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 #ourLocations {
@@ -30,49 +35,78 @@ main {
 }
 
 #boardSection {
-    margin: 2em;
-    padding: 2em;
+    margin: 1em 0;
+    padding: 1.5em;
     border: 2px solid var(--darkBlue);
     background-color: var(--lightBlue);
-    width: 90vw;
+    width: 100%;
 }
 
 #ourBoard {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
 
 .memberCon {
-    width: 30%;
-    padding: 2em;
+    width: 47%;
+    padding: 1em;
     border: 1px solid var(--darkBlue);
-    margin: 1em;
-    background-color: #FFF;
+    margin: 1em 0;
+    background-color: var(--lighterGrey);
+    font-family: Helvetica, sans-serif;
 }
 
 .headerCon {
     display: flex;
     justify-content: center;
+    width: 100%;
+    background-color: var(--lighterGrey);
+    border: 1px solid var(--darkBlue);
+    font-weight: 700;
+    color: var(--mediumBlue);
 }
 
 h2 {
-    font-weight: 700;
-    color: var(--mediumBlue);
-    background-color: #FFF;
-    padding: 1em;
+    margin: 0;
+    padding: .5em 0;
     font-size: 1.8rem;
-    width: fit-content;
-    border: 1px solid var(--darkBlue);
 }
 
 .locationImage {
-    width: 50%;
+    width: 65%;
     max-height: 100%;
     object-fit: cover;
+    border: 1px solid var(--mediumBlack);
 }
 
 .locationText {
-    width: 50%;
+    width: 35%;
+}
+
+#columnCon {
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+
+#missionSection {
+    width: 100%;
+    border: 2px solid var(--darkBlue);
+    background-color: var(--lightBlue);
+    padding: 1.5em;
+    margin: 1em 0
+}
+
+#missionText {
+    margin: 2em;
+    padding: 1em;
+    border: 1px solid var(--mediumBlack);
+    font-size: 1.1rem;
+    background-color: var(--lighterGrey);
+    color: var(--darkBlue);
+    letter-spacing: 1.6;
 }
