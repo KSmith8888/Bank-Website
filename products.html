@@ -85,38 +85,23 @@
             </ul>
         </nav>
         <main>
+            <section id="customerServiceSection">
+                <h2 id="customerServiceHeader">See what we have to offer and start getting more out of financial services</h2> 
+                <figure>
+                    <img src="./Images/supportImage.jpg" alt="A customer support representative sitting at a computer wearing a headset" id="supportImage">
+                    <figcaption>Have a question? Ready to open a new account? Chat with one of our virtual agents for all of your customer support needs.</figcaption>
+                </figure>
+                <label for="startChatBtn">Start a chat with a virtual agent:
+                    <button id="startChatBtn">Chat Now</button>
+                </label>
+            </section>
             <section id="products">
                 <div id="productTabs">
-                    <div id="tab1" class="tabCon">
-                        <label for="tabBtn1" class="tabLabel">Checking Accounts
-                            <input type="radio" id="tabBtn1" name="tabs" class="tabInput">
-                        </label>
-                        <button id="tabClose1" class="tabCloseBtn">X</button>
-                    </div>
-                    <div id="tab2" class="tabCon">
-                        <label for="tabBtn2" class="tabLabel">Savings Accounts
-                            <input type="radio" id="tabBtn2" name="tabs" class="tabInput">
-                        </label>
-                        <button id="tabClose2" class="tabCloseBtn">X</button>
-                    </div>
-                    <div id="tab3" class="tabCon">
-                        <label for="tabBtn3" class="tabLabel">Credit Cards
-                            <input type="radio" id="tabBtn3" name="tabs" class="tabInput">
-                        </label>
-                        <button id="tabClose3" class="tabCloseBtn">X</button>
-                    </div>
-                    <div id="tab4" class="tabCon">
-                        <label for="tabBtn4" class="tabLabel">Mortgage Loans
-                            <input type="radio" id="tabBtn4" name="tabs" class="tabInput">
-                        </label>
-                        <button id="tabClose4" class="tabCloseBtn">X</button>
-                    </div>
-                    <div id="tab5" class="tabCon">
-                        <label for="tabBtn5" class="tabLabel">Investment Accounts
-                            <input type="radio" id="tabBtn5" name="tabs" class="tabInput">
-                        </label>
-                        <button id="tabClose5" class="tabCloseBtn">X</button>
-                    </div>
+                    <button id="checkingAdTab" class="adTab">Checking Accounts</button>
+                    <button id="savingsAdTab" class="adTab">Savings Accounts</button>
+                    <button id="creditAdTab" class="adTab">Credit Cards</button>
+                    <button id="mortgageAdTab" class="adTab">Mortgage Loans</button>
+                    <button id="investmentAdTab" class="adTab">Investment Accounts</button>
                 </div>
                 <div id="productMain">
                     <div id="productText">
@@ -147,14 +132,14 @@
             <p id="chat-help">Customer Service Chat</p>
         </div>
         <dialog id="chat-box">
-            <button id="close-chat-button">X</button>
+            <button id="close-chat-button" aria-label="Close">X</button>
             <h3>Customer service virtual chat</h3>
             <p>Speak to a virtual agent below</p>
             <div id="chat-list">
                 <p>Agent: Hi, how can I help you today?</p>
             </div>
             <form id="chat-input-form">
-                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*'* ]{2,40}" minlength="2" maxlength="40">
+                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*,*'* ]{2,40}" minlength="2" maxlength="40">
                 <button id="chat-button">Chat</button>
             </form>
         </dialog>
