@@ -86,6 +86,13 @@ document.querySelector('#open-chat-button').addEventListener('click', () => {
     document.querySelector('#chat-input').focus();
 });
 
+if(document.querySelector('#startChatBtn')) {
+    document.querySelector('#startChatBtn').addEventListener('click', () => {
+        document.querySelector('#chat-box').showModal();
+        document.querySelector('#chat-input').focus();
+    });
+}
+
 document.querySelector('#close-chat-button').addEventListener('click', () => {
     document.querySelector('#chat-box').close();
 });
@@ -108,7 +115,8 @@ function chatResponse(userInput) {
                 chatResponse = data.Chat.Responses.Confused[randomIndex];
             }
             let chatElement = document.createElement('p');
-            document.querySelector('#chat-list').append(`Agent: ${chatResponse}`, chatElement);
+            document.querySelector('#chat-list').append(chatElement);
+            chatElement.textContent = `Agent: ${chatResponse}`;
             document.querySelector('#chat-list').scrollTop = document.querySelector('#chat-list').scrollHeight;
         });
 }
@@ -121,7 +129,8 @@ document.querySelector('#chat-input-form').addEventListener('submit', (e) => {
         alert('Please do not include special characters in the chat input.');
     } else {
         let chatElement = document.createElement('p');
-        document.querySelector('#chat-list').append(`You: ${message}`, chatElement);
+        document.querySelector('#chat-list').append(chatElement);
+        chatElement.textContent = `You: ${message}`;
         document.querySelector('#chat-list').scrollTop = document.querySelector('#chat-list').scrollHeight;
         chatResponse(message);
         document.querySelector('#chat-input').value = '';
