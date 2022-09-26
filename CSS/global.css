@@ -27,6 +27,11 @@ img {
     max-width: 100%;
 }
 
+button {
+    font-family: 'Segoe UI', Verdana, sans-serif;
+    color: var(--darkBlack);
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -45,6 +50,8 @@ header {
 
 .navbar {
     padding: 1em 0;
+    text-align: center;
+    text-align-last: right;
 }
 
 .navbar ul {
@@ -222,4 +229,34 @@ footer {
 
 #chat-input {
     padding: .5em;
+}
+
+@media (max-width: 950px) {
+    .navbar ul{
+        flex-wrap: wrap; 
+    }
+    h1 {
+        margin: 0 1em;
+    }
+    .navbar ul li {
+        width: 50%;
+        text-align-last: right;
+    }
+    #chat-box {
+        background-color: var(--lighterGrey);
+        padding: 1.5em;
+        width: 95vw; 
+        max-height: 90vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar ul{
+        flex-direction: column;
+    }
+    .navbar ul li {
+        margin: .5em 0;
+        width: 100%;
+        text-align-last: center;
+    }
 }
