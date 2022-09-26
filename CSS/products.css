@@ -75,12 +75,17 @@ figcaption {
 #productMain {
     height: 92%;
     width: 100%;
-    background-image: url('../Images/checkingImage.jpg');
-    background-size: cover;
-    background-position: 100% 100%;
+    display: flex;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+#rotatingImage {
+    width: 65%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
 }
 
 #productText {
@@ -117,4 +122,27 @@ figcaption {
 
 #productBtn:hover, #productBtn:focus {
     background-color: var(--darkBlue);
+}
+
+@media (max-width: 950px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    #products, #customerServiceSection {
+        width: 95%;
+        margin-bottom: 2em;
+    }
+    #productMain {
+        flex-direction: column-reverse;
+    }
+    #rotatingImage {
+        width: 100%;
+        object-fit: cover;
+        object-position: right;
+    }
+    #productText {
+        width: 100%;
+        padding-bottom: 1em;
+    }
 }
