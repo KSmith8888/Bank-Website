@@ -17,6 +17,10 @@ main {
     margin: 10px;
 }
 
+#loginSection a {
+    color: var(--darkBlue);
+}
+
 #loginBtn {
     cursor: pointer;
     background-color: var(--lightGrey);
@@ -86,4 +90,39 @@ main {
     display: flex;
     justify-content: flex-end;
     width: 85%;
+}
+
+@media (max-width: 950px) {
+    main {
+        justify-content: space-between;
+    }
+    #loginSection {
+        width: 48%;
+        height: fit-content;
+    }
+    .offer-section {
+        width: 48%;
+        flex-direction: column;
+    }
+    #offerImage {
+        width: 100%;
+    }
+    .offer-text {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+    #loginSection {
+        width: 95%;
+        margin-bottom: 2em;
+    }
+    .offer-section {
+        width: 95%;
+        flex-direction: column;
+    }
 }
