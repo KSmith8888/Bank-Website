@@ -21,6 +21,7 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Verdana, sans-serif;
     color: var(--darkBlack);
+    max-width: 2200px;
 }
 
 img {
@@ -46,6 +47,7 @@ header {
     padding: .8em;
     display: flex;
     justify-content: space-between;
+    text-align: center;
 }
 
 .navbar {
@@ -57,10 +59,14 @@ header {
 .navbar ul {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 0 auto;
     list-style: none;
+}
+
+.navbar ul li a{
+    margin: 0;
 }
 
 .navbar a {
@@ -188,6 +194,8 @@ footer {
     padding: 1.5em;
     width: 35vw; 
     max-height: 90vh;
+    margin-right: 2em;
+    margin-bottom: 3em;
 }
 
 #chat-list {
@@ -235,8 +243,15 @@ footer {
     .navbar ul{
         flex-wrap: wrap; 
     }
-    h1 {
-        margin: 0 1em;
+    header {
+        justify-content: center;
+        padding: .2em;
+    }
+    h1, .logoImg, .loggedInInfo {
+        margin: .5em;
+        width: 30%;
+        max-width: fit-content;
+        height: fit-content;
     }
     .navbar ul li {
         width: 50%;
