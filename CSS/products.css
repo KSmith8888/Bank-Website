@@ -21,6 +21,7 @@ main {
     padding: 1em;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 #customerServiceHeader {
@@ -43,6 +44,11 @@ main {
     background-color: var(--darkBlue);
 }
 
+figure {
+    width: 95%;
+    margin: 1em 0;
+}
+
 figcaption {
     font-size: 1.2rem;
     margin: 1em 0;
@@ -50,6 +56,8 @@ figcaption {
 
 #supportImage {
     border: 1px solid var(--mediumBlack);
+    width: 90%;
+    height: 55%;
 }
 
 #productTabs {
@@ -137,7 +145,8 @@ figcaption {
         flex-direction: column-reverse;
     }
     #rotatingImage {
-        width: 100%;
+        max-width: 100%;
+        max-height: fit-content;
         object-fit: cover;
         object-position: right;
     }
