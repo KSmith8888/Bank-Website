@@ -128,3 +128,19 @@ h2 {
         width: 95%;
     }
 }
+
+@media (max-width: 600px) {
+    .memberCon {
+        width: 90%;
+    }
+    .locationCon {
+        flex-direction: column;
+        max-height: fit-content;
+    }
+    .locationImage {
+        width: 95%;
+    }
+    .locationText {
+        width: 95%;
+    }
+}
