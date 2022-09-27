@@ -33,6 +33,7 @@
 #mortgageDataTable {
     margin: 2em 5em;
     padding: 1em;
+    max-width: 100%;
     background-color: var(--offWhite);
     border-collapse: collapse;
     text-align: center;
@@ -85,7 +86,6 @@
 #dataTableCon {
     background-color: var(--skyblue);
     border: 1px solid var(--darkBlue);
-    width: fit-content;
     padding: .5em 1em;
     width: 100%;
 }
@@ -93,6 +93,7 @@
 #mortgageAdImage {
     border: 1px solid var(--darkBlue);
     width: 100%;
+    margin-bottom: 0;
 }
 
 #calculatorTableCon {
@@ -111,4 +112,37 @@
 figcaption {
     color: var(--darkBlue);
     font-size: 1.3rem;
+    background-color: var(--lighterGrey);
+    border: 1px solid var(--mediumBlack);
+    margin-top: 0;
+    padding: .5em 0;
+}
+
+@media (max-width: 950px) {
+    #calculatorTableCon, #mortgageAdCon  {
+        width: 100%;
+        max-width: fit-content;
+        max-height: fit-content;
+    }
+    #calculatorSection {
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+    }
+    #mortgageDataTable {
+        padding: 0;
+        margin: 0;
+    }
+    #mortgageDataTable td, #mortgageDataTable th {
+        padding: .5em .2em;
+        margin: .5em .2em;
+    }
+    #calculatorForm {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #interestRateInfo {
+        flex-wrap: wrap;
+    }
 }
