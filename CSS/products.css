@@ -1,5 +1,5 @@
 main {
-    margin: 2em auto;
+    margin: 1em auto;
     display: flex;
     width: 100%;
     min-height: 75vh;
@@ -57,7 +57,6 @@ figcaption {
 #supportImage {
     border: 1px solid var(--mediumBlack);
     width: 90%;
-    height: 55%;
 }
 
 #productTabs {
@@ -133,6 +132,28 @@ figcaption {
 }
 
 @media (max-width: 950px) {
+    #products {
+        width: 55%;
+    }
+    #customerServiceSection {
+        width: 40%;
+    }
+    #productMain {
+        flex-direction: column-reverse;
+    }
+    #rotatingImage {
+        width: 100%;
+    }
+    #productText {
+        width: 100%;
+        padding-bottom: 1em;
+    }
+    main {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
     main {
         flex-direction: column;
         align-items: center;
@@ -140,18 +161,5 @@ figcaption {
     #products, #customerServiceSection {
         width: 95%;
         margin-bottom: 2em;
-    }
-    #productMain {
-        flex-direction: column-reverse;
-    }
-    #rotatingImage {
-        max-width: 100%;
-        max-height: fit-content;
-        object-fit: cover;
-        object-position: right;
-    }
-    #productText {
-        width: 100%;
-        padding-bottom: 1em;
-    }
+    } 
 }
