@@ -22,6 +22,7 @@ body {
     font-family: 'Segoe UI', Verdana, sans-serif;
     color: var(--darkBlack);
     max-width: 2200px;
+    min-height: 100vh;
 }
 
 img {
@@ -45,7 +46,7 @@ header {
     width: 100%;
     background-color: var(--skyblue);
     border-bottom: 2px solid var(--darkBlue);
-    padding: .8em;
+    padding-bottom: .8em;
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -56,6 +57,7 @@ header {
     text-align: center;
     text-align-last: right;
     width: 90%;
+    margin: 0 auto;
 }
 
 .navbar ul {
@@ -65,10 +67,6 @@ header {
     align-items: center;
     margin: 0 auto;
     list-style: none;
-}
-
-.navbar ul li a{
-    margin: 0;
 }
 
 .navbar a {
@@ -255,14 +253,15 @@ footer {
         flex-wrap: wrap; 
     }
     header {
-        justify-content: center;
-        padding: .2em;
+        padding: 0;
     }
     h1, .logoImg, .loggedInInfo {
-        margin: .5em;
         width: 30%;
         max-width: fit-content;
         height: fit-content;
+    }
+    h1 {
+        margin: .5em;
     }
     .navbar ul li {
         width: 50%;
@@ -277,8 +276,14 @@ footer {
 }
 
 @media (max-width: 600px) {
+    .navbar {
+        width: 100%;
+        margin: 0;
+        padding-bottom: 0;
+    }
     .navbar ul{
         flex-direction: column;
+        padding: 0;
     }
     .navbar ul li {
         margin: .5em 0;
