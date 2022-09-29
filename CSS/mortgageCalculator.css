@@ -165,4 +165,7 @@ figcaption {
         flex-direction: column;
         align-items: flex-start;
     }
+    #dataTableCon p {
+        padding: .5em 1em;
+    }
 }
