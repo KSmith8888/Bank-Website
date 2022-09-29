@@ -109,16 +109,18 @@ main {
     }
     .offer-text {
         width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--darkBlue);
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     main {
         flex-direction: column;
         align-items: center;
     }
     #loginSection {
-        width: 95%;
+        width: 90%;
         margin-bottom: 2em;
     }
     .offer-section {
