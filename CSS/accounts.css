@@ -84,8 +84,7 @@ main {
 }
 
 #apiAds {
-    width: 15%;
-    height: 650px;
+    width: 17%;
     border: 2px solid black;
     text-shadow: 2px 2px 2px #222;
     text-align: center;
@@ -107,6 +106,11 @@ main {
 
 #apiAdsCon p {
     margin: .2em;
+    max-width: 100%;
+}
+
+#adText {
+    word-wrap: break-word;
 }
 
 #adSmall {
@@ -120,7 +124,7 @@ main {
     }
     #bankingSection {
         width: 95%;
-        margin: 0;
+        margin: 1em 0 0 0;
         padding: .5em 0;
     }
     #accountSection, #internalSection {
@@ -129,9 +133,10 @@ main {
     }
     #apiAds {
         width: 95%;
-        height: 300px;
+        height: 250px;
         margin: 1em 0;
         padding: .5em;
+        max-height: fit-content;
     }
     #apiAdsCon {
         justify-content: center;
