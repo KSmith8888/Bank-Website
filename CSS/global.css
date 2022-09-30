@@ -54,8 +54,8 @@ header {
 
 .navbar {
     padding: 1em 0;
-    text-align: center;
-    text-align-last: right;
+    display: flex;
+    justify-content: center;
     width: 90%;
     margin: 0 auto;
 }
@@ -69,8 +69,11 @@ header {
     list-style: none;
 }
 
-.navbar a {
+.navbar li {
     margin: 0 1em;
+}
+
+.navbar a {
     text-decoration: none;
     color: var(--darkBlue);
     font-size: 1.3rem;
@@ -143,23 +146,30 @@ a.active-link {
 
 footer {
     width: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5em;
 }
 
 .legalLinks {
     display: flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
-    width: 100%;
+    padding: .5em 0 0 0;
+    width: 85%;
+    border-top: 1px solid var(--darkBlue);
+    margin-bottom: 0;
+}
+
+.legalLinks li {
+    margin: 0 .5em;
 }
 
 .legalLinks a {
     text-decoration: none;
-    margin: 0 1em;
-}
-
-.disclosures {
-    margin: 0;
 }
 
 #chat-container {
@@ -252,16 +262,23 @@ footer {
     .navbar ul{
         flex-wrap: wrap; 
     }
+    .navbar a {
+        margin: 0 1em;
+    }
+    .navbar li {
+        margin: 0;
+    }
     header {
         padding: 0;
     }
-    h1, .logoImg, .loggedInInfo {
+    .logoImg, .loggedInInfo {
         width: 30%;
         max-width: fit-content;
         height: fit-content;
     }
     h1 {
-        margin: .5em;
+        width: 40%;
+        margin: .2em;
     }
     .navbar ul li {
         width: 50%;
@@ -273,9 +290,15 @@ footer {
         width: 70vw; 
         max-height: 90vh;
     }
+    footer {
+        margin-bottom: 3.5em;
+    }
 }
 
 @media (max-width: 600px) {
+    h1 {
+        font-size: 1.4rem;
+    }
     .navbar {
         width: 100%;
         margin: 0;
@@ -294,7 +317,22 @@ footer {
         width: 95vw;
         margin-right: 1em;
     }
+    #chat-input {
+        width: 95%;
+    }
     #chat-container {
         right: 1em;
+    }
+    #chat-button {
+        margin-left: 0;
+        margin-top: .5em;
+    }
+    #chat-list {
+        padding: .5em;
+        margin: 0 0 .5em 0;
+    }
+    .legalLinks {
+        justify-content: space-around;
+        margin-top: 0;
     }
 }
