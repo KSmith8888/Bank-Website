@@ -56,6 +56,10 @@ main {
     background-color: var(--lighterGrey);
 }
 
+#internalSection select {
+    width: 50%;
+}
+
 #internalSection label {
     font-weight: 500;
 }
@@ -127,16 +131,19 @@ main {
         margin: 1em 0 0 0;
         padding: .5em 0;
     }
+    #internalSection select {
+        width: 65%;
+        display: block;
+    }
     #accountSection, #internalSection {
-        margin: 1em 0;
-        padding: 1em;
+        width: 90%;
+        margin: .5em 0;
+        padding: .5em;
     }
     #apiAds {
         width: 95%;
-        height: 250px;
         margin: 1em 0;
-        padding: .5em;
-        max-height: fit-content;
+        padding: .2em;
     }
     #apiAdsCon {
         justify-content: center;
