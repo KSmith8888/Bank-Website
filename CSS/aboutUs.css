@@ -131,7 +131,8 @@ h2 {
 
 @media (max-width: 600px) {
     .memberCon {
-        width: 90%;
+        width: 100%;
+        margin: .5em 0;
     }
     .locationCon {
         flex-direction: column;
@@ -142,5 +143,11 @@ h2 {
     }
     .locationText {
         width: 95%;
+    }
+    #boardSection h2 {
+        text-align: center;
+    }
+    #missionText {
+        margin: .5em 0;
     }
 }
