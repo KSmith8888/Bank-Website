@@ -5,6 +5,10 @@
     margin-bottom: 1em;
 }
 
+#interestRateSection small {
+    text-align: center;  
+}
+
 #interestRateInfo {
     display: flex;
     justify-content: space-around;
@@ -167,5 +171,11 @@ figcaption {
     }
     #dataTableCon p {
         padding: .5em 1em;
+    }
+    #interestRateSection h2 {
+        width: 95%;
+    }
+    h2 {
+        text-align: center;
     }
 }
