@@ -1,23 +1,30 @@
+main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 95%;
+}
+
+.transactionCon {
+    width: 35%;
+}
+
 .returnText {
     font-size: 1.3em;
 }
 
-body {
-    background-color: var(--lightGrey);
-}
-
 .overview {
     border: 2px solid var(--darkBlue);
-    margin: 2em;
+    margin: 2em 0;
     padding: 1em;
     background-color: var(--skyblue);
-    width: 35%;
+    width: 100%;
     text-align: center;
 }
 
 .transactionListSection {
-    width: 35%;
-    margin: 1em 2em;
+    width: 100%;
+    margin: 1em 0;
     padding: 1em;
     border: 2px solid var(--darkBlue);
     background-color: var(--skyblue);
@@ -36,18 +43,82 @@ body {
 
 .transactionList p {
     margin: .8em;
-    background-color: var(--lightGrey);
+    background-color: var(--lighterGrey);
     padding: .7em;
     border: 1px solid var(--darkBlue);
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
 .transactionFilter {
     margin: 1em;
+}
+
+.creditScoreSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--darkBlue);
+    width: 35%;
+    margin: 2em;
+    padding: 1em;
+    background-color: var(--lighterGrey);
+    text-align: center;
+}
+
+.creditScore {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+#creditScoreBarCon {
+    width: 70%;
+    padding-top: 1em;
+    background-color: #FFF;
+    border: 1px solid var(--mediumBlack);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#creditScoreBar {
+    height: 5em;
+    width: 10em;
+    appearance: none;
+    border-top: 1px solid var(--mediumBlack);
+    border-right: 1px solid var(--mediumBlack);
+    border-left: 1px solid var(--mediumBlack);
+    background-size: 10em 10em;
+    border-top-left-radius: calc(5em + 1px);
+    border-top-right-radius: calc(5em + 1px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#creditScoreBar::after {
+    content: '';
+    box-sizing: border-box;
+    border-top-left-radius: calc(3em + 1px);
+    border-top-right-radius: calc(3em + 1px);
+    border-top: 1px solid var(--mediumBlack);
+    border-right: 1px solid var(--mediumBlack);
+    border-left: 1px solid var(--mediumBlack);
+    height: 3em;
+    width: 6em;
+    position: absolute;
+    background-color: #FFF;
+    text-align: center;
+}
+
+@media (max-width: 950px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .transactionCon, .creditScoreSection {
+        width: 100%;
+        margin: 0;
+    }
 }
