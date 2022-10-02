@@ -11,6 +11,25 @@ const checkingTotalBal = document.getElementById('checkingTotalBal');
 const savingsTotalBal = document.getElementById('savingsTotalBal');
 const creditTotalBal = document.getElementById('creditTotalBal');
 const transactionFilter = document.getElementById('transactionFilter');
+const creditScore = document.querySelector('.creditScore');
+const creditScoreBar = document.querySelector('#creditScoreBar');
+
+function displayCreditScore() {
+    let randomScore = Math.floor(Math.random() * (850 - 300) + 300);
+    let scorePercentage = (((randomScore - 300)* 100) / 550).toFixed(0);
+    let angle = ((scorePercentage * 180) / 100).toFixed(0);
+    creditScore.textContent = randomScore;
+    creditScoreBar.value = randomScore;
+    if(randomScore < 525) {
+        creditScoreBar.style.backgroundImage = `conic-gradient(white 90deg, red 90deg ${parseInt(angle) + 270}deg, white ${parseInt(angle) + 270}deg 360deg)`;
+    } else if(randomScore >= 525 && randomScore < 700) {
+        creditScoreBar.style.backgroundImage = `conic-gradient(orange ${parseInt(angle - 90)}deg, white ${parseInt(angle - 90)}deg 90deg, orange 90deg 360deg)`;
+    } else{
+        creditScoreBar.style.backgroundImage = `conic-gradient(green ${parseInt(angle - 90)}deg, white ${parseInt(angle - 90)}deg 90deg, green 90deg 360deg)`;
+    }
+}
+
+displayCreditScore();
 
 if(localStorage.getItem('loggedIn') === null) {
     alert('Please log back in to view accounts');
