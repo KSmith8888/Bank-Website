@@ -111,6 +111,10 @@ main {
     text-align: center;
 }
 
+#creditScoreBar::-moz-meter-bar {
+    opacity: 0;
+}
+
 @media (max-width: 950px) {
     main {
         flex-direction: column;
