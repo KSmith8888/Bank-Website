@@ -82,23 +82,25 @@ main {
 #creditScoreBar {
     height: 5em;
     width: 10em;
-    appearance: none;
+    background-color: #FFF;
+    color: #FFF;
     border-top: 1px solid var(--mediumBlack);
     border-right: 1px solid var(--mediumBlack);
     border-left: 1px solid var(--mediumBlack);
     background-size: 10em 10em;
     border-top-left-radius: calc(5em + 1px);
     border-top-right-radius: calc(5em + 1px);
-    position: relative;
+    appearance: unset;
     overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    position: relative;
 }
 
-#creditScoreBar::after {
-    content: '';
-    box-sizing: border-box;
+/*Prevents firefox default meter overlay on custom styling*/
+#creditScoreBar::-moz-meter-bar {
+    opacity: 0;
+}
+
+#innerCircle {
     border-top-left-radius: calc(3em + 1px);
     border-top-right-radius: calc(3em + 1px);
     border-top: 1px solid var(--mediumBlack);
@@ -111,8 +113,36 @@ main {
     text-align: center;
 }
 
-#creditScoreBar::-moz-meter-bar {
-    opacity: 0;
+#listContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    text-align: left;
+}
+
+#positiveList {
+    border: 1px solid var(--darkBlue);
+    background-color: rgb(212, 248, 212);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2em;
+    width: 45%;
+}
+
+#negativeList {
+    border: 1px solid var(--darkBlue);
+    background-color: rgb(247, 211, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2em;
+    width: 45%;
+}
+
+#positiveList li, #negativeList li {
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
 
 @media (max-width: 950px) {
