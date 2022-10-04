@@ -11,25 +11,46 @@ const checkingTotalBal = document.getElementById('checkingTotalBal');
 const savingsTotalBal = document.getElementById('savingsTotalBal');
 const creditTotalBal = document.getElementById('creditTotalBal');
 const transactionFilter = document.getElementById('transactionFilter');
-const creditScore = document.querySelector('.creditScore');
+const creditScore = document.querySelectorAll('.creditScore');
 const creditScoreBar = document.querySelector('#creditScoreBar');
 
 function displayCreditScore() {
+    document.getElementById('positiveListItem1').style.display = 'list-item';
+    document.getElementById('positiveListItem2').style.display = 'list-item';
+    document.getElementById('negativeListItem1').style.display = 'list-item';
+    document.getElementById('negativeListItem2').style.display = 'list-item';
     let randomScore = Math.floor(Math.random() * (850 - 300) + 300);
     let scorePercentage = (((randomScore - 300)* 100) / 550).toFixed(0);
     let angle = ((scorePercentage * 180) / 100).toFixed(0);
-    creditScore.textContent = randomScore;
+    document.getElementById('scorePercentile').textContent = scorePercentage;
+    creditScore.forEach((instance) => {
+        instance.textContent = randomScore;
+    });
     creditScoreBar.value = randomScore;
     if(randomScore < 525) {
-        creditScoreBar.style.backgroundImage = `conic-gradient(white 90deg, red 90deg ${parseInt(angle) + 270}deg, white ${parseInt(angle) + 270}deg 360deg)`;
+        creditScoreBar.style.backgroundImage = `conic-gradient(white 95deg, red 95deg ${parseInt(angle) + 270}deg, white ${parseInt(angle) + 270}deg 360deg)`;
+        document.getElementById('creditScoreBarCon').style.backgroundColor = 'rgb(247, 223, 223)';
+        document.getElementById('innerCircle').style.backgroundColor = 'rgb(247, 223, 223)';
+        document.getElementById('positiveListItem1').style.display = 'none';
+        document.getElementById('positiveListItem2').style.display = 'none';
     } else if(randomScore >= 525 && randomScore < 700) {
-        creditScoreBar.style.backgroundImage = `conic-gradient(orange ${parseInt(angle - 90)}deg, white ${parseInt(angle - 90)}deg 90deg, orange 90deg 360deg)`;
+        creditScoreBar.style.backgroundImage = `conic-gradient(orange ${parseInt(angle - 90)}deg, white ${parseInt(angle - 90)}deg 95deg, orange 95deg 360deg)`;
+        document.getElementById('creditScoreBarCon').style.backgroundColor = 'rgb(247, 243, 207)';
+        document.getElementById('innerCircle').style.backgroundColor = 'rgb(247, 243, 207)';
+        document.getElementById('positiveListItem1').style.display = 'none';
+        document.getElementById('negativeListItem2').style.display = 'none';
     } else{
-        creditScoreBar.style.backgroundImage = `conic-gradient(green ${parseInt(angle - 90)}deg, white ${parseInt(angle - 90)}deg 90deg, green 90deg 360deg)`;
+        creditScoreBar.style.backgroundImage = `conic-gradient(green ${parseInt(angle - 90)}deg, white ${parseInt(angle - 90)}deg 95deg, green 95deg 360deg)`;
+        document.getElementById('creditScoreBarCon').style.backgroundColor = 'rgb(212, 248, 212)';
+        document.getElementById('innerCircle').style.backgroundColor = 'rgb(212, 248, 212)';
+        document.getElementById('negativeListItem1').style.display = 'none';
+        document.getElementById('negativeListItem2').style.display = 'none';
     }
 }
 
 displayCreditScore();
+
+document.getElementById('updateReport').addEventListener('click', displayCreditScore);
 
 if(localStorage.getItem('loggedIn') === null) {
     alert('Please log back in to view accounts');
