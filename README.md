@@ -10,11 +10,11 @@ https://ksmith8888.github.io/Bank-Website/
 
 - On the bottom of most pages, there is a customer service chat section. When the "Chat Now" button is clicked, a dialog box opens that allows the user to enter messages to a mock virtual agent. The agent gives responses that are pulled from a static JSON file. The users messages are checked for key words, such as "account", and if a key word was included the response will be relevant to the subject.  
 
-## Accounts Overview/Accounts Details Pages
+## Accounts Overview/Account Details Pages
 
 - Once on the accounts overview page, there is an internal transfer section that allows the user to transfer money between accounts. When a transfer is made the balances are updated on the page and saved in localStorage. For each transfer, an item is added to localStorage with the information about the transfer. Every ten seconds, an API call to the JSONPlaceholder API populates a fake advertisement with data.  
 
-- Each account has an account details page, which shows transactions for that account. Static transaction data is first pulled from a local JSON file, then any transfers involving the account are pulled from localStorage and displayed at the top. The user can filter the transactions by type and the section is updated to only show the matching transactions.
+- Each account has an account details page, which shows transactions for that account. Static transaction data is first pulled from a local JSON file, then any transfers involving the account are pulled from localStorage and displayed at the top. The user can filter the transactions by type and the section is updated to only show the matching transactions. Each account details page also includes a credit score section showing a randomly generated score along with positive and negative factors depending on the score. The score is displayed within a custom meter element with conic-gradients angled to show the where that score falls along the given range. The meter and score factors are styled based on whether the score is within the low, middle or high range. 
 
 ## Mortgage Calculator Page
 
