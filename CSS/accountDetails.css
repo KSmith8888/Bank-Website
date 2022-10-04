@@ -90,13 +90,17 @@ main {
     background-size: 10em 10em;
     border-top-left-radius: calc(5em + 1px);
     border-top-right-radius: calc(5em + 1px);
-    appearance: unset;
+    appearance: none;
     overflow: hidden;
     position: relative;
 }
 
 /*Prevents firefox default meter overlay on custom styling*/
 #creditScoreBar::-moz-meter-bar {
+    opacity: 0;
+}
+
+#creditScoreBar::-webkit-meter-bar {
     opacity: 0;
 }
 
@@ -111,6 +115,7 @@ main {
     position: absolute;
     background-color: #FFF;
     text-align: center;
+    font-weight: 500;
 }
 
 #listContainer {
@@ -120,29 +125,50 @@ main {
     text-align: left;
 }
 
+#listContainer h4 {
+    margin: .5em 0; 
+}
+
+.list {
+    width: 45%;
+}
+
 #positiveList {
-    border: 1px solid var(--darkBlue);
+    border: 1px solid var(--mediumBlack);
     background-color: rgb(212, 248, 212);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 2em;
-    width: 45%;
+    width: 100%;
 }
 
 #negativeList {
-    border: 1px solid var(--darkBlue);
-    background-color: rgb(247, 211, 211);
+    border: 1px solid var(--mediumBlack);
+    background-color: rgb(247, 223, 223);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 2em;
-    width: 45%;
+    width: 100%;
 }
 
 #positiveList li, #negativeList li {
     margin-top: .5em;
     margin-bottom: .5em;
+}
+
+#updateReport {
+    background-color: var(--lightGrey);
+    border: 1px solid var(--darkBlue);
+    padding: .1em .5em;
+    border-radius: 2px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#updateReport:hover, #updateReport:focus {
+    background-color: var(--lightBlue);
 }
 
 @media (max-width: 950px) {
@@ -153,6 +179,6 @@ main {
     }
     .transactionCon, .creditScoreSection {
         width: 100%;
-        margin: 0;
+        margin: 0 0 2em 0;
     }
 }
