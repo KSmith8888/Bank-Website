@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self' https://jsonplaceholder.typicode.com/; base-uri 'self'; img-src 'self' https://via.placeholder.com/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="bankFavicon.png" rel="icon" type="image/png">
+    <link href="../bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="../CSS/global.css">
     <link rel="stylesheet" href="../CSS/accountDetails.css">
+    <script src="../JS/global.js" defer></script>
+    <script src="../JS/accountDetails.js" defer></script>
     <title>Reward Savings -8350</title>
 </head>
 <body>
@@ -77,7 +79,7 @@
                     <a href="../mortgageCalculator.html">Mortgage Calculator</a>
                 </li>
                 <li>
-                    <a href="#">Link 4</a>
+                    <a href="../commercial.html">Commercial Banking</a>
                 </li>
                 <li>
                     <a href="../aboutUs.html">About Us</a>
@@ -85,23 +87,55 @@
             </ul>
         </nav>
         <main>
-            <section class="overview">
-                <h2>Reward Savings -8350</h2>
-                <p class="returnText">Return to <a href="../accounts.html">accounts overview</a></p>
-                <h3 id="savingsTotalBal">Current Balance: $</h3>
-            </section>
-            <section class="transactionListSection">
-                <label class="filterLabel">Filter by transaction type: 
-                    <select id="transactionFilter">
-                        <option></option>
-                        <option>Purchase</option>
-                        <option>Bill Pay</option>
-                        <option>Transfer</option>
-                        <option>Service Fee</option>
-                        <option>Credit</option>
-                    </select>
-                </label>
-                <div id="savingsTransactions" class="transactionList"></div>
+            <div class="transactionCon">
+                <section class="overview">
+                    <h2>Reward Savings -8350</h2>
+                    <p class="returnText">Return to <a href="../accounts.html">accounts overview</a></p>
+                    <h3 id="savingsTotalBal">Current Balance: $</h3>
+                </section>
+                <section class="transactionListSection">
+                    <label class="filterLabel">Filter by transaction type: 
+                        <select id="transactionFilter">
+                            <option></option>
+                            <option>Purchase</option>
+                            <option>Bill Pay</option>
+                            <option>Transfer</option>
+                            <option>Service Fee</option>
+                            <option>Credit</option>
+                        </select>
+                    </label>
+                    <div id="savingsTransactions" class="transactionList"></div>
+                </section>
+            </div>
+            <section class="creditScoreSection">
+                <h2>Your Credit Score Snapshot</h2>
+                <label for="creditScoreBar">Your score is <span class="creditScore"></span> on a range of 300 to 850</label>
+                <div id="creditScoreBarCon">
+                    <meter min="300" max="850" low="525" high="700" optimum="850" value="500" id="creditScoreBar"></meter>
+                    <div id="innerCircle"><p>300-850</p></div>
+                </div>
+                <p>*Credit scores vary depending on your history and usage.</p>
+                <p>Your score of <span class="creditScore"></span> is higher than <span id="scorePercentile"></span>% of scores nationwide</p>
+                <h3>Factors effecting your score:</h3>
+                <div id="listContainer">
+                    <div class="list">
+                        <h4>Positive:</h4>
+                        <ul id="positiveList">
+                            <li id="positiveListItem1">Perfect payment history</li>
+                            <li id="positiveListItem2">No recent inquiries</li>
+                            <li id="positiveListItem3">Good mix of credit types</li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h4>Negative:</h4>
+                        <ul id="negativeList">
+                            <li id="negativeListItem1">Bankruptcy within the last 7 years</li>
+                            <li id="negativeListItem2">Multiple recent inquiries</li>
+                            <li id="negativeListItem3">High credit utilization</li>
+                        </ul>
+                    </div>
+                </div>
+                <button id="updateReport">Update Report</button>
             </section>
         </main>
         <footer>
@@ -110,26 +144,24 @@
                 <li><a href="./maintenance.html">Privacy Policy</a></li>
                 <li><a href="./maintenance.html">Support</a></li>
             </ul>
-            <p>Legal information and disclosures.</p>
+            <p class="disclosures">Legal information and disclosures.</p>
         </footer>
         <div id="chat-container">
             <button id="open-chat-button">Chat Now</button>
             <p id="chat-help">Customer Service Chat</p>
         </div>
         <dialog id="chat-box">
-            <button id="close-chat-button">X</button>
+            <button id="close-chat-button" aria-label="Close">X</button>
             <h3>Customer service virtual chat</h3>
             <p>Speak to a virtual agent below</p>
             <div id="chat-list">
                 <p>Agent: Hi, how can I help you today?</p>
             </div>
             <form id="chat-input-form">
-                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*'* ]{2,40}" minlength="2" maxlength="40">
+                <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*,*'* ]{2,40}" minlength="2" maxlength="40">
                 <button id="chat-button">Chat</button>
             </form>
         </dialog>
     </div>
-    <script src="../JS/global.js"></script>
-    <script src="../JS/accountDetails.js"></script>
 </body>
 </html>
