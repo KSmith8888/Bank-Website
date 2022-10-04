@@ -109,26 +109,33 @@
             </div>
             <section class="creditScoreSection">
                 <h2>Your Credit Score Snapshot</h2>
-                <label for="creditScoreBar">Your Score: <span class="creditScore"></span></label>
+                <label for="creditScoreBar">Your score is <span class="creditScore"></span> on a range of 300 to 850</label>
                 <div id="creditScoreBarCon">
                     <meter min="300" max="850" low="525" high="700" optimum="850" value="500" id="creditScoreBar"></meter>
-                    <div id="innerCircle"></div>
+                    <div id="innerCircle"><p>300-850</p></div>
                 </div>
-                <p>*Credit scores range from 300 to 850 and vary depending on your history and usage.</p>
+                <p>*Credit scores vary depending on your history and usage.</p>
                 <p>Your score of <span class="creditScore"></span> is higher than <span id="scorePercentile"></span>% of scores nationwide</p>
                 <h3>Factors effecting your score:</h3>
                 <div id="listContainer">
-                    <ul id="positiveList">Positive:
-                        <li id="positiveListItem1">Perfect payment history</li>
-                        <li id="positiveListItem2">No recent inquiries</li>
-                        <li id="positiveListItem3">Good mix of credit types</li>
-                    </ul>
-                    <ul id="negativeList">Negative:
-                        <li id="negativeListItem1">Bankruptcy within the last 7 years</li>
-                        <li id="negativeListItem2">Multiple recent inquiries</li>
-                        <li id="negativeListItem3">High credit utilization</li>
-                    </ul>
+                    <div class="list">
+                        <h4>Positive:</h4>
+                        <ul id="positiveList">
+                            <li id="positiveListItem1">Perfect payment history</li>
+                            <li id="positiveListItem2">No recent inquiries</li>
+                            <li id="positiveListItem3">Good mix of credit types</li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h4>Negative:</h4>
+                        <ul id="negativeList">
+                            <li id="negativeListItem1">Bankruptcy within the last 7 years</li>
+                            <li id="negativeListItem2">Multiple recent inquiries</li>
+                            <li id="negativeListItem3">High credit utilization</li>
+                        </ul>
+                    </div>
                 </div>
+                <button id="updateReport">Update Report</button>
             </section>
         </main>
         <footer>
