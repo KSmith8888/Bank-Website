@@ -7,6 +7,8 @@
     <link href="bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/products.css">
+    <script src="JS/global.js" defer></script>
+    <script src="JS/products.js" defer></script>
     <title>Our Products</title>
 </head>
 <body>
@@ -77,7 +79,7 @@
                     <a href="./mortgageCalculator.html">Mortgage Calculator</a>
                 </li>
                 <li>
-                    <a href="#">Link 4</a>
+                    <a href="./commercial.html">Commercial Banking</a>
                 </li>
                 <li>
                     <a href="./aboutUs.html">About Us</a>
@@ -96,14 +98,14 @@
                 </label>
             </section>
             <section id="products">
-                <div id="productTabs">
-                    <button id="checkingAdTab" class="adTab">Checking Accounts</button>
-                    <button id="savingsAdTab" class="adTab">Savings Accounts</button>
-                    <button id="creditAdTab" class="adTab">Credit Cards</button>
-                    <button id="mortgageAdTab" class="adTab">Mortgage Loans</button>
-                    <button id="investmentAdTab" class="adTab">Investment Accounts</button>
+                <div id="productTabs" role="tablist" aria-label="Product tabs">
+                    <button id="checkingAdTab" class="adTab" role="tab" aria-selected="true" aria-controls="productMain">Checking Accounts</button>
+                    <button id="savingsAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Savings Accounts</button>
+                    <button id="creditAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Credit Cards</button>
+                    <button id="mortgageAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Mortgage Loans</button>
+                    <button id="investmentAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Investment Accounts</button>
                 </div>
-                <div id="productMain">
+                <div id="productMain" role="tabpanel" aria-label="Product info">
                     <div id="productText">
                         <h2 id="productTitle">Premium Cashback Checking Account</h2>
                         <p id="productSubtitle">Buy what calls to you</p>
@@ -126,7 +128,7 @@
                 <li><a href="./maintenance.html">Privacy Policy</a></li>
                 <li><a href="./maintenance.html">Support</a></li>
             </ul>
-            <p>Legal information and disclosures.</p>
+            <p class="disclosures">Legal information and disclosures.</p>
         </footer>
         <div id="chat-container">
             <button id="open-chat-button">Chat Now</button>
@@ -145,7 +147,5 @@
             </form>
         </dialog>
     </div>
-    <script src="JS/global.js"></script>
-    <script src="JS/products.js"></script>
 </body>
 </html>
