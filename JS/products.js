@@ -15,74 +15,140 @@ let rotatingItem = document.getElementById('rotatingItem');
 let rotationIndex = 1;
 checkingAdTab.style.backgroundColor = 'var(--lightGrey)';
 
-function resetTabColor() {
+function resetTabSelect() {
     checkingAdTab.style.backgroundColor = 'var(--lighterGrey)';
     savingsAdTab.style.backgroundColor = 'var(--lighterGrey)';
     creditAdTab.style.backgroundColor = 'var(--lighterGrey)';
     mortgageAdTab.style.backgroundColor = 'var(--lighterGrey)';
     investmentAdTab.style.backgroundColor = 'var(--lighterGrey)';
+    checkingAdTab.ariaSelected = 'false';
+    savingsAdTab.ariaSelected = 'false';
+    creditAdTab.ariaSelected = 'false';
+    mortgageAdTab.ariaSelected = 'false';
+    investmentAdTab.ariaSelected = 'false';
 }
 
-checkingAdTab.addEventListener('click', () => {
+function selectCheckingTab() {
     clearInterval(rotateProducts);
-    resetTabColor();
+    resetTabSelect();
     checkingAdTab.style.backgroundColor = 'var(--lightGrey)';
+    checkingAdTab.ariaSelected = 'true';
+    checkingAdTab.focus();
     productTitle.textContent = 'Premium Cashback Checking Account';
     productSubtitle.textContent = 'Buy what calls to you';
     rotatingItem.style.display = 'list-item';
     rotatingImage.src = 'Images/checkingImage.jpg';
     rotatingImage.alt = 'A variety box of donuts';
-});
+}
 
-savingsAdTab.addEventListener('click', () => {
+checkingAdTab.addEventListener('click', selectCheckingTab);
+
+function selectSavingsTab() {
     clearInterval(rotateProducts);
-    resetTabColor();
+    resetTabSelect();
     savingsAdTab.style.backgroundColor = 'var(--lightGrey)';
+    savingsAdTab.ariaSelected = 'true';
+    savingsAdTab.focus();
     productTitle.textContent = 'Rewards Savings Account';
     productSubtitle.textContent = 'Plan for what matters';
     rotatingItem.style.display = 'none';
     rotatingImage.src = 'Images/savingsImage.jpg';
     rotatingImage.alt = 'A glass jar full of coins with a small plant growing out from it';
-});
+}
 
-creditAdTab.addEventListener('click', () => {
+savingsAdTab.addEventListener('click', selectSavingsTab);
+
+function selectCreditTab() {
     clearInterval(rotateProducts);
-    resetTabColor();
+    resetTabSelect();
     creditAdTab.style.backgroundColor = 'var(--lightGrey)';
+    creditAdTab.ariaSelected = 'true';
+    creditAdTab.focus();
     productTitle.textContent = 'Silver Miles Credit Card';
     productSubtitle.textContent = 'Go further';
     rotatingItem.style.display = 'list-item';
     rotatingImage.src = 'Images/creditImage.jpg';
     rotatingImage.alt = 'A gold credit card and a smartphone being used for online shopping';
-});
+}
 
-mortgageAdTab.addEventListener('click', () => {
+creditAdTab.addEventListener('click', selectCreditTab);
+
+function selectMortgageTab() {
     clearInterval(rotateProducts);
-    resetTabColor();
+    resetTabSelect();
     mortgageAdTab.style.backgroundColor = 'var(--lightGrey)';
+    mortgageAdTab.ariaSelected = 'true';
+    mortgageAdTab.focus();
     productTitle.textContent = 'Mortgage Loans';
     productSubtitle.textContent = 'Create your kingdom';
     rotatingItem.style.display = 'list-item';
     rotatingImage.src = 'Images/mortgageImage.jpg';
     rotatingImage.alt = 'A house and front yard with fallen leaves scattered across';
-});
+}
 
-investmentAdTab.addEventListener('click', () => {
+mortgageAdTab.addEventListener('click', selectMortgageTab);
+
+function selectInvestmentTab() {
     clearInterval(rotateProducts);
-    resetTabColor();
+    resetTabSelect();
     investmentAdTab.style.backgroundColor = 'var(--lightGrey)';
+    investmentAdTab.ariaSelected = 'true';
+    investmentAdTab.focus();
     productTitle.textContent = 'Managed Investment Accounts';
     productSubtitle.textContent = 'Build your possibilities';
     rotatingItem.style.display = 'none';
     rotatingImage.src = 'Images/investmentImage.jpg';
     rotatingImage.alt = 'A tablet displaying a line graph';
+}
+
+investmentAdTab.addEventListener('click', selectInvestmentTab);
+
+checkingAdTab.addEventListener('keydown', (event) => {
+    if(event.code === 'ArrowLeft') {
+        selectInvestmentTab();
+    } else if(event.code === 'ArrowRight') {
+        selectSavingsTab();
+    }
+});
+
+savingsAdTab.addEventListener('keydown', (event) => {
+    if(event.code === 'ArrowLeft') {
+        selectCheckingTab();
+    } else if(event.code === 'ArrowRight') {
+        selectCreditTab();
+    }
+});
+
+creditAdTab.addEventListener('keydown', (event) => {
+    if(event.code === 'ArrowLeft') {
+        selectSavingsTab();
+    } else if(event.code === 'ArrowRight') {
+        selectMortgageTab();
+    }
+});
+
+mortgageAdTab.addEventListener('keydown', (event) => {
+    if(event.code === 'ArrowLeft') {
+        selectCreditTab();
+    } else if(event.code === 'ArrowRight') {
+        selectInvestmentTab();
+    }
+});
+
+investmentAdTab.addEventListener('keydown', (event) => {
+    if(event.code === 'ArrowLeft') {
+        selectMortgageTab();
+    } else if(event.code === 'ArrowRight') {
+        selectCheckingTab();
+    }
 });
 
 const rotateProducts = setInterval(() => {
-    resetTabColor();
+    resetTabSelect();
     if(rotationIndex === 1) {
         rotationIndex = 2;
         savingsAdTab.style.backgroundColor = 'var(--lightGrey)';
+        savingsAdTab.ariaSelected = 'true';
         productTitle.textContent = 'Rewards Savings Account';
         productSubtitle.textContent = 'Plan for what matters';
         rotatingItem.style.display = 'none';
@@ -92,6 +158,7 @@ const rotateProducts = setInterval(() => {
         rotationIndex = 3;
         creditAdTab.style.backgroundColor = 'var(--lightGrey)';
         productTitle.textContent = 'Silver Miles Credit Card';
+        creditAdTab.ariaSelected = 'true';
         productSubtitle.textContent = 'Go further';
         rotatingItem.style.display = 'list-item';
         rotatingImage.src = 'Images/creditImage.jpg';
@@ -99,6 +166,7 @@ const rotateProducts = setInterval(() => {
     } else if(rotationIndex === 3) {
         rotationIndex = 4;
         mortgageAdTab.style.backgroundColor = 'var(--lightGrey)';
+        mortgageAdTab.ariaSelected = 'true';
         productTitle.textContent = 'Mortgage Loans';
         productSubtitle.textContent = 'Create your kingdom';
         rotatingItem.style.display = 'list-item';
@@ -107,6 +175,7 @@ const rotateProducts = setInterval(() => {
     } else if(rotationIndex === 4) {
         rotationIndex = 5;
         investmentAdTab.style.backgroundColor = 'var(--lightGrey)';
+        investmentAdTab.ariaSelected = 'true';
         productTitle.textContent = 'Managed Investment Accounts';
         productSubtitle.textContent = 'Build your possibilities';
         rotatingItem.style.display = 'none';
@@ -115,6 +184,7 @@ const rotateProducts = setInterval(() => {
     } else if(rotationIndex === 5) {
         rotationIndex = 1;
         checkingAdTab.style.backgroundColor = 'var(--lightGrey)';
+        checkingAdTab.ariaSelected = 'true';
         productTitle.textContent = 'Premium Cashback Checking Account';
         productSubtitle.textContent = 'Buy what calls to you';
         rotatingItem.style.display = 'list-item';
