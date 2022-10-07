@@ -132,6 +132,10 @@ figcaption {
     padding: .5em 0;
 }
 
+.calculatorFormInput {
+    display: inline;
+}
+
 @media (max-width: 950px) {
     #interestRateInfo {
         flex-wrap: wrap;
@@ -143,6 +147,13 @@ figcaption {
     #mortgageDataTable {
         padding: 0;
         margin: 0;
+    }
+    #mortgageRateBtn {
+        display: block;
+        margin-left: 0;
+    }
+    .calculatorFormInput {
+        display: block;
     }
 }
 
@@ -167,7 +178,15 @@ figcaption {
     #calculatorForm {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+    }
+    input, label {
+        margin: .3em 0;
+    }
+    .calculatorFormInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     #dataTableCon p {
         padding: .5em 1em;
