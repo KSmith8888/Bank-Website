@@ -16,11 +16,14 @@ savingsBal.textContent = `$${savings.toFixed(2)}`;
 creditBal.textContent = `$${credit.toFixed(2)}`;
 
 const settingsDialog = document.getElementById('settingsDialog');
-let photoNum = 1;
 const internalTransfer = document.getElementById('internalTransfer');
+let photoNum = 1;
 let newCheckingTransactions = JSON.parse(localStorage.getItem('newCheckingTransaction')) || [];
 let newSavingsTransactions = JSON.parse(localStorage.getItem('newSavingsTransaction')) || [];
 let newCreditTransactions = JSON.parse(localStorage.getItem('newCreditTransaction')) || [];
+
+const backgroundColorsArray = ['darkblue', 'darkmagenta',  'darkred',  'darkgreen', 'darkorange', 'darkorchid', 'darkcyan', 'maroon', 'rebeccapurple'];
+let backgroundColorIndex = 0;
 
 if(localStorage.getItem('loggedIn') === null) {
     alert('Please log back in to view accounts');
@@ -132,7 +135,13 @@ setInterval(()=> {
         }
     })
     .then((data) => {
-        document.getElementById('apiAds').style.backgroundImage = `url(${data.thumbnailUrl})`;
+        backgroundColorIndex++;
+        if(backgroundColorIndex < backgroundColorsArray.length - 1) {
+            document.getElementById('apiAds').style.backgroundColor = backgroundColorsArray[backgroundColorIndex];
+        } else {
+            backgroundColorIndex = 0;
+            document.getElementById('apiAds').style.backgroundColor = backgroundColorsArray[backgroundColorIndex];
+        }
         document.getElementById('adId').textContent = `Ad Id: ${data.id}`;
         document.getElementById('adText').textContent = `Title: ${data.title}`;
     })
