@@ -91,12 +91,14 @@
                 <div id="calculatorTableCon">
                     <h2>Calculate your mortgage payment</h2>
                     <form id="calculatorForm">
-                        <label for="mortgageAmountInput">Loan Amount: $
+                        <div class="calculatorFormInput">
+                            <label for="mortgageAmountInput">Loan Amount: $</label>
                             <input type="number" id="mortgageAmountInput" value="200000" maxlength="9" step="10000">
-                        </label>
-                        <label for="downPaymentInput">Down Payment Amount: $
+                        </div>
+                        <div class="calculatorFormInput">
+                            <label for="downPaymentInput">Down Payment Amount: $</label>
                             <input type="number" id="downPaymentInput" value="40000" maxlength="9" step="1000">
-                        </label>
+                        </div>
                         <button id="mortgageRateBtn">Check Rates</button>
                     </form>
                     <div id="dataTableCon">
