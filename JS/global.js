@@ -21,7 +21,8 @@ document.querySelector('.settingsBtn').addEventListener('click', () => {
     settingsDialog.showModal();
 });
 
-closeDialogBtn.addEventListener('click', () => {
+closeDialogBtn.addEventListener('click', (event) => {
+    event.preventDefault();
     settingsDialog.close();
 });
 
@@ -41,6 +42,10 @@ settingsForm.addEventListener('submit', (event) => {
         if(currentUserInput.value !== '') {
             alert('Current User ID input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
             currentUserInput.focus();
+        } else if(currentUserInput.value === '' && changePassInput.value === '' && currentPassInput.value === '') {
+            //Extra check to avoid duplicate alerts when user was only attempting to change Password and not attempting to change User ID
+            alert('Please enter your current User ID.');
+            currentUserInput.focus();
         }
     }
     if(JSON.parse(localStorage.getItem('password')) === currentPassInput.value && localStorage.getItem('password') !== null) {
@@ -54,6 +59,10 @@ settingsForm.addEventListener('submit', (event) => {
     } else {
         if(currentPassInput.value !== '') {
             alert('Current Password input does not match saved value or online account does not exist. If this is your first time using online banking, enter the User ID and Password you would like to use in the login section.');
+            currentPassInput.focus();
+        } else if (currentPassInput.value === '' && changeUserInput.value === '' && currentUserInput.value === ''){
+            //Extra check to avoid duplicate alerts when user was only attempting to change User ID and not attempting to change password
+            alert('Please enter your current password.');
             currentPassInput.focus();
         }
     }
@@ -83,13 +92,21 @@ settingsForm.addEventListener('submit', (event) => {
 
 document.querySelector('#open-chat-button').addEventListener('click', () => {
     document.querySelector('#chat-box').showModal();
-    document.querySelector('#chat-input').focus();
+    if(window.innerWidth > 600) {
+        document.querySelector('#chat-input').focus();
+    } else {
+        closeDialogBtn.focus();
+    }
 });
 
 if(document.querySelector('#startChatBtn')) {
     document.querySelector('#startChatBtn').addEventListener('click', () => {
         document.querySelector('#chat-box').showModal();
-        document.querySelector('#chat-input').focus();
+        if(window.innerWidth > 600) {
+            document.querySelector('#chat-input').focus();
+        } else {
+            closeDialogBtn.focus();
+        }
     });
 }
 
