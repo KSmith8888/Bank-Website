@@ -98,27 +98,77 @@
                 </label>
             </section>
             <section id="products">
-                <div id="productTabs" role="tablist" aria-label="Product tabs">
+                <div id="productTabs" role="tablist" title="Product tabs">
                     <button id="checkingAdTab" class="adTab" role="tab" aria-selected="true" aria-controls="productMain">Checking Accounts</button>
                     <button id="savingsAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Savings Accounts</button>
                     <button id="creditAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Credit Cards</button>
                     <button id="mortgageAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Mortgage Loans</button>
                     <button id="investmentAdTab" class="adTab" role="tab" aria-selected="false" aria-controls="productMain">Investment Accounts</button>
                 </div>
-                <div id="productMain" role="tabpanel" aria-label="Product info">
-                    <div id="productText">
-                        <h2 id="productTitle">Premium Cashback Checking Account</h2>
-                        <p id="productSubtitle">Buy what calls to you</p>
+                <div id="productMain" role="tabpanel" title="Product info">
+                    <div class="productText" id="checkingText">
+                        <h2 class="productTitle">Premium Cashback Checking Account</h2>
+                        <p class="productSubtitle">Buy what calls to you</p>
                         <p>Open today and start getting more. This account offers:</p>
                         <ul>
                             <li>Sit amet consectetur adipisicing elit. Dignissimos, tenetur!</li>
                             <li>Lorem ipsum dolor sit amet consectetur</li>
-                            <li id="rotatingItem">Voluptatem corrupti quibusdam cum deleniti perferendis</li>
+                            <li class="rotatingItem">Voluptatem corrupti quibusdam cum deleniti perferendis</li>
                             <li>Dolor sit amet consectetur adipisicing elit.</li>
                         </ul>
-                        <button id="productBtn">Open Now</button>
+                        <button class="productBtn">Open Now</button>
                     </div>
-                    <img src="Images/checkingImage.jpg" alt="A variety box of donuts" id="rotatingImage">
+                    <img src="Images/checkingImage.jpg" alt="A variety box of donuts" class="rotatingImage" id="checkingImage">
+                    <div class="productText" hidden id="savingsText">
+                        <h2 class="productTitle">Rewards Savings Account</h2>
+                        <p class="productSubtitle">Plan for what matters</p>
+                        <p>Open today and start getting more. This account offers:</p>
+                        <ul>
+                            <li>Sit amet consectetur adipisicing elit. Dignissimos, tenetur!</li>
+                            <li>Lorem ipsum dolor sit amet consectetur</li>
+                            <li>Dolor sit amet consectetur adipisicing elit.</li>
+                        </ul>
+                        <button class="productBtn">Open Now</button>
+                    </div>
+                    <img src="Images/savingsImage.jpg" alt="A glass jar full of coins with a small plant growing out from it" class="rotatingImage" hidden id="savingsImage">
+                    <div class="productText" hidden id="creditText">
+                        <h2 class="productTitle">Silver Miles Credit Card</h2>
+                        <p class="productSubtitle">Go further</p>
+                        <p>Open today and start getting more. This account offers:</p>
+                        <ul>
+                            <li>Sit amet consectetur adipisicing elit. Dignissimos, tenetur!</li>
+                            <li>Lorem ipsum dolor sit amet consectetur</li>
+                            <li class="rotatingItem">Voluptatem corrupti quibusdam cum deleniti perferendis</li>
+                            <li>Dolor sit amet consectetur adipisicing elit.</li>
+                        </ul>
+                        <button class="productBtn">Open Now</button>
+                    </div>
+                    <img src="Images/creditImage.jpg" alt="A gold credit card and a smartphone being used for online shopping" class="rotatingImage" hidden id="creditImage">
+                    <div class="productText" hidden id="mortgageText">
+                        <h2 class="productTitle">Mortgage Loans</h2>
+                        <p class="productSubtitle">Create your kingdom</p>
+                        <p>Open today and start getting more. This product offers:</p>
+                        <ul>
+                            <li>Sit amet consectetur adipisicing elit. Dignissimos, tenetur!</li>
+                            <li>Lorem ipsum dolor sit amet consectetur</li>
+                            <li class="rotatingItem">Voluptatem corrupti quibusdam cum deleniti perferendis</li>
+                            <li>Dolor sit amet consectetur adipisicing elit.</li>
+                        </ul>
+                        <button class="productBtn">Open Now</button>
+                    </div>
+                    <img src="Images/mortgageImage.jpg" alt="A house and front yard with fallen leaves scattered across" class="rotatingImage" hidden id="mortgageImage">
+                    <div class="productText" hidden id="investmentText">
+                        <h2 class="productTitle">Managed Investment Accounts</h2>
+                        <p class="productSubtitle">Build your possibilities</p>
+                        <p>Open today and start getting more. This account offers:</p>
+                        <ul>
+                            <li>Sit amet consectetur adipisicing elit. Dignissimos, tenetur!</li>
+                            <li>Lorem ipsum dolor sit amet consectetur</li>
+                            <li>Dolor sit amet consectetur adipisicing elit.</li>
+                        </ul>
+                        <button class="productBtn">Open Now</button>
+                    </div>
+                    <img src="Images/investmentImage.jpg" alt="A tablet displaying a line graph" class="rotatingImage" hidden id="investmentImage">
                 </div>
             </section>
         </main>
