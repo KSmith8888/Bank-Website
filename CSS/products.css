@@ -89,14 +89,14 @@ figcaption {
     border-bottom: 1px solid black;
 }
 
-#rotatingImage {
+.rotatingImage {
     width: 65%;
     height: 100%;
     object-fit: cover;
     object-position: right;
 }
 
-#productText {
+.productText {
     width: 35%;
     height: 100%;
     padding: 2em 2em 0 2em;
@@ -105,20 +105,20 @@ figcaption {
     text-align: center;
 }
 
-#productText li, #productText p {
+.productText li, .productText p {
     text-align: left;
 }
 
-#productTitle {
+.productTitle {
     margin: 0;
     color: var(--darkBlue);
 }
 
-#productSubtitle {
+.productSubtitle {
     font-size: 1.3rem;
 }
 
-#productBtn {
+.productBtn {
     cursor: pointer;
     border: 1px solid var(--darkBlue);
     background-color: var(--mediumBlue);
@@ -128,7 +128,7 @@ figcaption {
     border-radius: 10px;
 }
 
-#productBtn:hover, #productBtn:focus {
+.productBtn:hover, .productBtn:focus {
     background-color: var(--darkBlue);
 }
 
@@ -142,10 +142,10 @@ figcaption {
     #productMain {
         flex-direction: column-reverse;
     }
-    #rotatingImage {
+    .rotatingImage {
         width: 100%;
     }
-    #productText {
+    .productText {
         width: 100%;
         padding-bottom: 1em;
         border-right: none;
