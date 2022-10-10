@@ -250,6 +250,44 @@
             }
         }
     ],
+"Products": {
+    "Data": [
+        {
+            "Title": "Financial Data Analytics Support Package",
+            "Description": "Receive personalized insights from our experts on where your businesses finances could be improved.",
+            "Image": "Images/Commercial/dataImage.jpg",
+            "Alt": "A grey laptop with various charts and graphs displayed"
+        },
+        {
+            "Title": "Sector Market Report",
+            "Description": "Market outlook and investment advice for your business sector and those related to it.",
+            "Image": "Images/Commercial/reportImage.jpg",
+            "Alt": "A stack of papers with various bar charts, line charts and graphs on a table with a magnifying glass and a pair of glasses on top"
+        }
+    ],
+    "Logistics": [
+        {
+            "Title": "Supply Chain Forecast",
+            "Description": "See which shipping channels and transportation methods will be least costly in the coming year.",
+            "Image": "Images/Commercial/shippingImage.jpg",
+            "Alt": "An aerial view of a large vessel full of shipping containers of various colors"
+        },
+        {
+            "Title": "Emerging Market Supply Overview",
+            "Description": "Find out how sourcing from emerging markets can impact your bottom line and which markets have the strongest prospects.",
+            "Image": "Images/Commercial/marketImage.jpg",
+            "Alt": "A globe of the Earth centered on Southeast Asia"
+        }
+    ],
+    "Policy": [
+        {
+            "Title": "Monetary Policy Outlook Report",
+            "Description": "Receive a detailed analysis on how government action could impact the market over the next year and how to prepare your business.",
+            "Image": "Images/Commercial/policyImage.jpg",
+            "Alt": "The exterior of the United States capitol building"
+        }
+    ]
+},
 "Chat": {
     "Responses": {
         "Confused": [
