@@ -1,0 +1,156 @@
+main {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em 0;
+    width: 100%;
+}
+
+#loanSection {
+    width: 32%;
+    height: max-content;
+    padding: .5em;
+    background-color: var(--lighterGrey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid var(--darkBlue);
+}
+
+#loanSection li {
+    margin: .2em 0;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: .5em 0;
+}
+
+.funding {
+    margin: .2em;
+    color: var(--mediumBlue);
+    font-size: 1.4rem;
+}
+
+#contactBtn, .resultBtn {
+    cursor: pointer;
+    width: 8em;
+    height: 2.5em;
+    border: 1px solid var(--darkBlue);
+    background-color: var(--mediumBlue);
+    color: var(--offWhite);
+    padding: .4em .8em;
+    font-weight: 700;
+    border-radius: 10px;
+    margin: .5em auto;
+}
+
+#contactBtn:hover, #contactBtn:focus,
+.resultBtn:hover, .resultBtn:focus,
+#searchBtn:hover, #searchBtn:focus {
+    background-color: var(--darkBlue);
+}
+
+#growImage {
+    width: 90%;
+    border: 1px solid var(--darkBlue);
+    margin: 1em 0;
+}
+
+#searchSection {
+    width: 60%;
+    background-color: var(--lighterGrey);
+    border: 2px solid var(--darkBlue);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#productSearchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchInput {
+    margin: 0 .8em;
+}
+
+#searchBtn {
+    cursor: pointer;
+    width: 5em;
+    height: 2em;
+    border: 1px solid var(--darkBlue);
+    background-color: var(--mediumBlue);
+    color: #FFF;
+    padding: .2em .5em;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+#productResults {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 2em;
+}
+
+.resultCon {
+    width: 85%;
+    background-color: #FFF;
+    border: 1px solid var(--darkBlue);
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.resultItem {
+    width: 75%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resultTitle {
+    font-size: 1.3rem;
+    padding: .5em 1em;
+    margin: .3em;
+}
+
+.resultDescription {
+    font-size: 1.1rem;
+    margin: .3em;
+    padding: 0 1em 1em 1em;
+}
+
+.resultImage {
+    width: 25%;
+    object-fit: cover;
+    border-right: 1px solid var(--darkBlue);
+}
+
+@media (max-width: 950px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #loanSection {
+        width: 95%;
+        margin-bottom: 2em;
+    }
+    #searchSection {
+        width: 95%;
+    }
+    .resultCon {
+        flex-direction: column;
+    }
+    .resultImage {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--darkBlue);
+    }
+    .resultItem {
+        width: 100%;
+    }
+}
