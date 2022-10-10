@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="bankFavicon.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/commercial.css">
     <script src="JS/global.js" defer></script>
+    <script src="JS/commercial.js" defer></script>
     <title>Commercial Banking</title>
 </head>
 <body>
@@ -16,8 +18,8 @@
             <h1>Commercial Banking</h1>
             <div class="loggedInInfo">
                 <p>User ID: <span class="loggedIn">N/A</span></p>
-                <button class="settingsBtn">Settings</button>
-                <button class="logOutBtn">Log Out</button>
+                <button class="settingsBtn" type="button">Settings</button>
+                <button class="logOutBtn" type="button">Log Out</button>
             </div>
             <dialog id="settingsDialog">
                 <form id="settingsForm" method="dialog">
@@ -57,7 +59,7 @@
                     <div>
                         <p id="updateStatus"></p>
                         <button id="updateInfoBtn" type="submit">Update</button>
-                        <button id="closeDialogBtn">Close</button>
+                        <button id="closeDialogBtn" type="button">Close</button>
                     </div>
                 </form>
             </dialog>
@@ -85,7 +87,34 @@
             </ul>
         </nav>
         <main>
-            <h2>Commercial Banking</h2>
+            <section id="loanSection">
+                <h2>Small business loans</h2>
+                <p class="subtitle">Maximize opportunity and grow your business faster</p>
+                <img src="Images/Commercial/growImage.jpg" alt="Many rows of crops growing on a farm, with hills and a cloudy sky in the background" id="growImage">
+                <h3>Get the resources you need to get your idea off the ground</h3>
+                <p class="funding">Get funding for:</p>
+                <ul>
+                    <li>Opening new locations</li>
+                    <li>Increasing manufacturing capacity</li>
+                    <li>Improving supply chain logistics</li>
+                </ul>
+                <p>Contact us today and get what you need to make your dreams a reality</p>
+                <button id="contactBtn" type="button">Contact Us</button>
+            </section>
+            <section id="searchSection">
+                <h2>Enterprise Products</h2>
+                <form id="productSearchForm" role="search" aria-label="Search enterprise products by keyword">
+                    <label for="searchInput">Search Products:</label>
+                    <input type="search" id="searchInput" list="productDataList">
+                    <datalist id="productDataList">
+                        <option value="Data Analytics"></option>
+                        <option value="Logistics Forecasting"></option>
+                        <option value="Policy Outlook"></option>
+                    </datalist>
+                    <button id="searchBtn" type="submit">Search</button>
+                </form>
+                <div id="productResults"></div>
+            </section>
         </main>
         <footer>
             <ul class="legalLinks">
@@ -96,11 +125,11 @@
             <p class="disclosures">Legal information and disclosures.</p>
         </footer>
         <div id="chat-container">
-            <button id="open-chat-button">Chat Now</button>
+            <button id="open-chat-button" type="button">Chat Now</button>
             <p id="chat-help">Customer Service Chat</p>
         </div>
         <dialog id="chat-box">
-            <button id="close-chat-button" aria-label="Close">X</button>
+            <button id="close-chat-button" aria-label="Close" type="button">X</button>
             <h3>Customer service virtual chat</h3>
             <p>Speak to a virtual agent below</p>
             <div id="chat-list">
@@ -108,7 +137,7 @@
             </div>
             <form id="chat-input-form">
                 <input type="text" placeholder="Enter your question here" id="chat-input" pattern="[a-zA-Z*?*,*'* ]{2,40}" minlength="2" maxlength="40">
-                <button id="chat-button">Chat</button>
+                <button id="chat-button" type="submit">Chat</button>
             </form>
         </dialog>
     </div> 
