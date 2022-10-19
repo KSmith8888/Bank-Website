@@ -98,7 +98,7 @@ main {
     }
     #loginSection {
         width: 48%;
-        height: fit-content;
+        height: max-content;
     }
     .offer-section {
         width: 48%;
