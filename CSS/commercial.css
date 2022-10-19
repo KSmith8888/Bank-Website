@@ -153,4 +153,10 @@ main {
     .resultItem {
         width: 100%;
     }
+    #productSearchForm {
+        flex-direction: column;
+    }
+    #searchInput, #searchBtn {
+        margin: 1em 0 .5em 0;
+    }
 }
