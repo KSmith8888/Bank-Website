@@ -17,7 +17,7 @@ main {
 
 .locationCon {
     width: 100%;
-    max-height: 20em;
+    height: max-content;
     padding: 1em;
     border: 1px solid var(--darkBlue);
     background-color: var(--lighterGrey);
@@ -136,7 +136,7 @@ h2 {
     }
     .locationCon {
         flex-direction: column;
-        max-height: fit-content;
+        align-items: center;
     }
     .locationImage {
         width: 95%;
