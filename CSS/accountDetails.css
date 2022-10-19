@@ -206,6 +206,15 @@ main {
     margin: .2em;
 }
 
+.paperAdTextCon a, .returnLink {
+    color: var(--mediumBlue);
+}
+
+.paperAdTextCon a:hover, .returnLink:hover,
+.paperAdTextCon a:focus, .returnLink:focus {
+    color: var(--darkBlue);
+}
+
 @media (max-width: 950px) {
     main {
         flex-direction: column;
@@ -219,7 +228,7 @@ main {
     .paperAdSection {
         width: 75%;
         margin: 1em 0 2em 0;
-        min-height: fit-content;
+        min-height: max-content;
     }
     .paperAdTextCon {
         width: 95%;
