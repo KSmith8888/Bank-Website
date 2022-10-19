@@ -10,7 +10,7 @@ main {
 
 #articles-section {
     width: 70%;
-    padding: 2em;
+    padding: 2em 2em 1em 2em;
 }
 
 #highlight-section {
@@ -21,7 +21,7 @@ main {
     align-items: center;
     padding: 2em;
     margin-top: 2em;
-    height: fit-content;
+    height: max-content;
 }
 
 #highlight-container {
@@ -39,6 +39,10 @@ main {
     padding: 1em 1em 2em 1em;
     margin: 1em 0;
     border-bottom: 2px solid var(--darkBlue);
+}
+
+.article:last-child {
+    border-bottom: none;
 }
 
 .article-text {
