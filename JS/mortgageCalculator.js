@@ -1,6 +1,6 @@
 'use strict';
 
-let currentRate = 2;
+let currentRate = 4;
 const mortgageAmountInput = document.querySelector('#mortgageAmountInput');
 const downPaymentInput = document.querySelector('#downPaymentInput');
 
@@ -14,9 +14,9 @@ function calculatePayment(rate, term) {
 }
 
 function populateMortgageData() {
-    let thirtyYearRate = currentRate * 3;
-    let fifteenYearRate = currentRate * 2.5;
-    let fiveYearRate = currentRate * 2;
+    let thirtyYearRate = currentRate * 1.5;
+    let fifteenYearRate = currentRate * 1.125;
+    let fiveYearRate = currentRate * 1.325;
     document.querySelector('#thirtyYearRate').textContent = `${thirtyYearRate.toFixed(2)}%`;
     document.querySelector('#thirtyYearApr').textContent = `${(thirtyYearRate * 1.05).toFixed(2)}%`;
     document.querySelector('#thirtyYearPayment').textContent = `$${calculatePayment(thirtyYearRate, 360).toFixed(2)}`;
@@ -29,8 +29,18 @@ function populateMortgageData() {
 }
 
 async function getInterestRateData() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    const fetchYear = currentMonth === 0 ? (currentYear - 1): currentYear;
+    const fetchMonth = currentMonth === 0 ? 11 : (currentMonth - 1);
+    //Alter date to get last day of previous month for API call
+    currentDate.setDate(1);
+    currentDate.setHours(-1);
+    const fetchDay = currentDate.getDate();
+    
     try {
-        const response = await fetch('https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/avg_interest_rates?filter=record_date:eq:2022-08-31');
+        const response = await fetch(`https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/avg_interest_rates?filter=record_date:eq:${fetchYear}-${fetchMonth + 1}-${fetchDay}`);
         if(response.ok) {
             const interestRateData = await response.json();
             interestRateData.data.forEach((rate) => {
