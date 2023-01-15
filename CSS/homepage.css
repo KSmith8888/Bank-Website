@@ -89,7 +89,14 @@ main {
 .inputCon {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 85%;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (max-width: 950px) {
@@ -111,6 +118,9 @@ main {
         width: 100%;
         border-right: none;
         border-bottom: 1px solid var(--darkBlue);
+    }
+    .inputCon {
+        flex-direction: column;
     }
 }
 
