@@ -7,6 +7,7 @@ let policySearch = false;
 
 productSearchForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    productResults.innerHTML = '';
     fetch('Accounts/database.json')
         .then((networkResponse) => {
             if(networkResponse.ok) {
