@@ -66,13 +66,16 @@ async function getInterestRateData() {
     currentDate.setMonth(fetchMonth + 1);
     currentDate.setDate(1);
     currentDate.setHours(-1);
-
+    if (fetchMonth < 10) {
+        fetchMonth = `0${(fetchMonth + 1).toString()}`;
+    } else {
+        fetchMonth = (fetchMonth + 1).toString();
+    }
     const fetchDay = currentDate.getDate();
+    const fetchDate = `${fetchYear}-${fetchMonth}-${fetchDay}`;
     try {
         const response = await fetch(
-            `https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/avg_interest_rates?filter=record_date:gte:${fetchYear}-${
-                fetchMonth + 1
-            }-${fetchDay}`
+            `https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/avg_interest_rates?filter=record_date:eq:${fetchDate}`
         );
         if (response.ok) {
             const interestRateData = await response.json();
