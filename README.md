@@ -2,8 +2,6 @@
 
 A mock bank website made with HTML/CSS and vanilla JavaScript.
 
-https://ksmith8888.github.io/Bank-Website/
-
 ## Home Page/Chat Box
 
 - The home page has a login form that allows the user to enter a username and password following a specified pattern. After a user has logged in once, the value of their username and password are placed in localStorage and future sessions require that the entered username and password match the saved values. The username and password can be changed by clicking the settings button, which opens a dialog box with a "change account settings" form. 
